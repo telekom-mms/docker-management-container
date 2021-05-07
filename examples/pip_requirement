@@ -1,0 +1,3 @@
+packaging
+requests[security]
+xmltodict

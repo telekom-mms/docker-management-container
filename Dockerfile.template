@@ -1,0 +1,153 @@
+###################################### Image ######################################
+ARG CENTOS_VERSION=8
+ARG PACKAGES
+
+## build Image
+FROM centos:${CENTOS_VERSION}
+
+# packages to install
+RUN yum install -y \
+  yum-utils \
+  wget \
+  jq \
+  unzip \
+  vim \
+  git \
+  python3 \
+  python3-pip \
+  bash-completion \
+  glibc
+
+## custom packages to install
+RUN test -n "${PACKAGES}" && \
+    yum install -y "${PACKAGES}" || :
+
+# update to latest available version
+## yum
+RUN yum update -y
+
+## pip
+RUN pip3 list -o | cut -d' ' -f1 | xargs -n1 pip3 install --upgrade
+
+###################################### Tools ######################################
+# define versions
+ARG ANSIBLE_VERSION
+ARG DOCKER_VERSION
+ARG NOMAD_VERSION
+ARG KUBECTL_VERSION
+ARG HELM_VERSION
+ARG TERRAFORM_VERSION
+ARG AZ_CLI_VERSION
+ARG AWS_CLI_VERSION
+ARG GCLOUD_VERSION
+
+WORKDIR /root/download
+
+## ansible
+RUN if [ -n "${ANSIBLE_VERSION}" ] && [ "${ANSIBLE_VERSION}" != "latest" ]; then ANSIBLE="ansible==${ANSIBLE_VERSION}";fi && \
+    if [ "${ANSIBLE_VERSION}" == "latest" ]; then ANSIBLE="ansible";fi && \
+    test -n "${ANSIBLE_VERSION}" && \
+    pip install ${ANSIBLE} || :
+
+## docker
+RUN if [ -n "${DOCKER_VERSION}" ] && [ "${DOCKER_VERSION}" != "latest" ]; then DOCKER="docker-ce-${DOCKER_VERSION} docker-ce-cli-${DOCKER_VERSION}";fi && \
+    if [ "${DOCKER_VERSION}" == "latest" ]; then DOCKER="docker-ce docker-ce-cli";fi && \
+    test -n "${DOCKER_VERSION}" && \
+    yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo && \
+    yum install -y ${DOCKER} && \
+    systemctl docker start || :
+
+## nomad
+RUN if [ -n "${NOMAD_VERSION}" ] && [ "${NOMAD_VERSION}" != "latest" ]; then NOMAD="NOMAD==${NOMAD_VERSION}";fi && \
+    if [ "${NOMAD_VERSION}" == "latest" ]; then NOMAD="NOMAD";fi && \
+    test -n "${NOMAD_VERSION}" && \
+    pip install ${NOMAD} || :
+
+## kubectl
+RUN if [ -n "${KUBECTL_VERSION}" ] && [ "${KUBECTL_VERSION}" != "latest" ]; then KUBECTL="kubectl-${KUBECTL_VERSION}";fi && \
+    if [ "${KUBECTL_VERSION}" == "latest" ]; then KUBECTL="kubectl";fi && \
+    test -n "${KUBECTL_VERSION}" && \
+    echo $'[kubernetes] \n\
+name=Kubernetes \n\
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64 \n\
+enabled=1 \n\
+gpgcheck=1 \n\
+repo_gpgcheck=1 \n\
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg \n\
+       https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' > /etc/yum.repos.d/kubernetes.repo && \
+    yum install -y ${KUBECTL} && \
+    kubectl completion bash > /etc/bash_completion.d/kubectl || :
+
+## helm
+RUN if [ -n "${HELM_VERSION}" ] && [ "${HELM_VERSION}" != "latest" ]; then HELM="${HELM_VERSION}";fi && \
+    if [ "${HELM_VERSION}" == "latest" ]; then HELM="$(curl -sSL https://github.com/kubernetes/helm/releases/latest | sed -n '/Latest release<\/a>/,$p' | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' |head -1)";fi && \
+    test -n "${HELM_VERSION}" && \
+    mkdir helm && curl -SsL --retry 5 "https://get.helm.sh/helm-v${HELM}-linux-amd64.tar.gz" | tar xz -C ./helm && \
+    cp helm/linux-amd64/helm /usr/local/bin/helm && chmod -R +x /usr/local/bin/helm && \
+    helm repo add stable https://charts.helm.sh/stable && helm repo update && \
+    helm completion bash > /etc/bash_completion.d/helm || :
+
+## terraform
+RUN if [ -n "${TERRAFORM_VERSION}" ] && [ "${TERRAFORM_VERSION}" != "latest" ]; then TERRAFORM="${TERRAFORM_VERSION}";fi && \
+    if [ "${TERRAFORM_VERSION}" == "latest" ]; then TERRAFORM="$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M '.current_version')";fi && \
+    test -n "${TERRAFORM_VERSION}" && \
+    wget "https://releases.hashicorp.com/terraform/${TERRAFORM}/terraform_${TERRAFORM}_linux_amd64.zip" && \
+    unzip terraform_${TERRAFORM}_linux_amd64.zip -d terraform && \
+    cp terraform/terraform /usr/local/bin/terraform && chmod -R +x /usr/local/bin/terraform && \
+    terraform -install-autocomplete || :
+
+## az_cli
+RUN if [ -n "${AZ_CLI_VERSION}" ] && [ "${AZ_CLI_VERSION}" != "latest" ]; then AZ_CLI="azure-cli==${AZ_CLI_VERSION}";fi && \
+    if [ "${AZ_CLI_VERSION}" == "latest" ]; then AZ_CLI="azure-cli";fi && \
+    test -n "${AZ_CLI_VERSION}" && \
+    pip install ${AZ_CLI} || :
+
+## aws_cli
+RUN if [ -n "${AWS_CLI_VERSION}" ] && [ "${AWS_CLI_VERSION}" != "latest" ]; then AWS_CLI="awscli==${AWS_CLI_VERSION}";fi && \
+    if [ "${AWS_CLI_VERSION}" == "latest" ]; then AWS_CLI="awscli";fi && \
+    test -n "${AWS_CLI_VERSION}" && \
+    pip install ${AWS_CLI} || :
+
+## gcloud
+RUN if [ -n "${GCLOUD_VERSION}" ] && [ "${GCLOUD_VERSION}" != "latest" ]; then GCLOUD="google-cloud-sdk-${GCLOUD_VERSION}";fi && \
+    if [ "${GCLOUD_VERSION}" == "latest" ]; then GCLOUD="google-cloud-sdk";fi && \
+    test -n "${GCLOUD_VERSION}" && \
+    rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
+    echo $'[google-cloud-sdk] \n\
+name=Google Cloud SDK \n\
+baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el7-x86_64 \n\
+enabled=1 \n\
+gpgcheck=1 \n\
+repo_gpgcheck=1 \n\
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg \n\
+       https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' > /etc/yum.repos.d/google-cloud-sdk.repo && \
+    yum install -y ${GCLOUD} | :
+
+###################################### Tool Config ################################
+ARG WORKDIR=/root
+ARG PIP_REQUIREMENT
+ARG ANSIBLE_REQUIREMENTS
+ARG AZ_CLI_EXTENSIONS
+
+WORKDIR ${WORKDIR}
+
+## pip
+COPY ${PIP_REQUIREMENT} /tmp/pip_requirement
+RUN test -n "${PIP_REQUIREMENT}" && \
+    pip install -r /tmp/pip_requirement || :
+
+## ansible-galaxy
+COPY ${ANSIBLE_REQUIREMENTS} /tmp/ansible_requirements
+RUN test -n "${ANSIBLE_REQUIREMENTS}" && \
+    ansible-galaxy collection install -r /tmp/ansible_requirements -p ${WORKDIR}/.ansible/collections/ || :
+
+## azure cli extension
+RUN test -n "${AZ_CLI_EXTENSIONS}" && \
+    for AZ_CLI_EXTENSION in ${AZ_CLI_EXTENSIONS}; do az extension add -y --name ${AZ_CLI_EXTENSION}; done || :
+
+###################################### Config #####################################
+ARG WORKDIR=/root
+
+USER root
+WORKDIR ${WORKDIR}
+CMD ["/bin/bash"]
