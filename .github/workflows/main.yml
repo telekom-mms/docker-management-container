@@ -1,0 +1,22 @@
+---
+name: test
+
+on: [push, pull_request]
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+
+      - name: Install hadolint wrapper
+        run: pip install hadolintw
+
+      - name: Check out code
+        uses: actions/checkout@v1
+
+      - name: Run linting
+        run: hadolintw -d Dockerfile.template --ignore DL3013 --ignore DL3031 --ignore DL3033 --ignore DL4006 --ignore SC2015

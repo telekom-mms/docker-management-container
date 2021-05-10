@@ -6,7 +6,8 @@ ARG PACKAGES
 FROM centos:${CENTOS_VERSION}
 
 # packages to install
-RUN yum install -y \
+RUN yum update -y && \
+  yum install -y \
   yum-utils \
   wget \
   jq \
@@ -16,15 +17,13 @@ RUN yum install -y \
   python3 \
   python3-pip \
   bash-completion \
-  glibc
+  glibc && \
+  yum clean all
 
 ## custom packages to install
 RUN test -n "${PACKAGES}" && \
-    yum install -y "${PACKAGES}" || :
-
-# update to latest available version
-## yum
-RUN yum update -y
+    yum install -y "${PACKAGES}" && \
+    yum clean all || :
 
 ## pip
 RUN pip3 list -o | cut -d' ' -f1 | xargs -n1 pip3 install --upgrade
@@ -47,7 +46,7 @@ WORKDIR /root/download
 RUN if [ -n "${ANSIBLE_VERSION}" ] && [ "${ANSIBLE_VERSION}" != "latest" ]; then ANSIBLE="ansible==${ANSIBLE_VERSION}";fi && \
     if [ "${ANSIBLE_VERSION}" == "latest" ]; then ANSIBLE="ansible";fi && \
     test -n "${ANSIBLE_VERSION}" && \
-    pip install ${ANSIBLE} || :
+    pip install --no-cache-dir ${ANSIBLE} || :
 
 ## docker
 RUN if [ -n "${DOCKER_VERSION}" ] && [ "${DOCKER_VERSION}" != "latest" ]; then DOCKER="docker-ce-${DOCKER_VERSION} docker-ce-cli-${DOCKER_VERSION}";fi && \
@@ -55,13 +54,14 @@ RUN if [ -n "${DOCKER_VERSION}" ] && [ "${DOCKER_VERSION}" != "latest" ]; then D
     test -n "${DOCKER_VERSION}" && \
     yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo && \
     yum install -y ${DOCKER} && \
+    yum clean all && \
     systemctl docker start || :
 
 ## nomad
 RUN if [ -n "${NOMAD_VERSION}" ] && [ "${NOMAD_VERSION}" != "latest" ]; then NOMAD="NOMAD==${NOMAD_VERSION}";fi && \
     if [ "${NOMAD_VERSION}" == "latest" ]; then NOMAD="NOMAD";fi && \
     test -n "${NOMAD_VERSION}" && \
-    pip install ${NOMAD} || :
+    pip install --no-cache-dir ${NOMAD} || :
 
 ## kubectl
 RUN if [ -n "${KUBECTL_VERSION}" ] && [ "${KUBECTL_VERSION}" != "latest" ]; then KUBECTL="kubectl-${KUBECTL_VERSION}";fi && \
@@ -76,6 +76,7 @@ repo_gpgcheck=1 \n\
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg \n\
        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' > /etc/yum.repos.d/kubernetes.repo && \
     yum install -y ${KUBECTL} && \
+    yum clean all && \
     kubectl completion bash > /etc/bash_completion.d/kubectl || :
 
 ## helm
@@ -91,7 +92,7 @@ RUN if [ -n "${HELM_VERSION}" ] && [ "${HELM_VERSION}" != "latest" ]; then HELM=
 RUN if [ -n "${TERRAFORM_VERSION}" ] && [ "${TERRAFORM_VERSION}" != "latest" ]; then TERRAFORM="${TERRAFORM_VERSION}";fi && \
     if [ "${TERRAFORM_VERSION}" == "latest" ]; then TERRAFORM="$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M '.current_version')";fi && \
     test -n "${TERRAFORM_VERSION}" && \
-    wget "https://releases.hashicorp.com/terraform/${TERRAFORM}/terraform_${TERRAFORM}_linux_amd64.zip" && \
+    curl "https://releases.hashicorp.com/terraform/${TERRAFORM}/terraform_${TERRAFORM}_linux_amd64.zip" && \
     unzip terraform_${TERRAFORM}_linux_amd64.zip -d terraform && \
     cp terraform/terraform /usr/local/bin/terraform && chmod -R +x /usr/local/bin/terraform && \
     terraform -install-autocomplete || :
@@ -100,13 +101,13 @@ RUN if [ -n "${TERRAFORM_VERSION}" ] && [ "${TERRAFORM_VERSION}" != "latest" ]; 
 RUN if [ -n "${AZ_CLI_VERSION}" ] && [ "${AZ_CLI_VERSION}" != "latest" ]; then AZ_CLI="azure-cli==${AZ_CLI_VERSION}";fi && \
     if [ "${AZ_CLI_VERSION}" == "latest" ]; then AZ_CLI="azure-cli";fi && \
     test -n "${AZ_CLI_VERSION}" && \
-    pip install ${AZ_CLI} || :
+    pip install --no-cache-dir ${AZ_CLI} || :
 
 ## aws_cli
 RUN if [ -n "${AWS_CLI_VERSION}" ] && [ "${AWS_CLI_VERSION}" != "latest" ]; then AWS_CLI="awscli==${AWS_CLI_VERSION}";fi && \
     if [ "${AWS_CLI_VERSION}" == "latest" ]; then AWS_CLI="awscli";fi && \
     test -n "${AWS_CLI_VERSION}" && \
-    pip install ${AWS_CLI} || :
+    pip install --no-cache-dir ${AWS_CLI} || :
 
 ## gcloud
 RUN if [ -n "${GCLOUD_VERSION}" ] && [ "${GCLOUD_VERSION}" != "latest" ]; then GCLOUD="google-cloud-sdk-${GCLOUD_VERSION}";fi && \
@@ -121,7 +122,8 @@ gpgcheck=1 \n\
 repo_gpgcheck=1 \n\
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg \n\
        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' > /etc/yum.repos.d/google-cloud-sdk.repo && \
-    yum install -y ${GCLOUD} | :
+    yum install -y ${GCLOUD} && \
+    yum clean all || :
 
 ###################################### Tool Config ################################
 ARG WORKDIR=/root
@@ -134,7 +136,7 @@ WORKDIR ${WORKDIR}
 ## pip
 COPY ${PIP_REQUIREMENT} /tmp/pip_requirement
 RUN test -n "${PIP_REQUIREMENT}" && \
-    pip install -r /tmp/pip_requirement || :
+    pip install --no-cache-dir -r /tmp/pip_requirement || :
 
 ## ansible-galaxy
 COPY ${ANSIBLE_REQUIREMENTS} /tmp/ansible_requirements
@@ -148,6 +150,5 @@ RUN test -n "${AZ_CLI_EXTENSIONS}" && \
 ###################################### Config #####################################
 ARG WORKDIR=/root
 
-USER root
 WORKDIR ${WORKDIR}
 CMD ["/bin/bash"]
