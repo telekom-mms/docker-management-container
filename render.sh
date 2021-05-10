@@ -3,7 +3,8 @@
 
 # init stuff
 SCRIPT_DIR=$(dirname $(readlink -f $0))
-ENV_FILE="${SCRIPT_DIR}/.docker_build"
+ENV_DIR=${1-SCRIPT_DIR}
+ENV_FILE="${ENV_DIR}/.docker_build"
 
 # function
 render(){
@@ -21,4 +22,4 @@ do
   SED_ARG="${SED_ARG} $(render)"
 done < $ENV_FILE
 
-sed -r "${SED_ARG}" Dockerfile.template > Dockerfile
+sed -r "${SED_ARG}" ${SCRIPT_DIR}/Dockerfile.template > ${ENV_DIR}/Dockerfile
