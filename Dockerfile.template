@@ -89,12 +89,12 @@ RUN if [ -n "${HELM_VERSION}" ] && [ "${HELM_VERSION}" != "latest" ]; then HELM=
     helm completion bash > /etc/bash_completion.d/helm || :
 
 ## terraform
-RUN if [ -n "${TERRAFORM_VERSION}" ] && [ "${TERRAFORM_VERSION}" != "latest" ]; then TERRAFORM="${TERRAFORM_VERSION}";fi && \
-    if [ "${TERRAFORM_VERSION}" == "latest" ]; then TERRAFORM="$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M '.current_version')";fi && \
+RUN if [ -n "${TERRAFORM_VERSION}" ] && [ "${TERRAFORM_VERSION}" != "latest" ]; then TERRAFORM="terraform-${TERRAFORM_VERSION}";fi && \
+    if [ "${TERRAFORM_VERSION}" == "latest" ]; then TERRAFORM="terraform";fi && \
     test -n "${TERRAFORM_VERSION}" && \
-    curl "https://releases.hashicorp.com/terraform/${TERRAFORM}/terraform_${TERRAFORM}_linux_amd64.zip" && \
-    unzip terraform_${TERRAFORM}_linux_amd64.zip -d terraform && \
-    cp terraform/terraform /usr/local/bin/terraform && chmod -R +x /usr/local/bin/terraform && \
+    yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo && \
+    yum install -y ${TERRAFORM} && \
+    yum clean all && \
     terraform -install-autocomplete || :
 
 ## az_cli
