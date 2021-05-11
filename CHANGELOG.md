@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.2](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.2) (2021-05-11)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.1...0.0.2)
+
+**Merged pull requests:**
+
+- small fixes to the readme [\#1](https://github.com/T-Systems-MMS/docker-management-container/pull/1) ([rndmh3ro](https://github.com/rndmh3ro))
+
 ## [0.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.1) (2021-05-10)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/19925db7a3eaedcbfe0430d4c8b705f18abbc088...0.0.1)
