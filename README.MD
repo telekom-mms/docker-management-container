@@ -1,10 +1,10 @@
 # Docker Management Container
 
-The Docker Management Container includes a set of plugins and services that make it easier to build, test, deploy and manage the infrastructure.
+The Docker Management Container includes a set of plugins and services that make it easier to build, test, deploy and manage infrastructure.
 
 ## Setup
 
-set Service specific Tools Versions and Configuration
+Set service-specific tools, versions and configuration:
 
 ``` bash
 vi .docker_build
@@ -48,7 +48,7 @@ Install needed Tools within Management Container
 | -------------------- | -------- | ------- | ------------------------------------------------------------------------ |
 | PIP_REQUIREMENT      | no       |         | File which includes a list of pip packages to be installed               |
 | ANSIBLE_REQUIREMENTS | no       |         | File which includes a list of ansible-galaxy collections to be installed |
-| AZ_CLI_EXTENSIONS    | no       |         | List of ansible-galaxy collections to be installed                       |
+| AZ_CLI_EXTENSIONS    | no       |         | List of azure-cli extenstions to be installed                            |
 
 ### System Configuration
 
@@ -73,13 +73,13 @@ docker build -t ${SERVICE}-mgmt:${TAG} .
 docker run -ti ${SERVICE}-mgmt:${TAG}
 ```
 
-## Run Docker Container on engineer system
+## Run Docker Container on local system
 
-Install Docker Desktop, see install Instructions [https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly].
+Install Docker Desktop, see [installation instructions](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
 
 ### Mount local Volumes into Container
 
-Configure WSL for right usage of volumes, see [https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly] Chapter: Create and modify the new WSL configuration file.
+Configure WSL for right usage of volumes, see https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly, chapter: Create and modify the new WSL configuration file.
 
 ``` bash
 /etc/wsl.conf
