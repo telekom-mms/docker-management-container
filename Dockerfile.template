@@ -101,7 +101,15 @@ RUN if [ -n "${TERRAFORM_VERSION}" ] && [ "${TERRAFORM_VERSION}" != "latest" ]; 
 RUN if [ -n "${AZ_CLI_VERSION}" ] && [ "${AZ_CLI_VERSION}" != "latest" ]; then AZ_CLI="azure-cli==${AZ_CLI_VERSION}";fi && \
     if [ "${AZ_CLI_VERSION}" == "latest" ]; then AZ_CLI="azure-cli";fi && \
     test -n "${AZ_CLI_VERSION}" && \
-    pip3 install --no-cache-dir ${AZ_CLI} || :
+    rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
+    echo $'[azure-cli] \n\
+name=Azure CLI \n\
+baseurl=https://packages.microsoft.com/yumrepos/azure-cli \n\
+enabled=1 \n\
+gpgcheck=1 \n\
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc' > /etc/yum.repos.d/azure-cli.repo && \
+    yum install -y ${AZ_CLI} && \
+    yum clean all || :
 
 ## aws_cli
 RUN if [ -n "${AWS_CLI_VERSION}" ] && [ "${AWS_CLI_VERSION}" != "latest" ]; then AWS_CLI="awscli==${AWS_CLI_VERSION}";fi && \
