@@ -46,7 +46,7 @@ WORKDIR /root/download
 RUN if [ -n "${ANSIBLE_VERSION}" ] && [ "${ANSIBLE_VERSION}" != "latest" ]; then ANSIBLE="ansible==${ANSIBLE_VERSION}";fi && \
     if [ "${ANSIBLE_VERSION}" == "latest" ]; then ANSIBLE="ansible";fi && \
     test -n "${ANSIBLE_VERSION}" && \
-    pip install --no-cache-dir ${ANSIBLE} || :
+    pip3 install --no-cache-dir ${ANSIBLE} || :
 
 ## docker
 RUN if [ -n "${DOCKER_VERSION}" ] && [ "${DOCKER_VERSION}" != "latest" ]; then DOCKER="docker-ce-${DOCKER_VERSION} docker-ce-cli-${DOCKER_VERSION}";fi && \
@@ -61,7 +61,7 @@ RUN if [ -n "${DOCKER_VERSION}" ] && [ "${DOCKER_VERSION}" != "latest" ]; then D
 RUN if [ -n "${NOMAD_VERSION}" ] && [ "${NOMAD_VERSION}" != "latest" ]; then NOMAD="NOMAD==${NOMAD_VERSION}";fi && \
     if [ "${NOMAD_VERSION}" == "latest" ]; then NOMAD="NOMAD";fi && \
     test -n "${NOMAD_VERSION}" && \
-    pip install --no-cache-dir ${NOMAD} || :
+    pip3 install --no-cache-dir ${NOMAD} || :
 
 ## kubectl
 RUN if [ -n "${KUBECTL_VERSION}" ] && [ "${KUBECTL_VERSION}" != "latest" ]; then KUBECTL="kubectl-${KUBECTL_VERSION}";fi && \
@@ -101,13 +101,13 @@ RUN if [ -n "${TERRAFORM_VERSION}" ] && [ "${TERRAFORM_VERSION}" != "latest" ]; 
 RUN if [ -n "${AZ_CLI_VERSION}" ] && [ "${AZ_CLI_VERSION}" != "latest" ]; then AZ_CLI="azure-cli==${AZ_CLI_VERSION}";fi && \
     if [ "${AZ_CLI_VERSION}" == "latest" ]; then AZ_CLI="azure-cli";fi && \
     test -n "${AZ_CLI_VERSION}" && \
-    pip install --no-cache-dir ${AZ_CLI} || :
+    pip3 install --no-cache-dir ${AZ_CLI} || :
 
 ## aws_cli
 RUN if [ -n "${AWS_CLI_VERSION}" ] && [ "${AWS_CLI_VERSION}" != "latest" ]; then AWS_CLI="awscli==${AWS_CLI_VERSION}";fi && \
     if [ "${AWS_CLI_VERSION}" == "latest" ]; then AWS_CLI="awscli";fi && \
     test -n "${AWS_CLI_VERSION}" && \
-    pip install --no-cache-dir ${AWS_CLI} || :
+    pip3 install --no-cache-dir ${AWS_CLI} || :
 
 ## gcloud
 RUN if [ -n "${GCLOUD_VERSION}" ] && [ "${GCLOUD_VERSION}" != "latest" ]; then GCLOUD="google-cloud-sdk-${GCLOUD_VERSION}";fi && \
@@ -136,7 +136,7 @@ WORKDIR ${WORKDIR}
 ## pip
 COPY ${PIP_REQUIREMENT} /tmp/pip_requirement
 RUN test -n "${PIP_REQUIREMENT}" && \
-    pip install --no-cache-dir -r /tmp/pip_requirement || :
+    pip3 install --no-cache-dir -r /tmp/pip_requirement || :
 
 ## ansible-galaxy
 COPY ${ANSIBLE_REQUIREMENTS} /tmp/ansible_requirements
