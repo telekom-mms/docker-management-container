@@ -98,7 +98,7 @@ RUN if [ -n "${TERRAFORM_VERSION}" ] && [ "${TERRAFORM_VERSION}" != "latest" ]; 
     terraform -install-autocomplete || :
 
 ## az_cli
-RUN if [ -n "${AZ_CLI_VERSION}" ] && [ "${AZ_CLI_VERSION}" != "latest" ]; then AZ_CLI="azure-cli==${AZ_CLI_VERSION}";fi && \
+RUN if [ -n "${AZ_CLI_VERSION}" ] && [ "${AZ_CLI_VERSION}" != "latest" ]; then AZ_CLI="azure-cli-${AZ_CLI_VERSION}";fi && \
     if [ "${AZ_CLI_VERSION}" == "latest" ]; then AZ_CLI="azure-cli";fi && \
     test -n "${AZ_CLI_VERSION}" && \
     rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
