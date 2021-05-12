@@ -1,12 +1,23 @@
 # Changelog
 
+## [0.0.3](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.3) (2021-05-12)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.2...0.0.3)
+
+**Fixed bugs:**
+
+- install with pip forces to many dependencies to other pip azure modules [\#3](https://github.com/T-Systems-MMS/docker-management-container/pull/3) ([michaelamattes](https://github.com/michaelamattes))
+
 ## [0.0.2](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.2) (2021-05-12)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.1...0.0.2)
 
-**Merged pull requests:**
+**Fixed bugs:**
 
 - force pip3 usage [\#2](https://github.com/T-Systems-MMS/docker-management-container/pull/2) ([michaelamattes](https://github.com/michaelamattes))
+
+**Merged pull requests:**
+
 - small fixes to the readme [\#1](https://github.com/T-Systems-MMS/docker-management-container/pull/1) ([rndmh3ro](https://github.com/rndmh3ro))
 
 ## [0.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.1) (2021-05-10)
