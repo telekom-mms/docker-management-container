@@ -1,6 +1,5 @@
 ###################################### Image ######################################
 ARG CENTOS_VERSION=8
-ARG PACKAGES
 
 ## build Image
 FROM centos:${CENTOS_VERSION}
@@ -20,13 +19,18 @@ RUN yum update -y && \
   glibc && \
   yum clean all
 
-## custom packages to install
-RUN test -n "${PACKAGES}" && \
-    yum install -y "${PACKAGES}" && \
-    yum clean all || :
-
 ## pip
 RUN pip3 list -o | cut -d' ' -f1 | xargs -n1 pip3 install --upgrade
+
+################################## Image Config ###################################
+ARG PACKAGES
+
+WORKDIR /root
+
+## custom packages to install
+RUN test -n "${PACKAGES}" && \
+    for PACKAGE in ${PACKAGES}; do yum install -y ${PACKAGE}; done && \
+    yum clean all || :
 
 ###################################### Tools ######################################
 # define versions
