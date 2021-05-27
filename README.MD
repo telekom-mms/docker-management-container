@@ -18,7 +18,7 @@ vi .docker_build
 | ---------------- | -------- | ------- |
 | CENTOS_VERSION   | no       | 8       |
 
-### Packages
+### Image Config
 
 Further packages to install can be specified
 
