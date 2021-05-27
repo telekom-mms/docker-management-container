@@ -30,7 +30,7 @@ WORKDIR /root
 
 ## custom packages to install
 RUN test -n "${PACKAGES}" && \
-    yum install -y ${PACKAGE} && \
+    yum install -y ${PACKAGES} && \
     yum clean all || :
 
 ###################################### Tools ######################################
