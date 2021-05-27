@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.4](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.4) (2021-05-27)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.3...0.0.4)
+
+**Merged pull requests:**
+
+- add image config step [\#5](https://github.com/T-Systems-MMS/docker-management-container/pull/5) ([michaelamattes](https://github.com/michaelamattes))
+
 ## [0.0.3](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.3) (2021-05-12)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.2...0.0.3)
