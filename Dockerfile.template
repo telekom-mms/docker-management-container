@@ -19,7 +19,8 @@ RUN yum update -y && \
   glibc && \
   yum clean all
 
-## pip
+# pip
+## upgrade only base packages which are installed by 'yum install python3-pip'
 RUN pip3 list -o | cut -d' ' -f1 | xargs -n1 pip3 install --upgrade
 
 ################################## Image Config ###################################
@@ -29,7 +30,7 @@ WORKDIR /root
 
 ## custom packages to install
 RUN test -n "${PACKAGES}" && \
-    for PACKAGE in ${PACKAGES}; do yum install -y ${PACKAGE}; done && \
+    yum install -y ${PACKAGE} && \
     yum clean all || :
 
 ###################################### Tools ######################################
