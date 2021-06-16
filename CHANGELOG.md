@@ -11,6 +11,7 @@
 
 **Merged pull requests:**
 
+- Variable miss type [\#11](https://github.com/T-Systems-MMS/docker-management-container/pull/11) ([michaelamattes](https://github.com/michaelamattes))
 - python version should be configurable [\#8](https://github.com/T-Systems-MMS/docker-management-container/pull/8) ([michaelamattes](https://github.com/michaelamattes))
 - fix issue when replace predefined arg [\#6](https://github.com/T-Systems-MMS/docker-management-container/pull/6) ([michaelamattes](https://github.com/michaelamattes))
 
