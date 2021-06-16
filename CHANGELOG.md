@@ -6,11 +6,13 @@
 
 **Closed issues:**
 
+- render script fails on default values [\#9](https://github.com/T-Systems-MMS/docker-management-container/issues/9)
 - python version should be configurable [\#7](https://github.com/T-Systems-MMS/docker-management-container/issues/7)
 
 **Merged pull requests:**
 
 - python version should be configurable [\#8](https://github.com/T-Systems-MMS/docker-management-container/pull/8) ([michaelamattes](https://github.com/michaelamattes))
+- fix issue when replace predefined arg [\#6](https://github.com/T-Systems-MMS/docker-management-container/pull/6) ([michaelamattes](https://github.com/michaelamattes))
 
 ## [0.0.4](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.4) (2021-05-27)
 
