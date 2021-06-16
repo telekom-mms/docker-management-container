@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.0.5](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.5) (2021-06-16)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.4...0.0.5)
+
+**Closed issues:**
+
+- python version should be configurable [\#7](https://github.com/T-Systems-MMS/docker-management-container/issues/7)
+
+**Merged pull requests:**
+
+- python version should be configurable [\#8](https://github.com/T-Systems-MMS/docker-management-container/pull/8) ([michaelamattes](https://github.com/michaelamattes))
+
 ## [0.0.4](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.4) (2021-05-27)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.3...0.0.4)
