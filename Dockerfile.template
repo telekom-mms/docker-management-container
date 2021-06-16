@@ -13,20 +13,23 @@ RUN yum update -y && \
   unzip \
   vim \
   git \
-  python3 \
-  python3-pip \
   bash-completion \
   glibc && \
   yum clean all
 
-# pip
-## upgrade only base packages which are installed by 'yum install python3-pip'
-RUN pip3 list -o | cut -d' ' -f1 | xargs -n1 pip3 install --upgrade
-
 ################################## Image Config ###################################
+ARG PYTHON_VERSION=3
 ARG PACKAGES
 
 WORKDIR /root
+
+## python setup
+RUN yum install -y python${PYTHON_VERSION} python${PYTHON_VERSION}-pip && \
+    yum clean all
+
+# pip
+## upgrade only base packages which are installed by 'yum install python3-pip'
+RUN pip3 list -o --format freeze | cut -d'=' -f1 | xargs -n1 pip3 install --upgrade
 
 ## custom packages to install
 RUN test -n "${PACKAGES}" && \
