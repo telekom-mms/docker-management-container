@@ -11,7 +11,7 @@ render(){
   DOCKER_ARG=$(echo "${ARG}" | cut -d '=' -f1)
   VERSION=$(echo "${ARG}" | cut -d '=' -f2-)
 
-  sedStr="s!ARG ${DOCKER_ARG}!ARG ${DOCKER_ARG}=${VERSION}!g;"
+  sedStr="s!ARG ${DOCKER_ARG}.*!ARG ${DOCKER_ARG}=${VERSION}!g;"
 
   echo "${sedStr}"
 }
