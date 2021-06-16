@@ -20,6 +20,12 @@ vi .docker_build
 
 ### Image Config
 
+python version can be defined
+
+| ARG              | Required | Default |
+| ---------------- | -------- | ------- |
+| PYTHON_VERSION   | no       | 3       |
+
 Further packages to install can be specified
 
 | ARG              | Required | Default |
