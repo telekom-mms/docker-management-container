@@ -143,16 +143,16 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg \n\
 
 ###################################### Tool Config ################################
 ARG WORKDIR=/root
-ARG PIP_REQUIREMENT
+ARG PIP_REQUIREMENTS
 ARG ANSIBLE_REQUIREMENTS
 ARG AZ_CLI_EXTENSIONS
 
 WORKDIR ${WORKDIR}
 
 ## pip
-COPY ${PIP_REQUIREMENT} /tmp/pip_requirement
-RUN test -n "${PIP_REQUIREMENT}" && \
-    pip3 install --no-cache-dir -r /tmp/pip_requirement || :
+COPY ${PIP_REQUIREMENTS} /tmp/pip_requirements
+RUN test -n "${PIP_REQUIREMENTS}" && \
+    pip3 install --no-cache-dir -r /tmp/pip_requirements || :
 
 ## ansible-galaxy
 COPY ${ANSIBLE_REQUIREMENTS} /tmp/ansible_requirements
