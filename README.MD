@@ -73,19 +73,25 @@ export TAG=1.0.0
 docker build -t ${SERVICE}-mgmt:${TAG} .
 ```
 
+## Pipelines
+
+Examples for build within Pipelines can be found under [examples/pipeline]().
+
+## Run Docker Container on local system
+
+Install Docker Desktop, see [installation instructions](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
+
 ### run mgmt container
 
 ``` bash
 docker run -ti ${SERVICE}-mgmt:${TAG}
 ```
 
-## Run Docker Container on local system
+## Mount locals into Container
 
-Install Docker Desktop, see [installation instructions](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
+### Mount Volumes
 
-### Mount local Volumes into Container
-
-Configure WSL for right usage of volumes, see https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly, chapter: Create and modify the new WSL configuration file.
+Configure WSL for correct usage of volumes, see [https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly], chapter: Create and modify the new WSL configuration file.
 
 ``` bash
 /etc/wsl.conf

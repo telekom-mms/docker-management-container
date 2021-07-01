@@ -1,0 +1,32 @@
+---
+## gitlab-ci within service repo and docker-management-container included as git submodule
+stages:
+  - build
+
+variables:
+  CONTAINER_IMAGE_MGMT: $CI_REGISTRY_IMAGE/service-mgmt:latest
+
+.docker-login: &docker-login
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
+# build management-container
+build_service-mgmt:
+  <<: *docker-login
+  stage: build
+  image: docker:stable
+  services:
+    - docker:dind
+  script:
+    # create Dockerfile with template from submodule
+    - sh docker/docker-management-container/render.sh docker/service-mgmt
+    # build & push image
+    - docker build -t $CONTAINER_IMAGE_MGMT docker/service-mgmt
+    - docker push $CONTAINER_IMAGE_MGMT
+  only:
+    refs:
+      - schedules
+    variables:
+      - $build_management_container
+  tags:
+    - docker
