@@ -91,7 +91,7 @@ docker run -ti ${SERVICE}-mgmt:${TAG}
 
 ### Mount Volumes
 
-Configure WSL for right usage of volumes, see [https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly], chapter: Create and modify the new WSL configuration file.
+Configure WSL for correct usage of volumes, see [https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly], chapter: Create and modify the new WSL configuration file.
 
 ``` bash
 /etc/wsl.conf
