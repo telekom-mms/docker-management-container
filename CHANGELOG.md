@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.0.5](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.5) (2021-06-16)
+## [0.0.5](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.5) (2021-07-01)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.4...0.0.5)
 
@@ -11,6 +11,7 @@
 
 **Merged pull requests:**
 
+- add CI pipeline examples [\#12](https://github.com/T-Systems-MMS/docker-management-container/pull/12) ([michaelamattes](https://github.com/michaelamattes))
 - Variable miss type [\#11](https://github.com/T-Systems-MMS/docker-management-container/pull/11) ([michaelamattes](https://github.com/michaelamattes))
 - python version should be configurable [\#8](https://github.com/T-Systems-MMS/docker-management-container/pull/8) ([michaelamattes](https://github.com/michaelamattes))
 - fix issue when replace predefined arg [\#6](https://github.com/T-Systems-MMS/docker-management-container/pull/6) ([michaelamattes](https://github.com/michaelamattes))
