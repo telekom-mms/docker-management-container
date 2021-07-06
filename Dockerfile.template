@@ -41,6 +41,7 @@ RUN test -n "${PACKAGES}" && \
 ARG ANSIBLE_VERSION
 ARG DOCKER_VERSION
 ARG NOMAD_VERSION
+ARG CONSUL_VERSION
 ARG KUBECTL_VERSION
 ARG HELM_VERSION
 ARG TERRAFORM_VERSION
@@ -70,6 +71,14 @@ RUN if [ -n "${NOMAD_VERSION}" ] && [ "${NOMAD_VERSION}" != "latest" ]; then NOM
     if [ "${NOMAD_VERSION}" == "latest" ]; then NOMAD="NOMAD";fi && \
     test -n "${NOMAD_VERSION}" && \
     pip3 install --no-cache-dir ${NOMAD} || :
+
+## consul
+RUN if [ -n "${CONSUL_VERSION}" ] && [ "${CONSUL_VERSION}" != "latest" ]; then CONSUL="consul-${CONSUL_VERSION}";fi && \
+    if [ "${CONSUL_VERSION}" == "latest" ]; then CONSUL="consul";fi && \
+    test -n "${CONSUL_VERSION}" && \
+    yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo && \
+    yum install -y ${CONSUL} && \
+    yum clean all || :
 
 ## kubectl
 RUN if [ -n "${KUBECTL_VERSION}" ] && [ "${KUBECTL_VERSION}" != "latest" ]; then KUBECTL="kubectl-${KUBECTL_VERSION}";fi && \
