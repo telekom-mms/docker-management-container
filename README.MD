@@ -41,6 +41,7 @@ Install needed Tools within Management Container
 | ANSIBLE_VERSION   | no       | latest  |
 | DOCKER_VERSION    | no       | latest  |
 | NOMAD_VERSION     | no       | latest  |
+| CONSUL_VERSION    | no       | latest  |
 | KUBECTL_VERSION   | no       | latest  |
 | HELM_VERSION      | no       | latest  |
 | TERRAFORM_VERSION | no       | latest  |
