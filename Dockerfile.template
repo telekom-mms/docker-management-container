@@ -70,7 +70,9 @@ RUN if [ -n "${DOCKER_VERSION}" ] && [ "${DOCKER_VERSION}" != "latest" ]; then D
 RUN if [ -n "${NOMAD_VERSION}" ] && [ "${NOMAD_VERSION}" != "latest" ]; then NOMAD="NOMAD==${NOMAD_VERSION}";fi && \
     if [ "${NOMAD_VERSION}" == "latest" ]; then NOMAD="NOMAD";fi && \
     test -n "${NOMAD_VERSION}" && \
-    pip3 install --no-cache-dir ${NOMAD} || :
+    yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo && \
+    yum install -y ${NOMAD} && \
+    yum clean all || :
 
 ## consul
 RUN if [ -n "${CONSUL_VERSION}" ] && [ "${CONSUL_VERSION}" != "latest" ]; then CONSUL="consul-${CONSUL_VERSION}";fi && \
