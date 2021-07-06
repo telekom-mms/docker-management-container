@@ -67,8 +67,8 @@ RUN if [ -n "${DOCKER_VERSION}" ] && [ "${DOCKER_VERSION}" != "latest" ]; then D
     systemctl docker start || :
 
 ## nomad
-RUN if [ -n "${NOMAD_VERSION}" ] && [ "${NOMAD_VERSION}" != "latest" ]; then NOMAD="NOMAD==${NOMAD_VERSION}";fi && \
-    if [ "${NOMAD_VERSION}" == "latest" ]; then NOMAD="NOMAD";fi && \
+RUN if [ -n "${NOMAD_VERSION}" ] && [ "${NOMAD_VERSION}" != "latest" ]; then NOMAD="nomad-${NOMAD_VERSION}";fi && \
+    if [ "${NOMAD_VERSION}" == "latest" ]; then NOMAD="nomad";fi && \
     test -n "${NOMAD_VERSION}" && \
     yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo && \
     yum install -y ${NOMAD} && \
