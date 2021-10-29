@@ -99,14 +99,14 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg \n\
     kubectl completion bash > /etc/bash_completion.d/kubectl || :
 
 ## helm
-RUN if [ -n "${HELM_VERSION}" ] && [ "${HELM_VERSION}" != "latest" ]; then HELM="${HELM_VERSION}";fi && \
-    if [ "${HELM_VERSION}" == "latest" ]; then HELM="$(curl -sSL https://github.com/kubernetes/helm/releases/latest | sed -n '/Latest release<\/a>/,$p' | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' |head -1)";fi && \
+RUN if [ -n "${HELM_VERSION}" ] && [ "${HELM_VERSION}" != "latest" ]; then HELM="v${HELM_VERSION}";fi && \
+    if [ "${HELM_VERSION}" == "latest" ]; then HELM="$(curl -sSL https://api.github.com/repos/helm/helm/releases/latest | grep -Po '"tag_name": "\K.*?(?=\")')";fi && \
     test -n "${HELM_VERSION}" && \
-    mkdir helm && curl -SsL --retry 5 "https://get.helm.sh/helm-v${HELM}-linux-amd64.tar.gz" | tar xz -C ./helm && \
+    mkdir helm && curl -SsL --retry 5 "https://get.helm.sh/helm-${HELM}-linux-amd64.tar.gz" | tar xz -C ./helm && \
     cp helm/linux-amd64/helm /usr/local/bin/helm && chmod -R +x /usr/local/bin/helm && \
     helm repo add stable https://charts.helm.sh/stable && helm repo update && \
     helm completion bash > /etc/bash_completion.d/helm || :
-
+	
 ## terraform
 RUN if [ -n "${TERRAFORM_VERSION}" ] && [ "${TERRAFORM_VERSION}" != "latest" ]; then TERRAFORM="terraform-${TERRAFORM_VERSION}";fi && \
     if [ "${TERRAFORM_VERSION}" == "latest" ]; then TERRAFORM="terraform";fi && \
