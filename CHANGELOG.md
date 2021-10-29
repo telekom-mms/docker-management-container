@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.6](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.6) (2021-10-29)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.5...0.0.6)
+
+**Merged pull requests:**
+
+- fix: move to api usage for version definition [\#14](https://github.com/T-Systems-MMS/docker-management-container/pull/14) ([michaelamattes](https://github.com/michaelamattes))
+
 ## [0.0.5](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.5) (2021-07-06)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.4...0.0.5)
