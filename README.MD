@@ -14,9 +14,9 @@ vi .docker_build
 
 ### Image
 
-| ARG              | Required | Default |
-| ---------------- | -------- | ------- |
-| CENTOS_VERSION   | no       | 8       |
+| ARG                | Required | Default |
+| ------------------ | -------- | ------- |
+| ROCKYLINUX_VERSION | no       | 8       |
 
 ### Image Config
 
