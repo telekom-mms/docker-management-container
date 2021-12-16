@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.7](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.7) (2021-12-16)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.6...0.0.7)
+
+**Merged pull requests:**
+
+- feat: change to rockylinux as default image [\#15](https://github.com/T-Systems-MMS/docker-management-container/pull/15) ([michaelamattes](https://github.com/michaelamattes))
+
 ## [0.0.6](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.6) (2021-10-29)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.5...0.0.6)
