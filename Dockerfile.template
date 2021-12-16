@@ -1,8 +1,8 @@
 ###################################### Image ######################################
-ARG CENTOS_VERSION=8
+ARG ROCKYLINUX_VERSION=8
 
 ## build Image
-FROM centos:${CENTOS_VERSION}
+FROM rockylinux/rockylinux:${ROCKYLINUX_VERSION}
 
 # packages to install
 RUN yum update -y && \
@@ -14,7 +14,8 @@ RUN yum update -y && \
   vim \
   git \
   bash-completion \
-  glibc && \
+  glibc \
+  findutils && \
   yum clean all
 
 ################################## Image Config ###################################
@@ -106,7 +107,7 @@ RUN if [ -n "${HELM_VERSION}" ] && [ "${HELM_VERSION}" != "latest" ]; then HELM=
     cp helm/linux-amd64/helm /usr/local/bin/helm && chmod -R +x /usr/local/bin/helm && \
     helm repo add stable https://charts.helm.sh/stable && helm repo update && \
     helm completion bash > /etc/bash_completion.d/helm || :
-	
+
 ## terraform
 RUN if [ -n "${TERRAFORM_VERSION}" ] && [ "${TERRAFORM_VERSION}" != "latest" ]; then TERRAFORM="terraform-${TERRAFORM_VERSION}";fi && \
     if [ "${TERRAFORM_VERSION}" == "latest" ]; then TERRAFORM="terraform";fi && \
