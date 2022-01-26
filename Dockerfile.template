@@ -158,6 +158,7 @@ ARG WORKDIR=/root
 ARG PIP_REQUIREMENTS
 ARG ANSIBLE_REQUIREMENTS
 ARG AZ_CLI_EXTENSIONS
+ARG CURL_INSTALL_SCRIPTS
 
 WORKDIR ${WORKDIR}
 
@@ -174,6 +175,10 @@ RUN test -n "${ANSIBLE_REQUIREMENTS}" && \
 ## azure cli extension
 RUN test -n "${AZ_CLI_EXTENSIONS}" && \
     for AZ_CLI_EXTENSION in ${AZ_CLI_EXTENSIONS}; do az extension add -y --name ${AZ_CLI_EXTENSION}; done || :
+
+## install scripts over curl
+RUN test -n "${CURL_INSTALL_SCRIPTS}" && \
+    for CURL_INSTALL_SCRIPT in ${CURL_INSTALL_SCRIPTS}; do curl -sL ${CURL_INSTALL_SCRIPT} | sh ; done || :
 
 ###################################### Config #####################################
 ARG WORKDIR=/root

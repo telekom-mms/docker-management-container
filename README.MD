@@ -56,6 +56,7 @@ Install needed Tools within Management Container
 | PIP_REQUIREMENTS     | no       |         | File which includes a list of pip packages to be installed               |
 | ANSIBLE_REQUIREMENTS | no       |         | File which includes a list of ansible-galaxy collections to be installed |
 | AZ_CLI_EXTENSIONS    | no       |         | List of azure-cli extenstions to be installed                            |
+| CURL_INSTALL_SCRIPTS | no       |         | List of scripts which should be installed over curl                      |
 
 ### System Configuration
 
