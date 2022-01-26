@@ -157,8 +157,8 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg \n\
 ## github binaries
 RUN test -n "${GITHUB_BINARIES}" && \
     for GITHUB_BINARY in ${GITHUB_BINARIES}; do GITHUB_PACKAGE_VERSION="$(curl -sSL https://api.github.com/repos/${GITHUB_BINARY} | grep -Po '"browser_download_url": "\K.*linux_amd64.tar.gz?(?=\")')" && \
-    mkdir github && curl -SsL --retry 5 "${GITHUB_PACKAGE_VERSION}" | tar xz -C ./github && \
-    chmod -R +x github/* && mv github/* && /usr/local/bin/; done || :
+    mkdir ./github && curl -SsL --retry 5 "${GITHUB_PACKAGE_VERSION}" | tar xz -C ./github && \
+    chmod -R +x ./github/* && mv ./github/* /usr/local/bin/; done || :
 
 ###################################### Tool Config ################################
 ARG WORKDIR=/root
