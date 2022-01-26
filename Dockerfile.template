@@ -49,6 +49,7 @@ ARG TERRAFORM_VERSION
 ARG AZ_CLI_VERSION
 ARG AWS_CLI_VERSION
 ARG GCLOUD_VERSION
+ARG GITHUB_BINARIES
 
 WORKDIR /root/download
 
@@ -153,12 +154,17 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg \n\
     yum install -y ${GCLOUD} && \
     yum clean all || :
 
+## github binaries
+RUN test -n "${GITHUB_BINARIES}" && \
+    for GITHUB_BINARY in ${GITHUB_BINARIES}; do GITHUB_PACKAGE_VERSION="$(curl -sSL https://api.github.com/repos/${GITHUB_BINARY} | grep -Po '"browser_download_url": "\K.*linux_amd64.tar.gz?(?=\")')" && \
+    mkdir github && curl -SsL --retry 5 "${GITHUB_PACKAGE_VERSION}" | tar xz -C ./github && \
+    chmod -R +x github/* && mv github/* && /usr/local/bin/; done || :
+
 ###################################### Tool Config ################################
 ARG WORKDIR=/root
 ARG PIP_REQUIREMENTS
 ARG ANSIBLE_REQUIREMENTS
 ARG AZ_CLI_EXTENSIONS
-ARG CURL_INSTALL_SCRIPTS
 
 WORKDIR ${WORKDIR}
 
@@ -175,10 +181,6 @@ RUN test -n "${ANSIBLE_REQUIREMENTS}" && \
 ## azure cli extension
 RUN test -n "${AZ_CLI_EXTENSIONS}" && \
     for AZ_CLI_EXTENSION in ${AZ_CLI_EXTENSIONS}; do az extension add -y --name ${AZ_CLI_EXTENSION}; done || :
-
-## install scripts over curl
-RUN test -n "${CURL_INSTALL_SCRIPTS}" && \
-    for CURL_INSTALL_SCRIPT in ${CURL_INSTALL_SCRIPTS}; do curl -sL ${CURL_INSTALL_SCRIPT} | sh ; done || :
 
 ###################################### Config #####################################
 ARG WORKDIR=/root
