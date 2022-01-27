@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.8](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.8) (2022-01-27)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.7...0.0.8)
+
+**Merged pull requests:**
+
+- Issue 16 [\#17](https://github.com/T-Systems-MMS/docker-management-container/pull/17) ([michaelamattes](https://github.com/michaelamattes))
+
 ## [0.0.7](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.7) (2021-12-16)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.6...0.0.7)
