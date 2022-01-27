@@ -36,18 +36,19 @@ Further packages to install can be specified
 
 Install needed Tools within Management Container
 
-| ARG               | Required | Default |
-| ----------------- | -------- | ------- |
-| ANSIBLE_VERSION   | no       | latest  |
-| DOCKER_VERSION    | no       | latest  |
-| NOMAD_VERSION     | no       | latest  |
-| CONSUL_VERSION    | no       | latest  |
-| KUBECTL_VERSION   | no       | latest  |
-| HELM_VERSION      | no       | latest  |
-| TERRAFORM_VERSION | no       | latest  |
-| AZ_CLI_VERSION    | no       | latest  |
-| AWS_CLI_VERSION   | no       | latest  |
-| GCLOUD_VERSION    | no       | latest  |
+| ARG               | Required | Default | Description                      |                                        |
+| ----------------- | -------- | ------- | -------------------------------- |
+| ANSIBLE_VERSION   | no       | latest  |                                  |
+| DOCKER_VERSION    | no       | latest  |                                  |
+| NOMAD_VERSION     | no       | latest  |                                  |
+| CONSUL_VERSION    | no       | latest  |                                  |
+| KUBECTL_VERSION   | no       | latest  |                                  |
+| HELM_VERSION      | no       | latest  |                                  |
+| TERRAFORM_VERSION | no       | latest  |                                  |
+| AZ_CLI_VERSION    | no       | latest  |                                  |
+| AWS_CLI_VERSION   | no       | latest  |                                  |
+| GCLOUD_VERSION    | no       | latest  |                                  |
+| GITHUB_BINARIES   | no       | latest  | List of packages to be installed |
 
 ## Tool Configuration / Add Specific extension
 

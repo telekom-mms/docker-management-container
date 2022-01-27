@@ -11,3 +11,4 @@ GCLOUD_VERSION=latest
 PIP_REQUIREMENT="pip_requirement"
 ANSIBLE_REQUIREMENTS="ansible_requirements"
 AZ_CLI_EXTENSIONS="front-door"
+GITHUB_BINARIES="remotemobprogramming/mob/releases/latest"
