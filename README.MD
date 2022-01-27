@@ -36,7 +36,7 @@ Further packages to install can be specified
 
 Install needed Tools within Management Container
 
-| ARG               | Required | Default | Description                      |                                        |
+| ARG               | Required | Default | Description                      |
 | ----------------- | -------- | ------- | -------------------------------- |
 | ANSIBLE_VERSION   | no       | latest  |                                  |
 | DOCKER_VERSION    | no       | latest  |                                  |
