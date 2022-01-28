@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.0.9](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.9) (2022-01-28)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.8...0.0.9)
+
+**Closed issues:**
+
+- Possibility to install mob.sh in container [\#16](https://github.com/T-Systems-MMS/docker-management-container/issues/16)
+
+**Merged pull requests:**
+
+- feat: create first major release [\#18](https://github.com/T-Systems-MMS/docker-management-container/pull/18) ([michaelamattes](https://github.com/michaelamattes))
+
 ## [0.0.8](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.8) (2022-01-27)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.7...0.0.8)
