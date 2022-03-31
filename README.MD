@@ -48,7 +48,7 @@ Install needed Tools within Management Container
 | AZ_CLI_VERSION    | no       | latest  |                                  |
 | AWS_CLI_VERSION   | no       | latest  |                                  |
 | GCLOUD_VERSION    | no       | latest  |                                  |
-| GITHUB_BINARIES   | no       | latest  | List of packages to be installed |
+| GITHUB_BINARIES   | no       | latest  | List of packages to be installed, format is [package binary name]:[package binary format] |
 
 ## Tool Configuration / Add Specific extension
 
