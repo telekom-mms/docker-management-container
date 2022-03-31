@@ -101,10 +101,7 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg \n\
     kubectl completion bash > /etc/bash_completion.d/kubectl || :
 
 ## k9s
-RUN if [ -n "${K9S_VERSION}" ] && [ "${K9S_VERSION}" != "latest" ]; then K9S="v${K9S_VERSION}";fi && \
-    if [ "${K9S_VERSION}" == "latest" ]; then K9S="$(curl -sSL https://api.github.com/repos/derailed/k9s/releases/latest | grep -Po '"tag_name": "\K.*?(?=\")')";fi && \
-    test -n "${K9S_VERSION}" && \
-    curl -sS https://webinstall.dev/k9s | bash && \
+RUN curl -sS https://webinstall.dev/k9s | sh && \
     export TERM=xterm-256color || :
 
 ## helm
@@ -166,9 +163,6 @@ RUN test -n "${GITHUB_BINARIES}" && \
     for GITHUB_BINARY in ${GITHUB_BINARIES}; do GITHUB_PACKAGE_VERSION="$(curl -sSL https://api.github.com/repos/${GITHUB_BINARY} | grep -Po '"browser_download_url": "\K.*linux_amd64.tar.gz?(?=\")')" && \
     mkdir ./github && curl -SsL --retry 5 "${GITHUB_PACKAGE_VERSION}" | tar xz -C ./github && \
     chmod -R +x ./github/* && mv ./github/* /usr/local/bin/; done || :
-
-## mobsh for mob programming
-RUN curl -sL install.mob.sh | sh || :
 
 ###################################### Tool Config ################################
 ARG WORKDIR=/root
