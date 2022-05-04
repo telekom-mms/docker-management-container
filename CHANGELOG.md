@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.2](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.2) (2022-05-04)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/1.0.1...1.0.2)
+
+**Merged pull requests:**
+
+- Update actions/setup-python action to v3 [\#26](https://github.com/T-Systems-MMS/docker-management-container/pull/26) ([renovate[bot]](https://github.com/apps/renovate))
+- Update actions/checkout action [\#25](https://github.com/T-Systems-MMS/docker-management-container/pull/25) ([renovate[bot]](https://github.com/apps/renovate))
+- Update charmixer/auto-changelog-action action to v1.4 [\#23](https://github.com/T-Systems-MMS/docker-management-container/pull/23) ([renovate[bot]](https://github.com/apps/renovate))
+- Update actions/checkout action to v2.4.2 [\#22](https://github.com/T-Systems-MMS/docker-management-container/pull/22) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [1.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.1) (2022-05-04)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/1.0.0...1.0.1)
@@ -28,11 +39,14 @@
 **Merged pull requests:**
 
 - Issue 16 [\#17](https://github.com/T-Systems-MMS/docker-management-container/pull/17) ([michaelamattes](https://github.com/michaelamattes))
-- feat: change to rockylinux as default image [\#15](https://github.com/T-Systems-MMS/docker-management-container/pull/15) ([michaelamattes](https://github.com/michaelamattes))
 
 ## [0.0.7](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.7) (2021-12-16)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.6...0.0.7)
+
+**Merged pull requests:**
+
+- feat: change to rockylinux as default image [\#15](https://github.com/T-Systems-MMS/docker-management-container/pull/15) ([michaelamattes](https://github.com/michaelamattes))
 
 ## [0.0.6](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.6) (2021-10-29)
 
