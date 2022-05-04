@@ -1,8 +1,17 @@
 # Changelog
 
-## [0.0.9](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.9) (2022-01-28)
+## [1.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.1) (2022-05-04)
 
-[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.8...0.0.9)
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/1.0.0...1.0.1)
+
+**Merged pull requests:**
+
+- add renovate-config [\#21](https://github.com/T-Systems-MMS/docker-management-container/pull/21) ([rndmh3ro](https://github.com/rndmh3ro))
+- add possibility to define binary format to be installed [\#20](https://github.com/T-Systems-MMS/docker-management-container/pull/20) ([michaelamattes](https://github.com/michaelamattes))
+
+## [1.0.0](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.0) (2022-01-28)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.8...1.0.0)
 
 **Closed issues:**
 
@@ -19,14 +28,11 @@
 **Merged pull requests:**
 
 - Issue 16 [\#17](https://github.com/T-Systems-MMS/docker-management-container/pull/17) ([michaelamattes](https://github.com/michaelamattes))
+- feat: change to rockylinux as default image [\#15](https://github.com/T-Systems-MMS/docker-management-container/pull/15) ([michaelamattes](https://github.com/michaelamattes))
 
 ## [0.0.7](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.7) (2021-12-16)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/0.0.6...0.0.7)
-
-**Merged pull requests:**
-
-- feat: change to rockylinux as default image [\#15](https://github.com/T-Systems-MMS/docker-management-container/pull/15) ([michaelamattes](https://github.com/michaelamattes))
 
 ## [0.0.6](https://github.com/T-Systems-MMS/docker-management-container/tree/0.0.6) (2021-10-29)
 
