@@ -2,6 +2,11 @@
 # generate Dockerfile from template with build settings
 
 # init stuff
+if [ -n $0 ]; then
+  printf "no directory provided\n\n"
+  echo "Usage: sh render.sh <DIRECTORY>"
+  exit 2
+fi
 SCRIPT_DIR=$(dirname $(readlink -f $0))
 ENV_DIR=${1-SCRIPT_DIR}
 ENV_FILE="${ENV_DIR}/.docker_build"
