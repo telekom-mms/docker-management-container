@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- add dir to render command with $0 [\#28](https://github.com/T-Systems-MMS/docker-management-container/pull/28) ([ClemontX](https://github.com/ClemontX))
 - Update actions/setup-python action to v4 [\#27](https://github.com/T-Systems-MMS/docker-management-container/pull/27) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/setup-python action to v3 [\#26](https://github.com/T-Systems-MMS/docker-management-container/pull/26) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout action [\#25](https://github.com/T-Systems-MMS/docker-management-container/pull/25) ([renovate[bot]](https://github.com/apps/renovate))
