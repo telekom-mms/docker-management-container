@@ -63,7 +63,7 @@ Install needed Tools within Management Container
 ## create Dockerfile from template with .docker_build configuration
 
 ``` bash
-sh render.sh
+sh render.sh .
 ```
 
 ## create container image
