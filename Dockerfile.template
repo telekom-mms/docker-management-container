@@ -1,5 +1,5 @@
 ###################################### Image ######################################
-ARG ROCKYLINUX_VERSION=8
+ARG ROCKYLINUX_VERSION=9
 
 ## build Image
 FROM rockylinux/rockylinux:${ROCKYLINUX_VERSION}
