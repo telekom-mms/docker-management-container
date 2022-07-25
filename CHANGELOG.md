@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.3](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.3) (2022-07-25)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/1.0.2...1.0.3)
+
+**Fixed bugs:**
+
+- render.sh: fix check for missing directory name and fix shellcheck warnings [\#31](https://github.com/T-Systems-MMS/docker-management-container/pull/31) ([z-bsod](https://github.com/z-bsod))
+
 ## [1.0.2](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.2) (2022-06-09)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/1.0.1...1.0.2)
