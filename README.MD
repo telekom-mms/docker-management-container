@@ -2,6 +2,9 @@
 
 The Docker Management Container includes a set of plugins and services that make it easier to build, test, deploy and manage infrastructure.
 
+<img src="https://user-images.githubusercontent.com/3198961/186094159-9a2dc497-520b-488b-9557-9c6fd1305049.png" title="Docker Management Container Logo" width=30% height=30%>
+
+
 ## Setup
 
 Set service-specific tools, versions and configuration:
