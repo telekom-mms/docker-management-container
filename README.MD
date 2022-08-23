@@ -5,8 +5,9 @@ The Docker Management Container includes a set of plugins and services that make
 <picture>
   <source 
     srcset="https://user-images.githubusercontent.com/3198961/186105564-3901aded-21f1-4191-b323-e943f49ea5ed.png" 
-    media="(prefers-color-scheme: dark)">
-  <img src="https://user-images.githubusercontent.com/3198961/186105473-eab8c428-4a19-474d-b391-e2410383d05d.png">
+    media="(prefers-color-scheme: dark)"
+    width="30%" height="30%">
+  <img width="30%" height="30%" src="https://user-images.githubusercontent.com/3198961/186105473-eab8c428-4a19-474d-b391-e2410383d05d.png">
 </picture>
 
 ## Setup
