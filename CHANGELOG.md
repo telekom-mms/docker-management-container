@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- draft: add logo [\#33](https://github.com/T-Systems-MMS/docker-management-container/pull/33) ([rndmh3ro](https://github.com/rndmh3ro))
 - add dmc logo [\#32](https://github.com/T-Systems-MMS/docker-management-container/pull/32) ([rndmh3ro](https://github.com/rndmh3ro))
 
 ## [1.0.3](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.3) (2022-07-25)
