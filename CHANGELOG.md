@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.4](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.4) (2022-08-23)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/1.0.3...1.0.4)
+
+**Merged pull requests:**
+
+- add dmc logo [\#32](https://github.com/T-Systems-MMS/docker-management-container/pull/32) ([rndmh3ro](https://github.com/rndmh3ro))
+
 ## [1.0.3](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.3) (2022-07-25)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/1.0.2...1.0.3)
