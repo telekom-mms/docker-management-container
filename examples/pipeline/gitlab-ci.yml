@@ -1,7 +1,6 @@
 ---
-## gitlab-ci within service repo and docker-management-container included as git submodule
 stages:
-  - build
+  - build_dmc
 
 variables:
   CONTAINER_IMAGE_MGMT: $CI_REGISTRY_IMAGE/service-mgmt:latest
@@ -12,21 +11,24 @@ variables:
 
 # build management-container
 build_service-mgmt:
-  <<: *docker-login
-  stage: build
-  image: docker:stable
+  stage: build_dmc
+  image: $DOCKERHUB_MIRROR/docker:git
   services:
-    - docker:dind
+    - name: $DOCKERHUB_MIRROR/docker:dind
+      alias: docker
   script:
-    # create Dockerfile with template from submodule
-    - sh docker/docker-management-container/render.sh docker/service-mgmt
-    # build & push image
-    - docker build -t $CONTAINER_IMAGE_MGMT docker/service-mgmt
-    - docker push $CONTAINER_IMAGE_MGMT
-  only:
-    refs:
-      - schedules
-    variables:
-      - $build_management_container
-  tags:
-    - docker
+    # clone DMC repo from GitHub
+    - git clone --recursive --branch ${GITHUB_DMC_TAG} --depth 1 https://github.com/T-Systems-MMS/docker-management-container $CI_PROJECT_DIR/docker/docker-management-container
+    # get date for tagging the image
+    - export DATE=$(date +"%F")
+    # create Dockerfile with template from DMC repo
+    - sh $CI_PROJECT_DIR/docker/docker-management-container/render.sh $CI_PROJECT_DIR/docker/service-mgmt
+    # build and tag image
+    - docker build -t $DMC_IMAGE:${DATE} docker/service-mgmt
+    - docker tag $DMC_IMAGE:${DATE} $DMC_IMAGE:latest
+    # push all images
+    - docker push --all-tags $DMC_IMAGE
+  extends: 
+    - .docker_login
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule" && $JOB == "build_dmc"
