@@ -7,6 +7,7 @@
 **Merged pull requests:**
 
 - Update docker/build-push-action action to v3 [\#36](https://github.com/T-Systems-MMS/docker-management-container/pull/36) ([renovate[bot]](https://github.com/apps/renovate))
+- Update docker/metadata-action action to v3.8.0 [\#35](https://github.com/T-Systems-MMS/docker-management-container/pull/35) ([renovate[bot]](https://github.com/apps/renovate))
 - add github build workflow [\#34](https://github.com/T-Systems-MMS/docker-management-container/pull/34) ([rndmh3ro](https://github.com/rndmh3ro))
 - draft: add logo [\#33](https://github.com/T-Systems-MMS/docker-management-container/pull/33) ([rndmh3ro](https://github.com/rndmh3ro))
 - add dmc logo [\#32](https://github.com/T-Systems-MMS/docker-management-container/pull/32) ([rndmh3ro](https://github.com/rndmh3ro))
