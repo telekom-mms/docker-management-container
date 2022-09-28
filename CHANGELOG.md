@@ -1,11 +1,12 @@
 # Changelog
 
-## [1.0.4](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.4) (2022-09-27)
+## [1.0.4](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.4) (2022-09-28)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/1.0.3...1.0.4)
 
 **Merged pull requests:**
 
+- fix link to examples [\#40](https://github.com/T-Systems-MMS/docker-management-container/pull/40) ([mmslkr](https://github.com/mmslkr))
 - Update docker/metadata-action action to v4 [\#38](https://github.com/T-Systems-MMS/docker-management-container/pull/38) ([renovate[bot]](https://github.com/apps/renovate))
 - Update docker/login-action action to v2 [\#37](https://github.com/T-Systems-MMS/docker-management-container/pull/37) ([renovate[bot]](https://github.com/apps/renovate))
 - Update docker/build-push-action action to v3 [\#36](https://github.com/T-Systems-MMS/docker-management-container/pull/36) ([renovate[bot]](https://github.com/apps/renovate))
