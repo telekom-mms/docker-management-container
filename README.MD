@@ -85,7 +85,7 @@ docker build -t ${SERVICE}-mgmt:${TAG} .
 
 ## Pipelines
 
-Examples for build within Pipelines can be found under [examples/pipeline]().
+Examples for build within Pipelines can be found under [examples/pipeline](examples/pipeline).
 
 ## Run Docker Container on local system
 
