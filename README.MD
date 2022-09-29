@@ -3,8 +3,8 @@
 The Docker Management Container includes a set of plugins and services that make it easier to build, test, deploy and manage infrastructure.
 
 <picture>
-  <source 
-    srcset="https://user-images.githubusercontent.com/3198961/186105564-3901aded-21f1-4191-b323-e943f49ea5ed.png" 
+  <source
+    srcset="https://user-images.githubusercontent.com/3198961/186105564-3901aded-21f1-4191-b323-e943f49ea5ed.png"
     media="(prefers-color-scheme: dark)"
     width="30%" height="30%">
   <img width="30%" height="30%" src="https://user-images.githubusercontent.com/3198961/186105473-eab8c428-4a19-474d-b391-e2410383d05d.png">
@@ -32,7 +32,7 @@ python version can be defined
 
 | ARG              | Required | Default |
 | ---------------- | -------- | ------- |
-| PYTHON_VERSION   | no       | 3       |
+| PYTHON_VERSION   | no       | 39       |
 
 Further packages to install can be specified
 
@@ -77,57 +77,35 @@ sh render.sh .
 ## create container image
 
 ``` bash
-export SERVICE=NAME
-export TAG=1.0.0
+export DMC="service-mgmt-dmc:1.0.0"
 
-docker build -t ${SERVICE}-mgmt:${TAG} .
+docker build -t ${DMC} .
 ```
 
 ## Pipelines
 
 Examples for build within Pipelines can be found under [examples/pipeline](examples/pipeline).
 
-## Run Docker Container on local system
+## Local Usage
 
-Install Docker Desktop, see [installation instructions](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
+### run DMC
 
-### run mgmt container
+To run the Docker Management Container your system must have Docker or Podman installed.
+
+* Linux Client
+* MacOS
+* Docker Desktop for Windows or WSL2
 
 ``` bash
-docker run -ti ${SERVICE}-mgmt:${TAG}
+docker run -ti ${DMC}
 ```
 
-## Mount locals into Container
+### mount volumes
 
-### Mount Volumes
+You can mount your code or git repository into the container. This way you can work with your favorite editor and test the changes directly in the DMC.
 
-Configure WSL for correct usage of volumes, see [https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly], chapter: Create and modify the new WSL configuration file.
-
-``` bash
-/etc/wsl.conf
-
-[automount]
-root = /
-options = "metadata"
-```
-
-#### Mount specific folder
+Example:
 
 ``` bash
-su root
-mkdir /c
-
-mount --bind /mnt/c /c
-```
-
-##### start container with local mount
-
-``` bash
-docker run -ti --env-file .docker_env -v /c/Users/USER/GITRepo:/root -w /root -ti ${SERVICE}-mgmt:${TAG}
-```
-
-behind proxy
-
-``` bash
-docker run -ti --env-file .docker_proxy_env -v /c/Users/USER/GITRepo:/root -w /root -ti ${SERVICE}-mgmt:${TAG}
+docker run -ti --env-file .docker_env -v${HOME}/git/service:/service -w /service ${DMC}
 ```
