@@ -4,6 +4,14 @@
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/1.0.3...1.0.4)
 
+**Fixed bugs:**
+
+- change default python version [\#42](https://github.com/T-Systems-MMS/docker-management-container/pull/42) ([michaelamattes](https://github.com/michaelamattes))
+
+**Closed issues:**
+
+- image build fails [\#41](https://github.com/T-Systems-MMS/docker-management-container/issues/41)
+
 **Merged pull requests:**
 
 - fix link to examples [\#40](https://github.com/T-Systems-MMS/docker-management-container/pull/40) ([mmslkr](https://github.com/mmslkr))
