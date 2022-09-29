@@ -19,7 +19,7 @@ RUN yum update -y && \
   yum clean all
 
 ################################## Image Config ###################################
-ARG PYTHON_VERSION=3
+ARG PYTHON_VERSION=39
 ARG PACKAGES
 
 WORKDIR /root
