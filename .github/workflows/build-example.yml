@@ -1,7 +1,8 @@
 name: Create and publish Docker image
 
-on:
-  # yamllint disable-line rule:truthy
+on:  # yamllint disable-line rule:truthy
+  pull_request:
+    branches: [master]
   workflow_dispatch:
   push:
     branches: ['master']
