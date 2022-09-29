@@ -102,7 +102,9 @@ docker run -ti ${DMC}
 
 ### mount volumes
 
-Mount checked out Service Git Repository into DMC e.g. to change Code within Visual Studio Code and work with these chances directly in the DMC.
+You can mount your code or git repository into the container. This way you can work with your favorite editor and test the changes directly in the DMC.
+
+Example:
 
 ``` bash
 docker run -ti --env-file .docker_env -v${HOME}/git/service:/service -w /service ${DMC}
