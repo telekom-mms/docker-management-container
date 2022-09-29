@@ -86,7 +86,7 @@ docker build -t ${DMC} .
 
 Examples for build within Pipelines can be found under [examples/pipeline](examples/pipeline).
 
-## Usage on Local System
+## Local Usage
 
 ### run DMC
 
