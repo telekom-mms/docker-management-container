@@ -166,6 +166,9 @@ ARG WORKDIR=/root
 ARG PIP_REQUIREMENTS
 ARG ANSIBLE_REQUIREMENTS
 ARG AZ_CLI_EXTENSIONS
+ARG HELM_EXTENSIONS
+
+ENV HELM_PLUGINS='/root/.local/share/helm/plugins'
 
 WORKDIR ${WORKDIR}
 
@@ -182,6 +185,10 @@ RUN test -n "${ANSIBLE_REQUIREMENTS}" && \
 ## azure cli extension
 RUN test -n "${AZ_CLI_EXTENSIONS}" && \
     for AZ_CLI_EXTENSION in ${AZ_CLI_EXTENSIONS}; do az extension add -y --name ${AZ_CLI_EXTENSION}; done || :
+
+## helm plugins
+RUN test -n "${HELM_EXTENSIONS}" && \
+    for HELM_EXTENSION in ${HELM_EXTENSIONS}; do helm plugin install ${HELM_EXTENSION}; done || :
 
 ###################################### Config #####################################
 ARG WORKDIR=/root
