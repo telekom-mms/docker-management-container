@@ -65,6 +65,7 @@ Install needed Tools within Management Container
 | PIP_REQUIREMENTS     | no       |         | File which includes a list of pip packages to be installed               |
 | ANSIBLE_REQUIREMENTS | no       |         | File which includes a list of ansible-galaxy collections to be installed |
 | AZ_CLI_EXTENSIONS    | no       |         | List of azure-cli extenstions to be installed                            |
+| HELM_EXTENSIONS      | no       |         | List of helm plugins to be installed from a VCS repo                     |
 
 ### System Configuration
 
