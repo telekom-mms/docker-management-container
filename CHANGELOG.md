@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.5](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.5) (2022-10-04)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/1.0.4...1.0.5)
+
+**Merged pull requests:**
+
+- Update actions/checkout action to v3.1.0 [\#46](https://github.com/T-Systems-MMS/docker-management-container/pull/46) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [1.0.4](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.4) (2022-09-30)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/1.0.3...1.0.4)
