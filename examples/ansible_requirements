@@ -1,7 +1,0 @@
----
-collections:
-  - name: azure.azcollection
-    src: https://github.com/ansible-collections/azure
-  - name: t_systems_mms.acme
-    src: https://github.com/T-Systems-MMS/ansible-collection-acme
-    version: 2.0.0

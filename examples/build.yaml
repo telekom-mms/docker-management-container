@@ -9,6 +9,7 @@ packages:
   - azure-cli
   - awscli
   # - google-cloud-cli
+  - telnet.x86_64
 repositories:
   - hashicorp
   - microsoft
