@@ -8,6 +8,8 @@ packages:
   - consul
   - azure-cli
   - awscli
+  # - google-cloud-cli
+  - telnet
 repositories:
   - hashicorp
   - microsoft
