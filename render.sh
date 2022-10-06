@@ -43,7 +43,7 @@ parse_yaml() {
           }
           vn=(vn)(vname[i]) }
 
-        if (name) {printf("%s=%s\n", vname[0], name);}
+        if (name) {printf("%s=%s\n", vname[0], name)};
         printf("%s%s=%s\n", vname[0], subname, $3);
     }
   }'
