@@ -10,7 +10,7 @@ fi
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 ENV_DIR=${1-SCRIPT_DIR}
 ENV_FILE="${ENV_DIR}/build.yaml"
-BUILD_FILE="${ENV_DIR}/.docker_build"
+BUILD_FILE="${ENV_DIR}/.build"
 
 # function
 parse_yaml() {
