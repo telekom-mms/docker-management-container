@@ -1,16 +1,16 @@
 packages:
   - ansible
-  - docker
   - kubectl
   - helm
   - terraform=1.1.7
   - nomad
   - consul
+  - docker-ce
   - azure-cli
   - awscli
-  # - google-cloud-cli
   - telnet
 repositories:
+  - docker
   - hashicorp
   - microsoft
 binaries:
@@ -35,6 +35,8 @@ requirements:
 extensions:
   az:
     - front-door=1.0.15
+  google:
+    - gsutil
   helm:
     - https://github.com/databus23/helm-diff=3.5.0
     - https://github.com/jkroepke/helm-secrets

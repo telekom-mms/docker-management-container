@@ -50,20 +50,20 @@ parse_yaml() {
 }
 
 render(){
+  echo > "${ENV_DIR}/Dockerfile"
   parse_yaml ${ENV_FILE} > ${BUILD_FILE}
 
-  KEYS=$(cat ${BUILD_FILE} | cut -d '=' -f1 | uniq)
+  KEYS=$(cat ${BUILD_FILE} | cut -d '=' -f1 | sort -u)
 
   for KEY in ${KEYS}
   do
-    VALUE=$(cat ${BUILD_FILE} | grep -w ${KEY} | cut -d '=' -f2- | uniq | tr '\n' ' ')
-    ARG=$( echo ${KEY} | awk '{print toupper($0)}')
+    VALUE=$(cat ${BUILD_FILE} | grep -w ${KEY} | cut -d '=' -f2- | sort -u | tr '\n' ' ')
+    ARG=$(echo ${KEY} | awk '{print toupper($0)}')
 
-    sedStr="${sedStr} s!ARG ${ARG}\$!ARG ${ARG}=\"${VALUE}\"!g;"
+    sedStr="${sedStr} s!ARG \<${ARG}\>!ARG ${ARG}=\"${VALUE}\"!g;"
   done
 
   echo "${sedStr}"
-
   rm ${BUILD_FILE}
 }
 

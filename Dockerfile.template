@@ -17,6 +17,7 @@ RUN apt-get update && \
     jq \
     unzip \
     vim \
+    less \
     git \
     bash-completion \
     findutils \
@@ -32,8 +33,13 @@ ARG BINARIES
 
 ARG REPOSITORIES_HASHICORP_GPG="https://apt.releases.hashicorp.com/gpg"
 ARG REPOSITORIES_HASHICORP_URI="https://apt.releases.hashicorp.com"
+ARG REPOSITORIES_HASHICORP_BRANCH="main"
+ARG REPOSITORIES_DOCKER_GPG="https://download.docker.com/linux/ubuntu/gpg"
+ARG REPOSITORIES_DOCKER_URI="https://download.docker.com/linux/ubuntu"
+ARG REPOSITORIES_DOCKER_BRANCH="stable"
 ARG REPOSITORIES_MICROSOFT_GPG="https://packages.microsoft.com/keys/microsoft.asc"
 ARG REPOSITORIES_MICROSOFT_URI="https://packages.microsoft.com/repos/azure-cli/"
+ARG REPOSITORIES_MICROSOFT_BRANCH="main"
 
 ARG BINARIES_GITHUB_URI="https://api.github.com/repos"
 ARG BINARIES_GITHUB
@@ -44,8 +50,8 @@ WORKDIR ${WORKDIR}
 
 ## repositories
 RUN test -n "${REPOSITORIES}" && \
-    for REPOSITORY in ${REPOSITORIES}; do declare -u REPO=${REPOSITORY} && REPO_GPG=$(eval "echo \$REPOSITORIES_${REPO}_GPG") && REPO_URI=$(eval "echo \$REPOSITORIES_${REPO}_URI") && \
-    curl -fsSL ${REPO_GPG} | gpg --dearmor | tee /etc/apt/trusted.gpg.d/${REPOSITORY}.gpg > /dev/null && apt-add-repository "deb [arch=amd64] ${REPO_URI} $(lsb_release -cs) main"; done
+    for REPOSITORY in ${REPOSITORIES}; do declare -u REPO=${REPOSITORY} && REPO_GPG=$(eval "echo \$REPOSITORIES_${REPO}_GPG") && REPO_URI=$(eval "echo \$REPOSITORIES_${REPO}_URI") && REPO_BRANCH=$(eval "echo \$REPOSITORIES_${REPO}_BRANCH") && \
+    curl -fsSL ${REPO_GPG} | gpg --dearmor | tee /etc/apt/trusted.gpg.d/${REPOSITORY}.gpg > /dev/null && apt-add-repository "deb [arch=amd64] ${REPO_URI} $(lsb_release -cs) ${REPO_BRANCH}"; done
 
 ## packages
 RUN test -n "${PACKAGES}" && \
@@ -63,7 +69,7 @@ RUN test -n "${BINARIES}" && \
     BINARY_PACKAGE_URI=$(echo "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/$(echo ${BINARY_PACKAGE} | cut -d '=' -f1)-${BINARY_PACKAGE_VERSION}-linux-x86_64.tar.gz") && \
     mkdir -p ./google && curl -SsL --retry 5 ${BINARY_PACKAGE_URI} | tar xz -C ./google && \
     chmod -R +x ./google/* && \
-    sh ./google/*/install.sh -q; done; fi; done
+    sh ./google/*/install.sh --quiet --command-completion true --bash-completion true --path-update true; done; fi; done
 
 ###################################### Tool Config ################################
 ARG WORKDIR=/root
@@ -75,6 +81,7 @@ ARG REQUIREMENTS_ANSIBLE_ROLES
 ARG REQUIREMENTS_ANSIBLE_COLLECTIONS
 
 ARG EXTENSIONS_AZ
+ARG EXTENSIONS_GOOGLE
 ARG EXTENSIONS_HELM
 
 WORKDIR ${WORKDIR}
@@ -90,6 +97,7 @@ RUN test -n "${REQUIREMENTS}" && \
 RUN test -n "${EXTENSIONS}" && \
     for EXTENSION in ${EXTENSIONS}; do declare -u EXT=${EXTENSION} && EXTENSIONS_EXT=$(eval "echo \$EXTENSIONS_${EXT}") && \
     if [ "${EXT}" = "AZ" ]; then for EXTENSION_EXT in ${EXTENSIONS_EXT}; do az extension add -y --name $(echo ${EXTENSION_EXT} | sed 's/=/ --version /g'); done; fi && \
+    if [ "${EXT}" = "GOOGLE" ]; then for EXTENSION_EXT in ${EXTENSIONS_EXT}; do ./google/*/bin/gcloud components install ${EXTENSION_EXT} && $(echo ${EXTENSION_EXT} | sed 's/.*=/gcloud components update --version /g'); done; fi && \
     if [ "${EXT}" = "HELM" ]; then for EXTENSION_EXT in ${EXTENSIONS_EXT}; do helm plugin install $(echo ${EXTENSION_EXT} | sed 's/=/ --version=/g'); done; fi; done
 
 ###################################### Config #####################################
