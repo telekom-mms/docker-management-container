@@ -1,5 +1,5 @@
 #!/bin/sh
-# script to migrate build settings from version 1.x > 2
+# script to migrate build settings from version 1.x > 2 and to remove old files
 
 # init stuff
 if [ $# -ne 1 ]; then
