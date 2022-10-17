@@ -26,6 +26,7 @@ requirements:
     - xmltodict
     - azure-cli-core=2.34.0
     - azure-common=1.1.11
+    - awsume
   ansible:
     roles:
       - t_systems_mms.grafana
@@ -37,6 +38,10 @@ extensions:
     - front-door=1.0.15
   google:
     - gsutil
+    - gke-gcloud-auth-plugin
+    - kubectl
   helm:
     - https://github.com/databus23/helm-diff=3.5.0
     - https://github.com/jkroepke/helm-secrets
+commands:
+  - awsume-configure

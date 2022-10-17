@@ -33,6 +33,8 @@ parse_yaml() {
     if(length($2)== 0){  vname[indent]= ++idx[indent] };
     if (length($3) > 0) {
         vn="";
+        name="";
+        subname="";
         for (i=0; i<indent; i++) {
           if (vname[2]) {
             name=(vname[1])
