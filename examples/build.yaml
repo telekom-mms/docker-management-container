@@ -45,3 +45,9 @@ extensions:
     - https://github.com/jkroepke/helm-secrets
 commands:
   - awsume-configure
+profiles:
+  .vimrc:
+    - filetype on
+  .bash_aliases:
+    - alias ll='ls -la'
+    - alias svcsh='ssh svcsh'
