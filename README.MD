@@ -5,7 +5,7 @@ The Docker Management Container (or DMC for short) contains a number of plugins 
 <picture>
   <source
     srcset="https://user-images.githubusercontent.com/3198961/186105564-3901aded-21f1-4191-b323-e943f49ea5ed.png"
-    media="(prefers-color-scheme: light)"
+    media="(prefers-color-scheme: dark)"
     width="30%" height="30%">
   <img width="30%" height="30%" src="https://user-images.githubusercontent.com/3198961/186105473-eab8c428-4a19-474d-b391-e2410383d05d.png">
 </picture>
@@ -51,33 +51,33 @@ The DMC uses the wakemeops image as base image.
 
 Tools to be installed within the DMC.
 
-| ARG                           | Required | Default                                                                            | Description                                                                                                   |
-| ----------------------------- | -------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| WORKDIR                       | no       | /root                                                                              |                                                                                                               |
-| PACKAGES                      | no       |                                                                                    | list of packages to be installed                                                                              |
-| REPOSITORIES                  | no       |                                                                                    | further repositories that should be used, actually the following are supported [hashicorp, docker, microsoft] |
-| BINARIES                      | no       |                                                                                    | binaries that should be installed, actually the following are supported [github, google]                      |
-| REPOSITORIES_HASHICORP_GPG    | no       | `https://apt.releases.hashicorp.com/gpg`                                           |                                                                                                               |
-| REPOSITORIES_HASHICORP_URI    | no       | `https://apt.releases.hashicorp.com`                                               |                                                                                                               |
-| REPOSITORIES_HASHICORP_BRANCH | no       | main                                                                               |                                                                                                               |
-| REPOSITORIES_DOCKER_GPG       | no       | `https://download.docker.com/linux/ubuntu/gpg`                                     |                                                                                                               |
-| REPOSITORIES_DOCKER_URI       | no       | `https://download.docker.com/linux/ubuntu`                                         |                                                                                                               |
-| REPOSITORIES_DOCKER_BRANCH    | no       | stable                                                                             |                                                                                                               |
-| REPOSITORIES_MICROSOFT_GPG    | no       | `https://packages.microsoft.com/keys/microsoft.asc`                                |                                                                                                               |
-| REPOSITORIES_MICROSOFT_URI    | no       | `https://packages.microsoft.com/repos/azure-cli/`                                  |                                                                                                               |
-| REPOSITORIES_MICROSOFT_BRANCH | no       | main                                                                               |                                                                                                               |
-| BINARIES_GITHUB_URI           | no       | `https://api.github.com/repos`                                                     |                                                                                                               |
-| BINARIES_GOOGLE_URI           | no       | `https://packages.cloud.google.com/apt/dists/cloud-sdk/main/binary-arm64/Packages` |                                                                                                               |
+| ARG                           | Required | Default                                                                            | Description                                                                                                         |
+| ----------------------------- | -------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| WORKDIR                       | no       | /root                                                                              |                                                                                                                     |
+| PACKAGES                      | no       |                                                                                    | list of packages to be installed                                                                                    |
+| REPOSITORIES                  | no       |                                                                                    | further repositories that should be used, actually the following are supported **_[hashicorp, docker, microsoft]_** |
+| BINARIES                      | no       |                                                                                    | binaries that should be installed, actually the following are supported **_[github, google]_**                      |
+| REPOSITORIES_HASHICORP_GPG    | no       | `https://apt.releases.hashicorp.com/gpg`                                           |                                                                                                                     |
+| REPOSITORIES_HASHICORP_URI    | no       | `https://apt.releases.hashicorp.com`                                               |                                                                                                                     |
+| REPOSITORIES_HASHICORP_BRANCH | no       | main                                                                               |                                                                                                                     |
+| REPOSITORIES_DOCKER_GPG       | no       | `https://download.docker.com/linux/ubuntu/gpg`                                     |                                                                                                                     |
+| REPOSITORIES_DOCKER_URI       | no       | `https://download.docker.com/linux/ubuntu`                                         |                                                                                                                     |
+| REPOSITORIES_DOCKER_BRANCH    | no       | stable                                                                             |                                                                                                                     |
+| REPOSITORIES_MICROSOFT_GPG    | no       | `https://packages.microsoft.com/keys/microsoft.asc`                                |                                                                                                                     |
+| REPOSITORIES_MICROSOFT_URI    | no       | `https://packages.microsoft.com/repos/azure-cli/`                                  |                                                                                                                     |
+| REPOSITORIES_MICROSOFT_BRANCH | no       | main                                                                               |                                                                                                                     |
+| BINARIES_GITHUB_URI           | no       | `https://api.github.com/repos`                                                     |                                                                                                                     |
+| BINARIES_GOOGLE_URI           | no       | `https://packages.cloud.google.com/apt/dists/cloud-sdk/main/binary-arm64/Packages` |                                                                                                                     |
 
 #### Tool Config
 
 Extension of installed tools.
 
-| ARG          | Required | Default | Description                                                                                                                       |
-| ------------ | -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| WORKDIR      | no       | /root   |                                                                                                                                   |
-| REQUIREMENTS | no       |         | requirements that should be installed for the used tools, actually the following are supported [pip, ansible(roles, collections)] |
-| EXTENSIONS   | no       |         | exetensions that should be installed for the used tools, actually the following are supported [az, google, helm]                  |
+| ARG          | Required | Default | Description                                                                                                                             |
+| ------------ | -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| WORKDIR      | no       | /root   |                                                                                                                                         |
+| REQUIREMENTS | no       |         | requirements that should be installed for the used tools, actually the following are supported **_[pip, ansible(roles, collections)]_** |
+| EXTENSIONS   | no       |         | extensions that should be installed for the used tools, actually the following are supported **_[az, google, helm]_**                   |
 
 #### Post Build Config
 
@@ -150,7 +150,10 @@ sh migrate.sh .
 
 ## Examples
 
-Examples for the `build.yaml` could be found under [examples](examples) [minimal](examples/min_build.yaml), [full](examples/full_build.yaml)]
+Examples for the `build.yaml` could be found under [examples](examples):
+
+* [minimal](examples/min_build.yaml)
+* [full](examples/full_build.yaml)
 
 ## Others
 
