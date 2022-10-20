@@ -20,6 +20,12 @@ jobs:
       contents: read
       packages: write
 
+    strategy:
+      matrix:
+        example:
+          - min
+          - full
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -39,27 +45,24 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         if: github.ref == 'refs/heads/master'
 
-      - name: build Dockerfile min_build
-        run: cp examples/min_build.yaml ./build.yaml && sh render.sh .
+      - name: build Dockerfile ${{ matrix.example }}
+        run: cp examples/${{ matrix.example }}_build.yaml ./build.yaml && sh render.sh .
 
-      - name: Build and push dmc:min
+      - name: Build and push dmc:${{ matrix.example }}
         uses: docker/build-push-action@v3.1.1
         with:
           context: .
           push: false
-          tags: min
+          tags: ${{ matrix.example }}
 
-      - name: Test $IMAGE_NAME:min
+      - name: Test $IMAGE_NAME:${{ matrix.example }}
         run: |
-          docker run --rm dmc:min
+          docker run --rm dmc:${{ matrix.example }}
 
-      - name: Build and push dmc:full
+      - name: Build and push dmc:${{ matrix.example }}
         uses: docker/build-push-action@v3.1.1
         with:
           context: .
-          push: false
-          tags: $IMAGE_NAME:full
-
-      - name: Test dmc:full
-        run: |
-          docker run --rm dmc:full
+          push: true
+          tags: ${{ matrix.example }}
+        if: github.ref == 'refs/heads/master'

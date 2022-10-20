@@ -16,6 +16,18 @@ The DMC provides a Dockerfile template that creates the Dockerfile with the desi
 
 The DMC uses the wakemeops as base setup, for more information about wakemeops look at the [docs](https://docs.wakemeops.com/).
 
+### Try
+
+For a quick overview and test of the DMC, we have created images based on the minimal and full examples that can be used directly.
+
+``` bash
+# minimal
+docker run ghcr.io/T-Systems-MMS/dmc:min
+
+# full
+docker run ghcr.io/T-Systems-MMS/dmc:full
+```
+
 ## Usage
 
 ### Setup and Configuration
@@ -138,4 +150,8 @@ sh migrate.sh .
 
 ## Examples
 
-Examples for the `build.yaml` could be found under [examples](examples) [[minimum](examples/min_build.yaml), [full](examples/full_build.yaml)]
+Examples for the `build.yaml` could be found under [examples](examples) [minimal](examples/min_build.yaml), [full](examples/full_build.yaml)]
+
+## Others
+
+Feedback, suggestions for improvement and expansion, and of course collaboration are expressly desired.
