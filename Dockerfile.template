@@ -52,12 +52,12 @@ WORKDIR ${WORKDIR}
 RUN test -n "${REPOSITORIES}" && \
     IFS=";" && \
     for REPOSITORY in ${REPOSITORIES[@]}; do echo ${REPOSITORY} && declare -u REPO=${REPOSITORY} && REPO_GPG=$(eval "echo \$REPOSITORIES_${REPO}_GPG") && REPO_URI=$(eval "echo \$REPOSITORIES_${REPO}_URI") && REPO_BRANCH=$(eval "echo \$REPOSITORIES_${REPO}_BRANCH") && \
-    curl -fsSL ${REPO_GPG} | gpg --dearmor | tee /etc/apt/trusted.gpg.d/${REPOSITORY}.gpg > /dev/null && apt-add-repository "deb [arch=amd64] ${REPO_URI} $(lsb_release -cs) ${REPO_BRANCH}"; done
+    curl -fsSL ${REPO_GPG} | gpg --dearmor | tee /etc/apt/trusted.gpg.d/${REPOSITORY}.gpg > /dev/null && apt-add-repository "deb [arch=amd64] ${REPO_URI} $(lsb_release -cs) ${REPO_BRANCH}"; done || :
 
 ## packages
 RUN test -n "${PACKAGES}" && \
     IFS=";" && \
-    install_packages ${PACKAGES[@]}
+    install_packages ${PACKAGES[@]} || :
 
 ## binaries
 RUN test -n "${BINARIES}" && \
@@ -72,7 +72,7 @@ RUN test -n "${BINARIES}" && \
     BINARY_PACKAGE_URI=$(echo "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/$(echo ${BINARY_PACKAGE} | cut -d '=' -f1)-${BINARY_PACKAGE_VERSION}-linux-x86_64.tar.gz") && \
     mkdir -p ./google && curl -SsL --retry 5 ${BINARY_PACKAGE_URI} | tar xz -C ./google && \
     chmod -R +x ./google/* && \
-    sh ./google/*/install.sh --quiet --command-completion true --bash-completion true --path-update true; done; fi; done
+    sh ./google/*/install.sh --quiet --command-completion true --bash-completion true --path-update true; done; fi; done || :
 
 ###################################### Tool Config ################################
 ARG WORKDIR=/root
@@ -91,7 +91,7 @@ RUN test -n "${REQUIREMENTS}" && \
     IFS=";" && \
     if [ "${REQ}" = "PIP" ]; then for REQUIREMENT_REQ in ${REQUIREMENTS_REQ[@]}; do pip3 install $(echo ${REQUIREMENT_REQ} | sed 's/=/==/g');done;  fi && \
     if [ "${REQ}" = "ANSIBLE" ]; then for REQUIREMENT_REQ in ${REQUIREMENTS_ANSIBLE_ROLES[@]}; do ansible-galaxy install $(echo ${REQUIREMENT_REQ} | sed 's/=/,/g'); done && \
-    for REQUIREMENT_REQ in ${REQUIREMENTS_ANSIBLE_COLLECTIONS[@]}; do ansible-galaxy collection install $(echo ${REQUIREMENT_REQ} | sed 's/=/:/g'); done; fi; done
+    for REQUIREMENT_REQ in ${REQUIREMENTS_ANSIBLE_COLLECTIONS[@]}; do ansible-galaxy collection install $(echo ${REQUIREMENT_REQ} | sed 's/=/:/g'); done; fi; done || :
 
 ## extensions
 RUN test -n "${EXTENSIONS}" && \
@@ -100,7 +100,7 @@ RUN test -n "${EXTENSIONS}" && \
     IFS=";" && \
     if [ "${EXT}" = "AZ" ]; then for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; do az extension add -y --name $(echo ${EXTENSION_EXT} | sed 's/=/ --version /g'); done; fi && \
     if [ "${EXT}" = "GOOGLE" ]; then for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; do ./google/*/bin/gcloud components install ${EXTENSION_EXT} && $(echo ${EXTENSION_EXT} | sed 's/.*=/gcloud components update --version /g'); done; fi && \
-    if [ "${EXT}" = "HELM" ]; then for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; do helm plugin install $(echo ${EXTENSION_EXT} | sed 's/=/ --version=/g'); done; fi; done
+    if [ "${EXT}" = "HELM" ]; then for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; do helm plugin install $(echo ${EXTENSION_EXT} | sed 's/=/ --version=/g'); done; fi; done || :
 
 ###################################### Config #####################################
 ARG WORKDIR=/root
@@ -117,9 +117,9 @@ RUN test -n "${PROFILES}" && \
     IFS=";" && \
     for PROFILE in ${PROFILES[@]}; do IFS="" && declare -u PR=$(echo ${PROFILE} | tr -d '.') && PROFILES_PR=$(eval "echo \$PROFILES_${PR}") && \
     IFS=";" && \
-    for PROFILE_PR in ${PROFILES_PR[@]}; do echo "${PROFILE_PR}" >> ${PROFILE}; done; done
+    for PROFILE_PR in ${PROFILES_PR[@]}; do echo "${PROFILE_PR}" >> ${PROFILE}; done; done || :
 
 ## commands
 RUN test -n "${COMMANDS}" && \
     IFS=";" && \
-    for COMMAND in ${COMMANDS[@]}; do ${COMMAND}; done
+    for COMMAND in ${COMMANDS[@]}; do ${COMMAND}; done || :
