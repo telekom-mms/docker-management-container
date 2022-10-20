@@ -43,7 +43,9 @@ extensions:
   helm:
     - https://github.com/databus23/helm-diff=3.5.0
     - https://github.com/jkroepke/helm-secrets
-commands:
+post_build_commands:
+  - export http_proxy='http://proxyserver:port'
+  - export https_proxy='https://proxyserver:port'
   - awsume-configure
 profiles:
   .vimrc:

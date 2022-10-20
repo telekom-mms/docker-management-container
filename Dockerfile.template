@@ -87,7 +87,7 @@ WORKDIR ${WORKDIR}
 ## requirements
 RUN test -n "${REQUIREMENTS}" && \
     IFS=";" && \
-    for REQUIREMENT in ${REQUIREMENTS[@]}; do IFS="" && declare -u REQ=${REQUIREMENT} && REQUIREMENTS_REQ=$(eval "echo \$REQUIREMENTS_${REQ}") && \
+    for REQUIREMENT in ${REQUIREMENTS[@]}; do IFS='' && declare -u REQ=${REQUIREMENT} && REQUIREMENTS_REQ=$(eval "echo \$REQUIREMENTS_${REQ}") && \
     IFS=";" && \
     if [ "${REQ}" = "PIP" ]; then for REQUIREMENT_REQ in ${REQUIREMENTS_REQ[@]}; do pip3 install $(echo ${REQUIREMENT_REQ} | sed 's/=/==/g');done;  fi && \
     if [ "${REQ}" = "ANSIBLE" ]; then for REQUIREMENT_REQ in ${REQUIREMENTS_ANSIBLE_ROLES[@]}; do ansible-galaxy install $(echo ${REQUIREMENT_REQ} | sed 's/=/,/g'); done && \
@@ -96,16 +96,16 @@ RUN test -n "${REQUIREMENTS}" && \
 ## extensions
 RUN test -n "${EXTENSIONS}" && \
     IFS=";" && \
-    for EXTENSION in ${EXTENSIONS[@]}; do  IFS="" && declare -u EXT=${EXTENSION} && EXTENSIONS_EXT=$(eval "echo \$EXTENSIONS_${EXT}") && \
+    for EXTENSION in ${EXTENSIONS[@]}; do IFS='' && declare -u EXT=${EXTENSION} && EXTENSIONS_EXT=$(eval "echo \$EXTENSIONS_${EXT}") && \
     IFS=";" && \
     if [ "${EXT}" = "AZ" ]; then for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; do az extension add -y --name $(echo ${EXTENSION_EXT} | sed 's/=/ --version /g'); done; fi && \
     if [ "${EXT}" = "GOOGLE" ]; then for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; do ./google/*/bin/gcloud components install ${EXTENSION_EXT} && $(echo ${EXTENSION_EXT} | sed 's/.*=/gcloud components update --version /g'); done; fi && \
     if [ "${EXT}" = "HELM" ]; then for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; do helm plugin install $(echo ${EXTENSION_EXT} | sed 's/=/ --version=/g'); done; fi; done || :
 
-###################################### Config #####################################
+################################ Post Build Config ################################
 ARG WORKDIR=/root
 ARG PROFILES
-ARG COMMANDS
+ARG POST_BUILD_COMMANDS
 
 # ARG PROFILES_N
 
@@ -115,11 +115,11 @@ CMD ["/bin/bash"]
 ## profiles
 RUN test -n "${PROFILES}" && \
     IFS=";" && \
-    for PROFILE in ${PROFILES[@]}; do IFS="" && declare -u PR=$(echo ${PROFILE} | tr -d '.') && PROFILES_PR=$(eval "echo \$PROFILES_${PR}") && \
+    for PROFILE in ${PROFILES[@]}; do IFS='' && declare -u PR=$(echo ${PROFILE} | tr -d '.') && PROFILES_PR=$(eval "echo \$PROFILES_${PR}") && \
     IFS=";" && \
     for PROFILE_PR in ${PROFILES_PR[@]}; do echo "${PROFILE_PR}" >> ${PROFILE}; done; done || :
 
-## commands
-RUN test -n "${COMMANDS}" && \
+## post_build_commands
+RUN test -n "${POST_BUILD_COMMANDS}" && \
     IFS=";" && \
-    for COMMAND in ${COMMANDS[@]}; do ${COMMAND}; done || :
+    for POST_BUILD_COMMAND in ${POST_BUILD_COMMANDS[@]}; do ${POST_BUILD_COMMAND}; done || :

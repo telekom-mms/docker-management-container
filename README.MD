@@ -67,15 +67,15 @@ Extension of installed tools.
 | REQUIREMENTS | no       |         | requirements that should be installed for the used tools, actually the following are supported [pip, ansible(roles, collections)] |
 | EXTENSIONS   | no       |         | exetensions that should be installed for the used tools, actually the following are supported [az, google, helm]                  |
 
-#### Config
+#### Post Build Config
 
-System configuration and further setups to finish the DMC build.
+System configuration and further setups to finish the DMC build afte.
 
-| ARG      | Required | Default | Description                        |
-| -------- | -------- | ------- | ---------------------------------- |
-| WORKDIR  | no       | /root   |                                    |
-| PROFILES | no       |         | configuration for profile settings |
-| COMMANDS | no       |         | commands to run within build       |
+| ARG                 | Required | Default | Description                                               |
+| ------------------- | -------- | ------- | --------------------------------------------------------- |
+| WORKDIR             | no       | /root   |                                                           |
+| PROFILES            | no       |         | configuration for profile settings                        |
+| POST_BUILD_COMMANDS | no       |         | commands to run after the image build to finish the setup |
 
 ### Build Dockerfile
 
