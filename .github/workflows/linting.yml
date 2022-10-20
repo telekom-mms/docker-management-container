@@ -1,0 +1,23 @@
+---
+name: linting
+
+on: [push, pull_request]
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Run ShellCheck
+        uses: azohra/shell-linter@latest
+        with:
+          path: "*.sh"
+
+      - name: Run Hadolint
+        uses: hadolint/hadolint-action@v2.0.0
+        with:
+          dockerfile: Dockerfile.template
+          ignore: DL3013,DL3009,SC2001,SC2015,SC2068
+          # DL3013 - solved over sed command

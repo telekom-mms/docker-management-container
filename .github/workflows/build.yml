@@ -1,11 +1,13 @@
+---
 name: Create and publish Docker image
 
-on:  # yamllint disable-line rule:truthy
+on:
   pull_request:
-    branches: [master]
-  workflow_dispatch:
+    branches:
+      - master
   push:
-    branches: ['master']
+    branches:
+      - master
 
 env:
   REGISTRY: ghcr.io
@@ -28,21 +30,36 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+        if: github.ref == 'refs/heads/master'
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4.0.1
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        if: github.ref == 'refs/heads/master'
 
-      - name: build Dockerfile
-        run: sh render.sh examples/
+      - name: build Dockerfile min_build
+        run: cp examples/min_build.yaml ./build.yaml && sh render.sh .
 
-      - name: Build and push Docker image
+      - name: Build and push dmc:min
         uses: docker/build-push-action@v3.1.1
         with:
-          context: examples
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          context: .
+          push: false
+          tags: min
 
+      - name: Test $IMAGE_NAME:min
+        run: |
+          docker run --rm dmc:min
+
+      - name: Build and push dmc:full
+        uses: docker/build-push-action@v3.1.1
+        with:
+          context: .
+          push: false
+          tags: $IMAGE_NAME:full
+
+      - name: Test dmc:full
+        run: |
+          docker run --rm dmc:full
