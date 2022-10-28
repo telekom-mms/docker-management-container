@@ -24,10 +24,10 @@ For a quick overview and test of the DMC, we have created images based on the mi
 
 ``` bash
 # minimal
-docker run ghcr.io/T-Systems-MMS/dmc:min
+docker run ghcr.io/t-systems-mms/dmc:min
 
 # full
-docker run ghcr.io/T-Systems-MMS/dmc:full
+docker run ghcr.io/t-systems-mms/dmc:full
 ```
 
 ## Usage

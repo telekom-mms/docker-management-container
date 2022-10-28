@@ -8,10 +8,11 @@ if [ $# -ne 1 ]; then
   exit 2
 fi
 
-ENV_DIR=${1-$(dirname "$(readlink -f "$0")")}
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+ENV_DIR="${1-SCRIPT_DIR}"
 ENV_FILE="${ENV_DIR}/build.yaml"
 BUILD_FILE="${ENV_DIR}/.build"
-DOCKERFILE_TEMPLATE="${ENV_DIR}/Dockerfile.template"
+DOCKERFILE_TEMPLATE="${SCRIPT_DIR}/Dockerfile.template"
 DOCKERFILE="${ENV_DIR}/Dockerfile"
 
 # function
