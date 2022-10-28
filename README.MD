@@ -10,8 +10,6 @@ The Docker Management Container (or DMC for short) contains a number of plugins 
   <img width="30%" height="30%" src="">
 </picture> -->
 
-![Tux, the Linux mascot](https://user-images.githubusercontent.com/3198961/186105473-eab8c428-4a19-474d-b391-e2410383d05d.png)
-
 ## How does the DMC work?
 
 The DMC provides a Dockerfile template that creates the Dockerfile with the desired tools and versions through a file and script. This Dockerfile is then used for the actual build of the container. The Dockerfile itself does not need to be kept, but is created and discarded after the build of the Dockerfile.
