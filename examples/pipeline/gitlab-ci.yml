@@ -1,21 +1,16 @@
 # .gitlab-ci.yml
 ---
-stages:
-
-default:
-  tags:
-    - docker
-
 variables:
   DOCKER_HOST: tcp://docker:2375
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: ""
   GIT_DEPTH: 0
   GIT_SUBMODULE_STRATEGY: recursive
-  DOCKERHUB_MIRROR: your-dockerhub-mirror.url
   SERVICE: mms
-  DMC_IMAGE: ${SERVICE}-mgmt-dmc
-  GITHUB_DMC_TAG: latest
+  DMC: ${SERVICE}-mgmt-dmc
+  DMC_DIR: ${CI_PROJECT_DIR}/docker/
+  DMC_IMAGE: $CI_REGISTRY_IMAGE/${DMC}
+  GITHUB_DMC_REF: latest
 
 include:
   - local: .gitlab/ci/*
@@ -32,19 +27,16 @@ include: ${CI_PROJECT_DIR}/.gitlab/ci/login.yml
 
 # build management-container
 build-dmc:
-  image: $DOCKERHUB_MIRROR/docker:git
-  services:
-    - name: $DOCKERHUB_MIRROR/docker:dind
-      alias: docker
+  image: docker:git
   script:
     # clone DMC repo from GitHub
-    - git clone --recursive --branch ${GITHUB_DMC_TAG} --depth 1 https://github.com/T-Systems-MMS/docker-management-container ${CI_PROJECT_DIR}/docker/docker-management-container
+    - git clone --recursive --branch ${GITHUB_DMC_REF} --depth 1 https://github.com/T-Systems-MMS/docker-management-container ${DMC_DIR}/docker-management-container
     # get date for tagging the image
     - export DATE=$(date +"%F")
     # create Dockerfile with template from DMC repo
-    - bash  ${CI_PROJECT_DIR}/docker/docker-management-container/render.sh ${CI_PROJECT_DIR}/docker/${DMC_IMAGE}
+    - sh ${CI_PROJECT_DIR}/docker/docker-management-container/render.sh ${DMC_DIR}/${DMC}
     # build and tag image
-    - docker build -t ${DMC_IMAGE}:${DATE} ${CI_PROJECT_DIR}/docker/${DMC_IMAGE}
+    - docker build -t ${DMC_IMAGE}:${DATE} ${DMC_DIR}/${DMC}
     - docker tag ${DMC_IMAGE}:${DATE} ${DMC_IMAGE}:latest
     # push all images
     - docker push --all-tags ${DMC_IMAGE}
