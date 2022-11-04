@@ -1,95 +1,121 @@
 # Docker Management Container
 
-The Docker Management Container includes a set of plugins and services that make it easier to build, test, deploy and manage infrastructure.
+The Docker Management Container (or DMC for short) contains a number of plugins and services that are designed to make it easy to create, test, deploy and manage infrastructures. For more information also take a look at [T-Systems-MMS Blog](https://blog.t-systems-mms.com/tech-insights/manage-your-infrastructure-better-with-this-opensource-tool).
 
-<picture>
+<!-- <picture>
   <source
     srcset="https://user-images.githubusercontent.com/3198961/186105564-3901aded-21f1-4191-b323-e943f49ea5ed.png"
     media="(prefers-color-scheme: dark)"
     width="30%" height="30%">
-  <img width="30%" height="30%" src="https://user-images.githubusercontent.com/3198961/186105473-eab8c428-4a19-474d-b391-e2410383d05d.png">
-</picture>
+  <img width="30%" height="30%" src="">
+</picture> -->
 
-## Setup
+## How does the DMC work?
 
-Set service-specific tools, versions and configuration:
+The DMC provides a Dockerfile template that creates the Dockerfile with the desired tools and versions through a file and script. This Dockerfile is then used for the actual build of the container. The Dockerfile itself does not need to be kept, but is created and discarded after the build of the Dockerfile.
+
+The DMC uses the wakemeops as base setup, for more information about wakemeops look at the [docs](https://docs.wakemeops.com/).
+
+### Try
+
+For a quick overview and test of the DMC, we have created images based on the minimal and full examples that can be used directly.
 
 ``` bash
-vi .docker_build
+# minimal
+docker run ghcr.io/t-systems-mms/dmc:min
+
+# full
+docker run ghcr.io/t-systems-mms/dmc:full
 ```
 
-## Image and Packages
+## Usage
 
-### Image
+### Setup and Configuration
 
-| ARG                | Required | Default |
-| ------------------ | -------- | ------- |
-| ROCKYLINUX_VERSION | no       | 8       |
+Setup plugins, services, tools, versions and configuration over file with yaml syntax.
 
-### Image Config
+``` bash
+touch build.yaml
+```
 
-python version can be defined
+#### Image
 
-| ARG              | Required | Default |
-| ---------------- | -------- | ------- |
-| PYTHON_VERSION   | no       | 39       |
+The DMC uses the wakemeops image as base image.
 
-Further packages to install can be specified
+| ARG          | Required | Default | Description                                                                                |
+| ------------ | -------- | ------- |------------------------------------------------------------------------------------------- |
+| DISTRIBUTION | no       | ubuntu  | distribution that should be used, see also [wakemeops](https://hub.docker.com/u/wakemeops) |
+| VERSION      | no       | latest  | specific version                                                                           |
 
-| ARG              | Required | Default |
-| ---------------- | -------- | ------- |
-| PACKAGES         | no       |         |
+#### Tools
 
-## Tools
+Tools to be installed within the DMC.
 
-Install needed Tools within Management Container
+| ARG                           | Required | Default                                                                            | Description                                                                                                         |
+| ----------------------------- | -------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| WORKDIR                       | no       | /root                                                                              |                                                                                                                     |
+| PACKAGES                      | no       |                                                                                    | list of packages to be installed                                                                                    |
+| REPOSITORIES                  | no       |                                                                                    | further repositories that should be used, actually the following are supported **_[hashicorp, docker, microsoft]_** |
+| BINARIES                      | no       |                                                                                    | binaries that should be installed, actually the following are supported **_[github, google]_**                      |
+| REPOSITORIES_HASHICORP_GPG    | no       | `https://apt.releases.hashicorp.com/gpg`                                           |                                                                                                                     |
+| REPOSITORIES_HASHICORP_URI    | no       | `https://apt.releases.hashicorp.com`                                               |                                                                                                                     |
+| REPOSITORIES_HASHICORP_BRANCH | no       | main                                                                               |                                                                                                                     |
+| REPOSITORIES_DOCKER_GPG       | no       | `https://download.docker.com/linux/ubuntu/gpg`                                     |                                                                                                                     |
+| REPOSITORIES_DOCKER_URI       | no       | `https://download.docker.com/linux/ubuntu`                                         |                                                                                                                     |
+| REPOSITORIES_DOCKER_BRANCH    | no       | stable                                                                             |                                                                                                                     |
+| REPOSITORIES_MICROSOFT_GPG    | no       | `https://packages.microsoft.com/keys/microsoft.asc`                                |                                                                                                                     |
+| REPOSITORIES_MICROSOFT_URI    | no       | `https://packages.microsoft.com/repos/azure-cli/`                                  |                                                                                                                     |
+| REPOSITORIES_MICROSOFT_BRANCH | no       | main                                                                               |                                                                                                                     |
+| BINARIES_GITHUB_URI           | no       | `https://api.github.com/repos`                                                     |                                                                                                                     |
+| BINARIES_GOOGLE_URI           | no       | `https://packages.cloud.google.com/apt/dists/cloud-sdk/main/binary-arm64/Packages` |                                                                                                                     |
 
-| ARG               | Required | Default | Description                      |
-| ----------------- | -------- | ------- | -------------------------------- |
-| ANSIBLE_VERSION   | no       | latest  |                                  |
-| DOCKER_VERSION    | no       | latest  |                                  |
-| NOMAD_VERSION     | no       | latest  |                                  |
-| CONSUL_VERSION    | no       | latest  |                                  |
-| KUBECTL_VERSION   | no       | latest  |                                  |
-| HELM_VERSION      | no       | latest  |                                  |
-| TERRAFORM_VERSION | no       | latest  |                                  |
-| AZ_CLI_VERSION    | no       | latest  |                                  |
-| AWS_CLI_VERSION   | no       | latest  |                                  |
-| GCLOUD_VERSION    | no       | latest  |                                  |
-| GITHUB_BINARIES   | no       | latest  | List of packages to be installed, format is [package binary name]:[package binary format] |
+#### Tool Config
 
-## Tool Configuration / Add Specific extension
+Extension of installed tools.
 
-| ARG                  | Required | Default | Description                                                              |
-| -------------------- | -------- | ------- | ------------------------------------------------------------------------ |
-| PIP_REQUIREMENTS     | no       |         | File which includes a list of pip packages to be installed               |
-| ANSIBLE_REQUIREMENTS | no       |         | File which includes a list of ansible-galaxy collections to be installed |
-| AZ_CLI_EXTENSIONS    | no       |         | List of azure-cli extenstions to be installed                            |
-| HELM_EXTENSIONS      | no       |         | List of helm plugins to be installed from a VCS repo                     |
+| ARG          | Required | Default | Description                                                                                                                             |
+| ------------ | -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| WORKDIR      | no       | /root   |                                                                                                                                         |
+| REQUIREMENTS | no       |         | requirements that should be installed for the used tools, actually the following are supported **_[pip, ansible(roles, collections)]_** |
+| EXTENSIONS   | no       |         | extensions that should be installed for the used tools, actually the following are supported **_[az, google, helm]_**                   |
 
-### System Configuration
+#### Post Build Config
 
-## create Dockerfile from template with .docker_build configuration
+System configuration and further setups to finish the DMC build afte.
+
+| ARG                 | Required | Default | Description                                               |
+| ------------------- | -------- | ------- | --------------------------------------------------------- |
+| WORKDIR             | no       | /root   |                                                           |
+| PROFILES            | no       |         | configuration for profile settings                        |
+| POST_BUILD_COMMANDS | no       |         | commands to run after the image build to finish the setup |
+
+### Build Dockerfile
+
+To create the Dockerfile from Template you have simply to run the following steps.
+
+1. create build.yaml with your needed settings
+2. run the script `render.sh`
+3. build Docker Image
+
+`render.sh`
+
+The build script which creates the `Dockerfile` from template with your settings from `build.yaml`
 
 ``` bash
 sh render.sh .
 ```
 
-## create container image
+### Build Image
 
 ``` bash
-export DMC="service-mgmt-dmc:1.0.0"
-
-docker build -t ${DMC} .
+docker image build -t dmc:latest .
 ```
 
-## Pipelines
+Examples for build within CI Pipelines can be found under [examples/pipeline](examples/pipeline).
 
-Examples for build within Pipelines can be found under [examples/pipeline](examples/pipeline).
+### Run Image
 
-## Local Usage
-
-### run DMC
+#### local
 
 To run the Docker Management Container your system must have Docker or Podman installed.
 
@@ -98,15 +124,37 @@ To run the Docker Management Container your system must have Docker or Podman in
 * Docker Desktop for Windows or WSL2
 
 ``` bash
-docker run -ti ${DMC}
+docker run -ti dmc:latest
 ```
 
-### mount volumes
+##### mount volumes
 
 You can mount your code or git repository into the container. This way you can work with your favorite editor and test the changes directly in the DMC.
 
 Example:
 
 ``` bash
-docker run -ti --env-file .docker_env -v${HOME}/git/service:/service -w /service ${DMC}
+docker run -ti --env-file .docker_env -v${HOME}/git/service:/service -w /service dmc:latest
 ```
+
+## Migration
+
+With Version 2.0.0 there would be a breaking change in the configuration and usage of the DMC.
+To support the migration we provide a script to migrate from the old .docker_build to the new build.yaml.
+
+`migrate.sh`
+
+``` bash
+sh migrate.sh .
+```
+
+## Examples
+
+Examples for the `build.yaml` could be found under [examples](examples):
+
+* [minimal](examples/min_build.yaml)
+* [full](examples/full_build.yaml)
+
+## Others
+
+Feedback, suggestions for improvement and expansion, and of course collaboration are expressly desired.

@@ -1,34 +1,44 @@
+# .gitlab-ci.yml
 ---
-stages:
-  - build_dmc
-
 variables:
-  CONTAINER_IMAGE_MGMT: $CI_REGISTRY_IMAGE/service-mgmt:latest
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+  GIT_DEPTH: 0
+  GIT_SUBMODULE_STRATEGY: recursive
+  SERVICE: mms
+  DMC: ${SERVICE}-mgmt-dmc
+  DMC_DIR: ${CI_PROJECT_DIR}/docker/
+  DMC_IMAGE: $CI_REGISTRY_IMAGE/${DMC}
+  GITHUB_DMC_REF: latest
 
-.docker-login: &docker-login
+include:
+  - local: .gitlab/ci/*
+
+# .gitlab/ci/login.yml
+---
+.docker_login:
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
+# .gitlab/ci/dmc.yml
+---
+include: ${CI_PROJECT_DIR}/.gitlab/ci/login.yml
+
 # build management-container
-build_service-mgmt:
-  stage: build_dmc
-  image: $DOCKERHUB_MIRROR/docker:git
-  services:
-    - name: $DOCKERHUB_MIRROR/docker:dind
-      alias: docker
+build-dmc:
+  image: docker:git
   script:
     # clone DMC repo from GitHub
-    - git clone --recursive --branch ${GITHUB_DMC_TAG} --depth 1 https://github.com/T-Systems-MMS/docker-management-container $CI_PROJECT_DIR/docker/docker-management-container
+    - git clone --recursive --branch ${GITHUB_DMC_REF} --depth 1 https://github.com/T-Systems-MMS/docker-management-container ${DMC_DIR}/docker-management-container
     # get date for tagging the image
     - export DATE=$(date +"%F")
     # create Dockerfile with template from DMC repo
-    - sh $CI_PROJECT_DIR/docker/docker-management-container/render.sh $CI_PROJECT_DIR/docker/service-mgmt
+    - sh ${CI_PROJECT_DIR}/docker/docker-management-container/render.sh ${DMC_DIR}/${DMC}
     # build and tag image
-    - docker build -t $DMC_IMAGE:${DATE} docker/service-mgmt
-    - docker tag $DMC_IMAGE:${DATE} $DMC_IMAGE:latest
+    - docker build -t ${DMC_IMAGE}:${DATE} ${DMC_DIR}/${DMC}
+    - docker tag ${DMC_IMAGE}:${DATE} ${DMC_IMAGE}:latest
     # push all images
-    - docker push --all-tags $DMC_IMAGE
-  extends: 
+    - docker push --all-tags ${DMC_IMAGE}
+  extends:
     - .docker_login
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "schedule" && $JOB == "build_dmc"

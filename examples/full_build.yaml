@@ -1,0 +1,55 @@
+packages:
+  - ansible
+  - kubectl
+  - helm
+  - terraform=1.1.7
+  - nomad
+  - consul
+  - docker-ce
+  - azure-cli
+  - awscli
+  - telnet
+repositories:
+  - docker
+  - hashicorp
+  - microsoft
+binaries:
+  github:
+    - remotemobprogramming/mob=linux_amd64=v3.2.0
+    - derailed/k9s=Linux_x86_64
+  google:
+    - google-cloud-cli=403.0.0-0
+requirements:
+  pip:
+    - packaging
+    - requests[security]
+    - xmltodict
+    - azure-cli-core=2.34.0
+    - azure-common=1.1.11
+    - awsume
+  ansible:
+    roles:
+      - t_systems_mms.grafana
+    collections:
+      - t_systems_mms.acme=2.3.1
+      - t_systems_mms.icinga_director=1.28.0
+extensions:
+  az:
+    - front-door=1.0.15
+  google:
+    - gsutil
+    - gke-gcloud-auth-plugin
+    - kubectl
+  helm:
+    - https://github.com/databus23/helm-diff=3.5.0
+    - https://github.com/jkroepke/helm-secrets
+post_build_commands:
+  - export http_proxy='http://proxyserver:port'
+  - export https_proxy='https://proxyserver:port'
+  - awsume-configure
+profiles:
+  .vimrc:
+    - filetype on
+  .bash_aliases:
+    - alias ll='ls -la'
+    - alias svcsh='ssh svcsh'
