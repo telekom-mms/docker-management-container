@@ -1,8 +1,12 @@
 # Changelog
 
-## [2.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/2.0.1) (2022-10-20)
+## [3.0.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.0) (2022-11-04)
 
-[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/dmc_2...2.0.1)
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/dmc_2...3.0.0)
+
+**Implemented enhancements:**
+
+- Wakemeops [\#50](https://github.com/T-Systems-MMS/docker-management-container/pull/50) ([michaelamattes](https://github.com/michaelamattes))
 
 **Merged pull requests:**
 
