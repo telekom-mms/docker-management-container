@@ -1,6 +1,18 @@
 # Changelog
 
-## [1.0.4](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.4) (2022-09-29)
+## [2.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/2.0.1) (2022-10-20)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/dmc_2...2.0.1)
+
+**Merged pull requests:**
+
+- Update actions/checkout action to v3.1.0 [\#46](https://github.com/T-Systems-MMS/docker-management-container/pull/46) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [dmc_2](https://github.com/T-Systems-MMS/docker-management-container/tree/dmc_2) (2022-10-20)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/1.0.4...dmc_2)
+
+## [1.0.4](https://github.com/T-Systems-MMS/docker-management-container/tree/1.0.4) (2022-09-30)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/1.0.3...1.0.4)
 
@@ -14,6 +26,7 @@
 
 **Merged pull requests:**
 
+- Added Option to install helm plugins [\#45](https://github.com/T-Systems-MMS/docker-management-container/pull/45) ([SchwaarS](https://github.com/SchwaarS))
 - fix link to examples [\#40](https://github.com/T-Systems-MMS/docker-management-container/pull/40) ([mmslkr](https://github.com/mmslkr))
 - Update docker/metadata-action action to v4 [\#38](https://github.com/T-Systems-MMS/docker-management-container/pull/38) ([renovate[bot]](https://github.com/apps/renovate))
 - Update docker/login-action action to v2 [\#37](https://github.com/T-Systems-MMS/docker-management-container/pull/37) ([renovate[bot]](https://github.com/apps/renovate))
