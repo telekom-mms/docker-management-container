@@ -1,8 +1,24 @@
 # Changelog
 
-## [3.0.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.0) (2022-11-04)
+## [2.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/2.0.1) (2022-11-04)
 
-[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/dmc_2...3.0.0)
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/2.0.0...2.0.1)
+
+**Closed issues:**
+
+- feature request: add option to configure own bash customizations [\#43](https://github.com/T-Systems-MMS/docker-management-container/issues/43)
+- Automatic Tests of Container Builds [\#4](https://github.com/T-Systems-MMS/docker-management-container/issues/4)
+
+**Merged pull requests:**
+
+- Update hadolint/hadolint-action action to v2.1.0 [\#51](https://github.com/T-Systems-MMS/docker-management-container/pull/51) ([renovate[bot]](https://github.com/apps/renovate))
+- Update docker/metadata-action action to v4.1.1 [\#49](https://github.com/T-Systems-MMS/docker-management-container/pull/49) ([renovate[bot]](https://github.com/apps/renovate))
+- Update docker/login-action action to v2.1.0 [\#48](https://github.com/T-Systems-MMS/docker-management-container/pull/48) ([renovate[bot]](https://github.com/apps/renovate))
+- Update docker/build-push-action action to v3.2.0 [\#47](https://github.com/T-Systems-MMS/docker-management-container/pull/47) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [2.0.0](https://github.com/T-Systems-MMS/docker-management-container/tree/2.0.0) (2022-11-04)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/dmc_2...2.0.0)
 
 **Implemented enhancements:**
 
