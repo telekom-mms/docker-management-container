@@ -27,6 +27,9 @@ include: ${CI_PROJECT_DIR}/.gitlab/ci/login.yml
 
 # build management-container
 build-dmc:
+  services:
+    - name: docker:dind
+      alias: docker
   image: docker:git
   script:
     # clone DMC repo from GitHub
