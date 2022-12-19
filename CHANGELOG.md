@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/2.0.1) (2022-12-13)
+## [2.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/2.0.1) (2022-12-19)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/2.0.0...2.0.1)
 
@@ -13,6 +13,7 @@
 
 - Update actions/checkout action to v3.2.0 [\#54](https://github.com/T-Systems-MMS/docker-management-container/pull/54) ([renovate[bot]](https://github.com/apps/renovate))
 - add dind service to gitlab example pipeline [\#53](https://github.com/T-Systems-MMS/docker-management-container/pull/53) ([rndmh3ro](https://github.com/rndmh3ro))
+- Update hadolint/hadolint-action action to v3 [\#52](https://github.com/T-Systems-MMS/docker-management-container/pull/52) ([renovate[bot]](https://github.com/apps/renovate))
 - Update hadolint/hadolint-action action to v2.1.0 [\#51](https://github.com/T-Systems-MMS/docker-management-container/pull/51) ([renovate[bot]](https://github.com/apps/renovate))
 - Update docker/metadata-action action to v4.1.1 [\#49](https://github.com/T-Systems-MMS/docker-management-container/pull/49) ([renovate[bot]](https://github.com/apps/renovate))
 - Update docker/login-action action to v2.1.0 [\#48](https://github.com/T-Systems-MMS/docker-management-container/pull/48) ([renovate[bot]](https://github.com/apps/renovate))
