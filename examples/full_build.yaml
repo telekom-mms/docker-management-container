@@ -10,9 +10,9 @@ packages:
   - awscli
   - telnet
 repositories:
-  - docker
-  - hashicorp
-  - microsoft
+  docker: {}
+  hashicorp: {}
+  microsoft: {}
 binaries:
   github:
     - remotemobprogramming/mob=linux_amd64=v3.2.0

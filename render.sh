@@ -36,20 +36,26 @@ parse_yaml() {
     for (i in vname) {if (i > indent) {delete vname[i]; idx[i]=0}}
     if(length($2)== 0){  vname[indent]= ++idx[indent] };
     if (length($3) > 0) {
-        vn="";
         name="";
         subname="";
+        value=$3;
+
+        if ($3 == "{}" || $3 == "[]") {
+          value="default"
+        }
+
         for (i=0; i<indent; i++) {
-          if (vname[2]) {
+          if (vname[2] || value == "default") {
             name=(vname[1])
             subname=("_")(vname[1])
           }
-          if (vname[3]) {
+          if (vname[2] != i || vname[3]) {
             subname=("_")(vname[1])("_")(vname[2])
           }
-          vn=(vn)(vname[i]) }
+        }
+
         if (name) {printf("%s=%s\n", vname[0], name)};
-        printf("%s%s=%s\n", vname[0], subname, $3);
+        if (value != "default") {printf("%s%s=%s\n", vname[0], subname, value)};
     }
   }'
 }
@@ -63,14 +69,18 @@ KEYS=$(cut -d '=' -f1 "${BUILD_FILE}" | sort -u)
 ## generate ARG=VALUE for replacement
 for KEY in ${KEYS}
 do
-  VALUE=$(grep -w "${KEY}" "${BUILD_FILE}" | cut -d '=' -f2- | sort -u | tr '\n' ';')
-  ARG=$(echo "${KEY}" | awk '{print toupper($0)}' | tr -d '.')
+  if [ $(grep -wc "${KEY}" "${BUILD_FILE}") -gt 1 ]; then
+    VALUE=$(grep -w "${KEY}" "${BUILD_FILE}" | cut -d '=' -f2- | sort -u | tr '\n' ';')
+  else
+    VALUE=$(grep -w "${KEY}" "${BUILD_FILE}" | cut -d '=' -f2- | sort -u | tr -d '\n')
+  fi
+  ARG=$(echo "${KEY}" | awk '{print toupper($0)}')
 
   if [ "$(grep -cw "ARG ${ARG}" "${DOCKERFILE_TEMPLATE}")" -eq 0 ]; then
     ARG_N=$(echo "${ARG}" | awk -F '_' '{print $1"_N"}')
     SED_APPEND_ARGS="${SED_APPEND_ARGS}#${ARG_N}=${ARG}=\"${VALUE}\""
   else
-    SED_REPLACE="${SED_REPLACE} s!ARG \<${ARG}\>!ARG ${ARG}=\"${VALUE}\"!g;"
+    SED_REPLACE="${SED_REPLACE} s!ARG \<${ARG}\>.*\$!ARG ${ARG}=\"${VALUE}\"!g;"
   fi
 done
 
@@ -89,4 +99,4 @@ if [ "${SED_APPEND_ARGS}" != "" ]; then
   done
 fi
 
-rm "${BUILD_FILE}"
+#rm "${BUILD_FILE}"
