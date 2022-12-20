@@ -69,7 +69,7 @@ KEYS=$(cut -d '=' -f1 "${BUILD_FILE}" | sort -u)
 ## generate ARG=VALUE for replacement
 for KEY in ${KEYS}
 do
-  if [ $(grep -wc "${KEY}" "${BUILD_FILE}") -gt 1 ]; then
+  if [ "$(grep -wc "${KEY}" "${BUILD_FILE}")" -gt 1 ]; then
     VALUE=$(grep -w "${KEY}" "${BUILD_FILE}" | cut -d '=' -f2- | sort -u | tr '\n' ';')
   else
     VALUE=$(grep -w "${KEY}" "${BUILD_FILE}" | cut -d '=' -f2- | sort -u | tr -d '\n')
