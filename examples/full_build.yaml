@@ -13,6 +13,9 @@ repositories:
   docker: {}
   hashicorp: {}
   microsoft: {}
+  mongodb:
+    gpg: https://www.mongodb.org/static/pgp/server-6.0.asc
+    entry: https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse
 binaries:
   github:
     - remotemobprogramming/mob=linux_amd64=v3.2.0
