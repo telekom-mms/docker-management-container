@@ -78,7 +78,7 @@ Extension of installed tools.
 
 #### Post Build Config
 
-System configuration and further setups to finish the DMC build afte.
+System configuration and further setups to finish the DMC build.
 
 | ARG                 | Required | Default | Description                                               |
 | ------------------- | -------- | ------- | --------------------------------------------------------- |
