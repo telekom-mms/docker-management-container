@@ -99,4 +99,4 @@ if [ "${SED_APPEND_ARGS}" != "" ]; then
   done
 fi
 
-#rm "${BUILD_FILE}"
+rm "${BUILD_FILE}"
