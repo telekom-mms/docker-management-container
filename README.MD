@@ -55,8 +55,8 @@ Tools to be installed within the DMC.
 | ---------------------------- | -------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | WORKDIR                      | no       | /root                                                                              |                                                                                                                                  |
 | PACKAGES                     | no       |                                                                                    | list of packages to be installed                                                                                                 |
-| REPOSITORIES                 | no       |                                                                                    | further repositories that should be used, actually the following are defined withs defaults **_[hashicorp, docker, microsoft]_** |
-| BINARIES                     | no       |                                                                                    | binaries that should be installed, actually the following are supported **_[github, google]_**                                   |
+| REPOSITORIES                 | no       |                                                                                    | further repositories that should be used, currently the following are defined withs defaults **_[hashicorp, docker, microsoft]_** |
+| BINARIES                     | no       |                                                                                    | binaries that should be installed, currently the following are supported **_[github, google]_**                                   |
 | REPOSITORIES_HASHICORP_GPG   | no       | `https://apt.releases.hashicorp.com/gpg`                                           |                                                                                                                                  |
 | REPOSITORIES_HASHICORP_ENTRY | no       | `'https://apt.releases.hashicorp.com $(lsb_release -cs) main'`                     |                                                                                                                                  |                                                                          |                                                                                                                     |
 | REPOSITORIES_DOCKER_GPG      | no       | `https://download.docker.com/linux/ubuntu/gpg`                                     |                                                                                                                                  |
@@ -73,8 +73,8 @@ Extension of installed tools.
 | ARG          | Required | Default | Description                                                                                                                             |
 | ------------ | -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | WORKDIR      | no       | /root   |                                                                                                                                         |
-| REQUIREMENTS | no       |         | requirements that should be installed for the used tools, actually the following are supported **_[pip, ansible(roles, collections)]_** |
-| EXTENSIONS   | no       |         | extensions that should be installed for the used tools, actually the following are supported **_[az, google, helm]_**                   |
+| REQUIREMENTS | no       |         | requirements that should be installed for the used tools, currently the following are supported **_[pip, ansible(roles, collections)]_** |
+| EXTENSIONS   | no       |         | extensions that should be installed for the used tools, currently the following are supported **_[az, google, helm]_**                   |
 
 #### Post Build Config
 
