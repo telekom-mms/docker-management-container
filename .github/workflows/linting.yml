@@ -20,5 +20,5 @@ jobs:
         with:
           dockerfile: Dockerfile.template
           ignore: DL3009,DL3013,SC2001,SC2068
-          verbose: true
+          failure-threshold: warning
           # DL3013 - solved over sed command
