@@ -19,5 +19,6 @@ jobs:
         uses: hadolint/hadolint-action@v3.0.0
         with:
           dockerfile: Dockerfile.template
-          ignore: DL3009,DL3013,SC2001,SC2068,DL3059
+          ignore: DL3009,DL3013,SC2001,SC2068
+          verbose: true
           # DL3013 - solved over sed command
