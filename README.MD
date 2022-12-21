@@ -42,10 +42,10 @@ touch build.yaml
 
 The DMC uses the wakemeops image as base image.
 
-| ARG          | Required | Default | Description                                                                                |
-| ------------ | -------- | ------- |------------------------------------------------------------------------------------------- |
-| DISTRIBUTION | no       | ubuntu  | distribution that should be used, see also [wakemeops](https://hub.docker.com/u/wakemeops) |
-| VERSION      | no       | latest  | specific version                                                                           |
+| ARG          | Required | Default | Description                                                                                | `build.yaml` use default | `build.yaml` setup custom |
+| ------------ | -------- | ------- |------------------------------------------------------------------------------------------- | ------------ | ---------------------- |
+| DISTRIBUTION | no       | ubuntu  | distribution that should be used, see also [wakemeops](https://hub.docker.com/u/wakemeops) |              | `distribution: debian` |
+| VERSION      | no       | latest  | specific version                                                                           |              | `version: buster`      |
 
 #### Tools
 
@@ -96,7 +96,7 @@ To create the Dockerfile from Template you have simply to run the following step
 
 `render.sh`
 
-The build script which creates the `Dockerfile` from template with your settings from `build.yaml`
+The build script which creates the `Dockerfile` from template with your settings from `build.yaml`.
 
 ``` bash
 sh render.sh .
