@@ -1,0 +1,4 @@
+## packages
+RUN test -n "${PACKAGES}" && \
+    IFS=';' && \
+    install_packages ${PACKAGES[@]} || :

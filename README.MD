@@ -12,7 +12,7 @@ The Docker Management Container (or DMC for short) contains a number of plugins 
 
 ## How does the DMC work?
 
-The DMC provides a Dockerfile template that creates the Dockerfile with the desired tools and versions through a file and script. This Dockerfile is then used for the actual build of the container. The Dockerfile itself does not need to be kept, but is created and discarded after the build of the Dockerfile.
+The DMC provides a Dockerfile template (from modular setup) that creates the Dockerfile with the desired tools and versions through a file and script. This Dockerfile is then used for the actual build of the container. The Dockerfile itself does not need to be kept, but is created and discarded after the build of the Dockerfile.
 
 The DMC uses the wakemeops as base setup, for more information about wakemeops look at the [docs](https://docs.wakemeops.com/).
 
@@ -96,7 +96,7 @@ To create the Dockerfile from Template you have simply to run the following step
 
 `render.sh`
 
-The build script which creates the `Dockerfile` from template with your settings from `build.yaml`.
+The build script which creates the `Dockerfile` from template.d with your settings from `build.yaml`.
 
 ``` bash
 sh render.sh .
