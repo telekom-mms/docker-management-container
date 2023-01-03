@@ -114,11 +114,11 @@ CMD ["/bin/bash"]
 ## profiles
 RUN test -n "${PROFILES}" && \
     IFS=';' && \
-    for PROFILE in ${PROFILES[@]}; do IFS='' && PR_PROFILE=$(echo "${PROFILE}" | tr -d '.') && declare -u PR="${PR_PROFILE}" && PROFILES_PR=$(eval "echo \$PROFILES_${PR}") && \
+    for PROFILE in ${PROFILES[@]}; do IFS='' && PR_PROFILE=$(echo "${PROFILE}" | tr '.' '_') && declare -u PR="${PR_PROFILE}" && PROFILES_PR=$(eval "echo \$PROFILES_${PR}") && \
     IFS=';' && \
     for PROFILE_PR in ${PROFILES_PR[@]}; do echo "${PROFILE_PR}" >> "${PROFILE}"; done; done || :
 
 ## post_build_commands
 RUN test -n "${POST_BUILD_COMMANDS}" && \
     IFS=';' && \
-    for POST_BUILD_COMMAND in ${POST_BUILD_COMMANDS[@]}; do "${POST_BUILD_COMMAND}"; done || :
+    for POST_BUILD_COMMAND in ${POST_BUILD_COMMANDS[@]}; do bash -c "${POST_BUILD_COMMAND}"; done || :
