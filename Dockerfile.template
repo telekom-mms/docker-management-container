@@ -32,14 +32,13 @@ ARG REPOSITORIES
 ARG BINARIES
 
 ARG REPOSITORIES_HASHICORP_GPG='https://apt.releases.hashicorp.com/gpg'
-ARG REPOSITORIES_HASHICORP_URI='https://apt.releases.hashicorp.com'
-ARG REPOSITORIES_HASHICORP_BRANCH='main'
+ARG REPOSITORIES_HASHICORP_ENTRY='https://apt.releases.hashicorp.com $(lsb_release -cs) main'
 ARG REPOSITORIES_DOCKER_GPG='https://download.docker.com/linux/ubuntu/gpg'
-ARG REPOSITORIES_DOCKER_URI='https://download.docker.com/linux/ubuntu'
-ARG REPOSITORIES_DOCKER_BRANCH='stable'
+ARG REPOSITORIES_DOCKER_ENTRY='https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
 ARG REPOSITORIES_MICROSOFT_GPG='https://packages.microsoft.com/keys/microsoft.asc'
-ARG REPOSITORIES_MICROSOFT_URI='https://packages.microsoft.com/repos/azure-cli/'
-ARG REPOSITORIES_MICROSOFT_BRANCH='main'
+ARG REPOSITORIES_MICROSOFT_ENTRY='https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -cs) main'
+
+# ARG REPOSITORIES_N
 
 ARG BINARIES_GITHUB_URI='https://api.github.com/repos'
 ARG BINARIES_GOOGLE_URI='https://packages.cloud.google.com/apt/dists/cloud-sdk/main/binary-arm64/Packages'
@@ -51,8 +50,8 @@ WORKDIR ${WORKDIR}
 ## repositories
 RUN test -n "${REPOSITORIES}" && \
     IFS=';' && \
-    for REPOSITORY in ${REPOSITORIES[@]}; do declare -u REPO="${REPOSITORY}" && REPO_GPG=$(eval "echo \$REPOSITORIES_${REPO}_GPG") && REPO_URI=$(eval "echo \$REPOSITORIES_${REPO}_URI") && REPO_BRANCH=$(eval "echo \$REPOSITORIES_${REPO}_BRANCH") && \
-    curl -fsSL "${REPO_GPG}" | gpg --dearmor | tee "/etc/apt/trusted.gpg.d/${REPOSITORY}.gpg" > /dev/null && apt-add-repository "deb [arch=amd64] ${REPO_URI} $(lsb_release -cs) ${REPO_BRANCH}"; done || :
+    for REPOSITORY in ${REPOSITORIES[@]}; do declare -u REPO="${REPOSITORY}" && REPO_GPG=$(eval "echo \$REPOSITORIES_${REPO}_GPG") && REPO_ENTRY=$(eval "eval "echo \$REPOSITORIES_${REPO}_ENTRY"") && \
+    curl -fsSL "${REPO_GPG}" | gpg --dearmor | tee "/etc/apt/trusted.gpg.d/${REPOSITORY}.gpg" > /dev/null && apt-add-repository "deb [arch=amd64] ${REPO_ENTRY}"; done || :
 
 ## packages
 RUN test -n "${PACKAGES}" && \
@@ -115,11 +114,11 @@ CMD ["/bin/bash"]
 ## profiles
 RUN test -n "${PROFILES}" && \
     IFS=';' && \
-    for PROFILE in ${PROFILES[@]}; do IFS='' && PR_PROFILE=$(echo "${PROFILE}" | tr -d '.') && declare -u PR="${PR_PROFILE}" && PROFILES_PR=$(eval "echo \$PROFILES_${PR}") && \
+    for PROFILE in ${PROFILES[@]}; do IFS='' && PR_PROFILE=$(echo "${PROFILE}" | tr '.' '_') && declare -u PR="${PR_PROFILE}" && PROFILES_PR=$(eval "echo \$PROFILES_${PR}") && \
     IFS=';' && \
     for PROFILE_PR in ${PROFILES_PR[@]}; do echo "${PROFILE_PR}" >> "${PROFILE}"; done; done || :
 
 ## post_build_commands
 RUN test -n "${POST_BUILD_COMMANDS}" && \
     IFS=';' && \
-    for POST_BUILD_COMMAND in ${POST_BUILD_COMMANDS[@]}; do "${POST_BUILD_COMMAND}"; done || :
+    for POST_BUILD_COMMAND in ${POST_BUILD_COMMANDS[@]}; do bash -c "${POST_BUILD_COMMAND}"; done || :

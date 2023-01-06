@@ -10,9 +10,12 @@ packages:
   - awscli
   - telnet
 repositories:
-  - docker
-  - hashicorp
-  - microsoft
+  docker: {}
+  hashicorp: {}
+  microsoft: {}
+  mongodb:
+    gpg: https://www.mongodb.org/static/pgp/server-6.0.asc
+    entry: https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse
 binaries:
   github:
     - remotemobprogramming/mob=linux_amd64=v3.2.0
@@ -43,13 +46,14 @@ extensions:
   helm:
     - https://github.com/databus23/helm-diff=3.5.0
     - https://github.com/jkroepke/helm-secrets
-post_build_commands:
-  - export http_proxy='http://proxyserver:port'
-  - export https_proxy='https://proxyserver:port'
-  - awsume-configure
 profiles:
   .vimrc:
     - filetype on
   .bash_aliases:
     - alias ll='ls -la'
     - alias svcsh='ssh svcsh'
+  .bash_profile:
+    - export http_proxy='http://proxyserver:port'
+    - export https_proxy='https://proxyserver:port'
+post_build_commands:
+  - awsume-configure

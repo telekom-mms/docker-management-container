@@ -11,13 +11,14 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run ShellCheck
-        uses: azohra/shell-linter@latest
-        with:
-          path: "*.sh"
+        uses: ludeeus/action-shellcheck@1.1.0
+        env:
+          SHELLCHECK_OPTS: -e SC1003
 
       - name: Run Hadolint
         uses: hadolint/hadolint-action@v3.0.0
         with:
           dockerfile: Dockerfile.template
           ignore: DL3009,DL3013,SC2001,SC2068
+          failure-threshold: warning
           # DL3013 - solved over sed command
