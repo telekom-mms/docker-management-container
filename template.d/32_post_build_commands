@@ -1,0 +1,4 @@
+## post_build_commands
+RUN test -n "${POST_BUILD_COMMANDS}" && \
+    IFS=';' && \
+    for POST_BUILD_COMMAND in ${POST_BUILD_COMMANDS[@]}; do bash -c "${POST_BUILD_COMMAND}"; done || :

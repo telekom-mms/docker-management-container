@@ -12,10 +12,20 @@ SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 ENV_DIR="${1-SCRIPT_DIR}"
 ENV_FILE="${ENV_DIR}/build.yaml"
 BUILD_FILE="${ENV_DIR}/.build"
-DOCKERFILE_TEMPLATE="${SCRIPT_DIR}/Dockerfile.template"
+DOCKERFILE_TEMPLATE_D="${SCRIPT_DIR}/template.d"
+DOCKERFILE_TEMPLATE="${ENV_DIR}/Dockerfile.template"
 DOCKERFILE="${ENV_DIR}/Dockerfile"
 
 # function
+build_template() {
+  TEMPLATES=$(ls "${DOCKERFILE_TEMPLATE_D}")
+  for TEMPLATE in ${TEMPLATES}
+  do
+    cat "${DOCKERFILE_TEMPLATE_D}/${TEMPLATE}" >> "${DOCKERFILE_TEMPLATE}"
+    echo >> "${DOCKERFILE_TEMPLATE}"
+  done
+}
+
 parse_yaml() {
   define_fs=$(echo @|tr @ '\034')
 
@@ -52,6 +62,7 @@ parse_yaml() {
 
 # main
 echo > "${DOCKERFILE}"
+build_template
 parse_yaml "${ENV_FILE}" > "${BUILD_FILE}"
 
 KEYS=$(cut -d '=' -f1 "${BUILD_FILE}" | sort -u)
@@ -89,4 +100,5 @@ if [ "${SED_APPEND_ARGS}" != "" ]; then
   done
 fi
 
-rm "${BUILD_FILE}"
+## remove helper files
+rm "${BUILD_FILE}" "${DOCKERFILE_TEMPLATE}"
