@@ -1,16 +1,28 @@
 # Changelog
 
-## [2.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/2.0.1) (2022-12-19)
+## [3.0.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.0) (2023-01-06)
 
-[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/2.0.0...2.0.1)
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/2.0.0...3.0.0)
+
+**Breaking changes:**
+
+- Enhancement Repository Configuration and Optimize Render Script [\#57](https://github.com/T-Systems-MMS/docker-management-container/pull/57) ([michaelamattes](https://github.com/michaelamattes))
+
+**Implemented enhancements:**
+
+- \[Enhancement\] Support for versioned repositories [\#55](https://github.com/T-Systems-MMS/docker-management-container/issues/55)
 
 **Closed issues:**
 
+- Improvement: modular structure for Dockerfile.template [\#44](https://github.com/T-Systems-MMS/docker-management-container/issues/44)
 - feature request: add option to configure own bash customizations [\#43](https://github.com/T-Systems-MMS/docker-management-container/issues/43)
 - Automatic Tests of Container Builds [\#4](https://github.com/T-Systems-MMS/docker-management-container/issues/4)
 
 **Merged pull requests:**
 
+- Update actions/checkout action to v3.3.0 [\#59](https://github.com/T-Systems-MMS/docker-management-container/pull/59) ([renovate[bot]](https://github.com/apps/renovate))
+- Template structure [\#58](https://github.com/T-Systems-MMS/docker-management-container/pull/58) ([michaelamattes](https://github.com/michaelamattes))
+- add Renovate Dependency Dashboard and automatic merge on patch updates [\#56](https://github.com/T-Systems-MMS/docker-management-container/pull/56) ([michaelamattes](https://github.com/michaelamattes))
 - Update actions/checkout action to v3.2.0 [\#54](https://github.com/T-Systems-MMS/docker-management-container/pull/54) ([renovate[bot]](https://github.com/apps/renovate))
 - add dind service to gitlab example pipeline [\#53](https://github.com/T-Systems-MMS/docker-management-container/pull/53) ([rndmh3ro](https://github.com/rndmh3ro))
 - Update hadolint/hadolint-action action to v3 [\#52](https://github.com/T-Systems-MMS/docker-management-container/pull/52) ([renovate[bot]](https://github.com/apps/renovate))
