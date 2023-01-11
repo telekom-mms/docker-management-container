@@ -1,12 +1,8 @@
 # Changelog
 
-## [3.0.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.0) (2023-01-06)
+## [3.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.1) (2023-01-11)
 
-[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/2.0.0...3.0.0)
-
-**Breaking changes:**
-
-- Enhancement Repository Configuration and Optimize Render Script [\#57](https://github.com/T-Systems-MMS/docker-management-container/pull/57) ([michaelamattes](https://github.com/michaelamattes))
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.0.0...3.0.1)
 
 **Implemented enhancements:**
 
@@ -15,6 +11,21 @@
 **Closed issues:**
 
 - Improvement: modular structure for Dockerfile.template [\#44](https://github.com/T-Systems-MMS/docker-management-container/issues/44)
+
+**Merged pull requests:**
+
+- Update docker/metadata-action action to v4.2.0 [\#60](https://github.com/T-Systems-MMS/docker-management-container/pull/60) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [3.0.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.0) (2023-01-06)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/2.0.0...3.0.0)
+
+**Breaking changes:**
+
+- Enhancement Repository Configuration and Optimize Render Script [\#57](https://github.com/T-Systems-MMS/docker-management-container/pull/57) ([michaelamattes](https://github.com/michaelamattes))
+
+**Closed issues:**
+
 - feature request: add option to configure own bash customizations [\#43](https://github.com/T-Systems-MMS/docker-management-container/issues/43)
 - Automatic Tests of Container Builds [\#4](https://github.com/T-Systems-MMS/docker-management-container/issues/4)
 
