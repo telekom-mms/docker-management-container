@@ -58,6 +58,20 @@ jobs:
       - name: Test the container $IMAGE_NAME:${{ matrix.example }}
         run: |
           docker run --rm dmc:${{ matrix.example }}
+        if: matrix.example == 'min'
+
+      - name: Test the container $IMAGE_NAME:${{ matrix.example }}
+        run: |
+          docker run --rm dmc:${{ matrix.example }} ansible --version
+          docker run --rm dmc:${{ matrix.example }} kubectl version
+          docker run --rm dmc:${{ matrix.example }} helm version
+          docker run --rm dmc:${{ matrix.example }} terraform version
+          docker run --rm dmc:${{ matrix.example }} nomad version
+          docker run --rm dmc:${{ matrix.example }} consul version
+          docker run --rm dmc:${{ matrix.example }} docker --version
+          docker run --rm dmc:${{ matrix.example }} az version
+          docker run --rm dmc:${{ matrix.example }} aws --version
+        if: matrix.example == 'full'
 
       - name: Build and push dmc:${{ matrix.example }}
         uses: docker/build-push-action@v3.2.0
