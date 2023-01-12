@@ -3,4 +3,4 @@ RUN test -n "${PROFILES}" && \
     IFS=';' && \
     for PROFILE in ${PROFILES[@]}; do IFS='' && PR_PROFILE=$(echo "${PROFILE}" | tr '.' '_') && declare -u PR="${PR_PROFILE}" && PROFILES_PR=$(eval "echo \$PROFILES_${PR}") && \
     IFS=';' && \
-    for PROFILE_PR in ${PROFILES_PR[@]}; do echo "${PROFILE_PR}" >> "${PROFILE}"; done; done || :
+    for PROFILE_PR in ${PROFILES_PR[@]}; do echo "${PROFILE_PR}" >> "${PROFILE}"; done; done

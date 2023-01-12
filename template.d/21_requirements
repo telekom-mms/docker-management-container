@@ -5,4 +5,4 @@ RUN test -n "${REQUIREMENTS}" && \
     IFS=';' && \
     if [ "${REQ}" = "PIP" ]; then for REQUIREMENT_REQ in ${REQUIREMENTS_REQ[@]}; do pip3 install --no-cache-dir $(echo "${REQUIREMENT_REQ}" | sed 's/=/==/g');done;  fi && \
     if [ "${REQ}" = "ANSIBLE" ]; then for REQUIREMENT_REQ in ${REQUIREMENTS_ANSIBLE_ROLES[@]}; do ansible-galaxy install $(echo "${REQUIREMENT_REQ}" | sed 's/=/,/g'); done && \
-    for REQUIREMENT_REQ in ${REQUIREMENTS_ANSIBLE_COLLECTIONS[@]}; do ansible-galaxy collection install $(echo "${REQUIREMENT_REQ}" | sed 's/=/:/g'); done; fi; done || :
+    for REQUIREMENT_REQ in ${REQUIREMENTS_ANSIBLE_COLLECTIONS[@]}; do ansible-galaxy collection install $(echo "${REQUIREMENT_REQ}" | sed 's/=/:/g'); done; fi; done
