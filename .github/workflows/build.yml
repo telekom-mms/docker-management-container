@@ -45,17 +45,17 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         if: github.ref == 'refs/heads/master'
 
-      - name: build Dockerfile ${{ matrix.example }}
+      - name: Render Dockerfile ${{ matrix.example }}
         run: cp examples/${{ matrix.example }}_build.yaml ./build.yaml && sh render.sh .
 
-      - name: Build and push dmc:${{ matrix.example }}
+      - name: Build the container dmc:${{ matrix.example }}
         uses: docker/build-push-action@v3.2.0
         with:
           context: .
           push: false
           tags: dmc:${{ matrix.example }}
 
-      - name: Test $IMAGE_NAME:${{ matrix.example }}
+      - name: Test the container $IMAGE_NAME:${{ matrix.example }}
         run: |
           docker run --rm dmc:${{ matrix.example }}
 
