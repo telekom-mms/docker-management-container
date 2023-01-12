@@ -1,12 +1,16 @@
 # Changelog
 
-## [3.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.1) (2023-01-11)
+## [3.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.1) (2023-01-12)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.0.0...3.0.1)
 
 **Implemented enhancements:**
 
 - \[Enhancement\] Support for versioned repositories [\#55](https://github.com/T-Systems-MMS/docker-management-container/issues/55)
+
+**Fixed bugs:**
+
+- \[FIX\] Fixed order of templates to add repositories before installing … [\#61](https://github.com/T-Systems-MMS/docker-management-container/pull/61) ([danellidesign](https://github.com/danellidesign))
 
 **Closed issues:**
 
