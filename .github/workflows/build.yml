@@ -63,7 +63,7 @@ jobs:
       - name: Test the container $IMAGE_NAME:${{ matrix.example }}
         run: |
           docker run --rm dmc:${{ matrix.example }} ansible --version
-          docker run --rm dmc:${{ matrix.example }} kubectl version
+          docker run --rm dmc:${{ matrix.example }} kubectl version --client=true -o yaml
           docker run --rm dmc:${{ matrix.example }} helm version
           docker run --rm dmc:${{ matrix.example }} terraform version
           docker run --rm dmc:${{ matrix.example }} nomad version
