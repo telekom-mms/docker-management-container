@@ -4,18 +4,18 @@ ARG PACKAGES
 ARG REPOSITORIES
 ARG BINARIES
 
-ARG REPOSITORIES_HASHICORP_GPG='https://apt.releases.hashicorp.com/gpg'
-ARG REPOSITORIES_HASHICORP_ENTRY='https://apt.releases.hashicorp.com $(lsb_release -cs) main'
-ARG REPOSITORIES_DOCKER_GPG='https://download.docker.com/linux/ubuntu/gpg'
-ARG REPOSITORIES_DOCKER_ENTRY='https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
-ARG REPOSITORIES_MICROSOFT_GPG='https://packages.microsoft.com/keys/microsoft.asc'
-ARG REPOSITORIES_MICROSOFT_ENTRY='https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -cs) main'
+ARG REPOSITORIES_HASHICORP_GPG="https://apt.releases.hashicorp.com/gpg"
+ARG REPOSITORIES_HASHICORP_ENTRY="https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+ARG REPOSITORIES_DOCKER_GPG="https://download.docker.com/linux/ubuntu/gpg"
+ARG REPOSITORIES_DOCKER_ENTRY="https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+ARG REPOSITORIES_MICROSOFT_GPG="https://packages.microsoft.com/keys/microsoft.asc"
+ARG REPOSITORIES_MICROSOFT_ENTRY="https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -cs) main"
 
 # ARG REPOSITORIES_N
 
-ARG BINARIES_GITHUB_URI='https://api.github.com/repos'
-ARG BINARIES_GOOGLE_URI='https://packages.cloud.google.com/apt/dists/cloud-sdk/main/binary-arm64/Packages'
+ARG BINARIES_GITHUB_URI="https://api.github.com/repos"
+ARG BINARIES_GOOGLE_URI="https://packages.cloud.google.com/apt/dists/cloud-sdk/main/binary-arm64/Packages"
 
 # ARG BINARIES_N
 
-WORKDIR ${WORKDIR}
+WORKDIR "${WORKDIR}"
