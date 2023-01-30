@@ -1,5 +1,6 @@
 ## repositories
-RUN test -n "${REPOSITORIES}" && \
-    IFS=';' && \
-    for REPOSITORY in ${REPOSITORIES[@]}; do declare -u REPO="${REPOSITORY}" && REPO_GPG=$(eval "echo \$REPOSITORIES_${REPO}_GPG") && REPO_ENTRY=$(eval "eval "echo \$REPOSITORIES_${REPO}_ENTRY"") && \
-    curl -fsSL "${REPO_GPG}" | gpg --dearmor | tee "/etc/apt/trusted.gpg.d/${REPOSITORY}.gpg" > /dev/null && apt-add-repository "deb [arch=amd64] ${REPO_ENTRY}"; done || :
+RUN if [ -n "${REPOSITORIES}" ]; then \
+      IFS=';' && \
+      for REPOSITORY in ${REPOSITORIES[@]}; do declare -u REPO="${REPOSITORY}" && REPO_GPG=$(eval "echo \$REPOSITORIES_${REPO}_GPG") && REPO_ENTRY=$(eval "eval "echo \$REPOSITORIES_${REPO}_ENTRY"") && \
+      curl -fsSL "${REPO_GPG}" | gpg --dearmor | tee "/etc/apt/trusted.gpg.d/${REPOSITORY}.gpg" > /dev/null && apt-add-repository "deb [arch=amd64] ${REPO_ENTRY}"; done; \
+    fi

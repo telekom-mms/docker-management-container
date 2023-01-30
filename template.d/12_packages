@@ -1,4 +1,5 @@
 ## packages
-RUN test -n "${PACKAGES}" && \
-    IFS=';' && \
-    install_packages ${PACKAGES[@]} || :
+RUN if [ -n "${PACKAGES}" ]; then \
+      IFS=';' && \
+      install_packages ${PACKAGES[@]}; \
+    fi
