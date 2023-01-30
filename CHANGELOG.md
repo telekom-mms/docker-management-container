@@ -4,9 +4,14 @@
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.0.1...3.0.2)
 
+**Implemented enhancements:**
+
+- Add Tests and remove error ignores [\#62](https://github.com/T-Systems-MMS/docker-management-container/pull/62) ([rndmh3ro](https://github.com/rndmh3ro))
+
 **Merged pull requests:**
 
 - Update ludeeus/action-shellcheck action to v2 [\#65](https://github.com/T-Systems-MMS/docker-management-container/pull/65) ([renovate[bot]](https://github.com/apps/renovate))
+- Update docker/metadata-action action to v4.3.0 [\#63](https://github.com/T-Systems-MMS/docker-management-container/pull/63) ([renovate[bot]](https://github.com/apps/renovate))
 
 ## [3.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.1) (2023-01-12)
 
