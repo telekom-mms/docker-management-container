@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.0.3](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.3) (2023-01-30)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.0.2...3.0.3)
+
+**Merged pull requests:**
+
+- Update docker/build-push-action action to v3.3.1 [\#67](https://github.com/T-Systems-MMS/docker-management-container/pull/67) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [3.0.2](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.2) (2023-01-30)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.0.1...3.0.2)
