@@ -2,7 +2,7 @@ packages:
   - ansible
   - kubectl
   - helm
-  - terraform=1.1.7
+  - terraform
   - nomad
   - consul
   - docker-ce
@@ -18,33 +18,33 @@ repositories:
     entry: https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse
 binaries:
   github:
-    - remotemobprogramming/mob=linux_amd64=v3.2.0
+    - remotemobprogramming/mob=linux_amd64
     - derailed/k9s=Linux_x86_64
   google:
-    - google-cloud-cli=403.0.0-0
+    - google-cloud-cli
 requirements:
   pip:
     - packaging
     - requests[security]
     - xmltodict
-    - azure-cli-core=2.34.0
-    - azure-common=1.1.11
+    - azure-cli-core
+    - azure-common
     - awsume
   ansible:
     roles:
       - t_systems_mms.grafana
     collections:
-      - t_systems_mms.acme=2.3.1
-      - t_systems_mms.icinga_director=1.28.0
+      - t_systems_mms.acme
+      - t_systems_mms.icinga_director
 extensions:
   az:
-    - front-door=1.0.15
+    - front-door
   google:
     - gsutil
     - gke-gcloud-auth-plugin
     - kubectl
   helm:
-    - https://github.com/databus23/helm-diff=3.5.0
+    - https://github.com/databus23/helm-diff
     - https://github.com/jkroepke/helm-secrets
 profiles:
   .vimrc:
