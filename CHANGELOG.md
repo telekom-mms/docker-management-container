@@ -11,6 +11,7 @@
 **Merged pull requests:**
 
 - Update ludeeus/action-shellcheck action to v2 [\#65](https://github.com/T-Systems-MMS/docker-management-container/pull/65) ([renovate[bot]](https://github.com/apps/renovate))
+- Update docker/build-push-action action to v3.3.0 [\#64](https://github.com/T-Systems-MMS/docker-management-container/pull/64) ([renovate[bot]](https://github.com/apps/renovate))
 - Update docker/metadata-action action to v4.3.0 [\#63](https://github.com/T-Systems-MMS/docker-management-container/pull/63) ([renovate[bot]](https://github.com/apps/renovate))
 
 ## [3.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.1) (2023-01-12)
