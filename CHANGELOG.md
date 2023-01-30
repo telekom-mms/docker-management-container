@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.0.2](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.2) (2023-01-30)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.0.1...3.0.2)
+
+**Merged pull requests:**
+
+- Update ludeeus/action-shellcheck action to v2 [\#65](https://github.com/T-Systems-MMS/docker-management-container/pull/65) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [3.0.1](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.1) (2023-01-12)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.0.0...3.0.1)
