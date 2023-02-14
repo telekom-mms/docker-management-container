@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- add usage example with bindfs volume [\#70](https://github.com/T-Systems-MMS/docker-management-container/pull/70) ([rndmh3ro](https://github.com/rndmh3ro))
 - Readme: Add docs for local user and env [\#69](https://github.com/T-Systems-MMS/docker-management-container/pull/69) ([z-bsod](https://github.com/z-bsod))
 - Update docker/build-push-action action to v4 [\#68](https://github.com/T-Systems-MMS/docker-management-container/pull/68) ([renovate[bot]](https://github.com/apps/renovate))
 - Update docker/build-push-action action to v3.3.1 [\#67](https://github.com/T-Systems-MMS/docker-management-container/pull/67) ([renovate[bot]](https://github.com/apps/renovate))
