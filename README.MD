@@ -18,7 +18,7 @@ The DMC uses the wakemeops as base setup, for more information about wakemeops l
 
 ### Try
 
-For a quick overview and test of the DMC, we have created images based on the minimal and full examples that can be used directly.
+For a quick overview and test of the DMC, we have created images based on the [minimal](examples/min_build.yaml) and [full](examples/full_build.yaml) examples that can be used directly.
 
 ``` bash
 # minimal
@@ -96,7 +96,7 @@ To create the Dockerfile from Template you have simply to run the following step
 
 `render.sh`
 
-The build script which creates the `Dockerfile` from template.d with your settings from `build.yaml`.
+The build script will create the `Dockerfile` from template.d with your settings from `build.yaml`.
 
 ``` bash
 sh render.sh .
@@ -167,9 +167,24 @@ docker run --rm -ti --hostname dmc \
   dmc:latest
 ```
 
+##### mount volumes with docker volume bindfs as root
+
+With the [Docker volume plugin for bindfs](https://github.com/clecherbauer/docker-volume-bindfs), you're able to mount a given path and remap its owner and group.
+This way you can be `root` inside the container while still mapping your home-directory inside the container (to `/root`) and using it without permission problems.
+
+```bash
+# create the docker volume
+docker volume create -d lebokus/bindfs -o sourcePath=$PWD -o map=$(id -u)/0:@$(id -g)/@0 dmcvolume
+```
+
+```bash
+# run your dmc with the volume
+docker run -it --user root -v dmcvolume:/root/ dmc:latest
+```
+
 ## Migration
 
-With Version 2.0.0 there would be a breaking change in the configuration and usage of the DMC.
+With Version 2.0.0 there's a breaking change in the configuration and usage of the DMC.
 To support the migration we provide a script to migrate from the old .docker_build to the new build.yaml.
 
 `migrate.sh`
