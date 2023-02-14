@@ -134,6 +134,39 @@ Example:
 docker run -ti --env-file .docker_env -v${HOME}/git/service:/service -w /service dmc:latest
 ```
 
+##### run the image with your local user and environment
+
+If you mount your repositories to the DMC you might want to run it with your local user and environment
+
+This should give you a few benefits:
+
+- no permissions issues when editing files from within the container
+- being able to use the local ssh auth key for ansible
+- local configuration is used in the container (.bashrc, .gitconfig, .vimrc etc)
+
+Example:
+
+```bash
+docker run --rm -ti --hostname dmc \
+  `# you can include your services environment variables if you like` \
+  --env-file ~/service/.docker_env \
+  \
+  `# run as local user and make the container aware of users + groups` \
+  -v /etc/passwd:/etc/passwd:ro \
+  -v /etc/group:/etc/group:ro \
+  --user "$(id -u):$(id -g)" \
+  \
+  `# provide ssh socket to the container for ansible to use` \
+  -e 'SSH_AUTH_SOCK=/.ssh_auth' \
+  -v ${SSH_AUTH_SOCK}:/.ssh_auth \
+  \
+  `# mount home and use the service subdirectory as workdir` \
+  -v ${HOME}:${HOME} \
+  -w ${HOME}/service \
+  \
+  dmc:latest
+```
+
 ## Migration
 
 With Version 2.0.0 there would be a breaking change in the configuration and usage of the DMC.
