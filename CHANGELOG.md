@@ -1,8 +1,17 @@
 # Changelog
 
-## [3.0.3](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.3) (2023-02-14)
+## [3.0.3](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.3) (2023-03-03)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.0.2...3.0.3)
+
+**Implemented enhancements:**
+
+- \[Enhancement\] Availability to load ZIP archives in dmc [\#72](https://github.com/T-Systems-MMS/docker-management-container/issues/72)
+- Enhancement [\#75](https://github.com/T-Systems-MMS/docker-management-container/pull/75) ([michaelamattes](https://github.com/michaelamattes))
+
+**Fixed bugs:**
+
+- add update package manager database before package install [\#74](https://github.com/T-Systems-MMS/docker-management-container/pull/74) ([michaelamattes](https://github.com/michaelamattes))
 
 **Merged pull requests:**
 
