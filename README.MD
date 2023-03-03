@@ -47,6 +47,14 @@ The DMC uses the wakemeops image as base image.
 | DISTRIBUTION | no       | ubuntu  | distribution that should be used, see also [wakemeops](https://hub.docker.com/u/wakemeops) |                        | distribution: debian    |
 | VERSION      | no       | latest  | specific version                                                                           |                        | version: buster         |
 
+#### Base
+
+Basic Setup of the DMC.
+
+| ENV       | Default |
+| --------- | ------- |
+| CONTAINER | true    |
+
 #### Tools
 
 Tools to be installed within the DMC.
