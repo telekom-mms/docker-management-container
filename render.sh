@@ -101,4 +101,4 @@ if [ "${SED_APPEND_ARGS}" != "" ]; then
 fi
 
 ## remove helper files
-#rm "${BUILD_FILE}" "${DOCKERFILE_TEMPLATE}"
+rm "${BUILD_FILE}" "${DOCKERFILE_TEMPLATE}"
