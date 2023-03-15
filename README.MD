@@ -148,9 +148,9 @@ If you mount your repositories to the DMC you might want to run it with your loc
 
 This should give you a few benefits:
 
-- no permissions issues when editing files from within the container
-- being able to use the local ssh auth key for ansible
-- local configuration is used in the container (.bashrc, .gitconfig, .vimrc etc)
+* no permissions issues when editing files from within the container
+* being able to use the local ssh auth key for ansible
+* local configuration is used in the container (.bashrc, .gitconfig, .vimrc etc)
 
 Example:
 

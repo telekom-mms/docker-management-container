@@ -24,12 +24,10 @@ binaries:
     - google-cloud-cli
 requirements:
   pip:
-    - packaging
-    - requests[security]
-    - xmltodict
-    - azure-cli-core
-    - azure-common
-    - awsume
+    packages:
+      - awsume
+    requirements:
+      - https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
   ansible:
     roles:
       - t_systems_mms.grafana
