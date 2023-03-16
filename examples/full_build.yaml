@@ -35,7 +35,7 @@ requirements:
       - t_systems_mms.acme
       - t_systems_mms.icinga_director
     requirements:
-      - https://github.com/T-Systems-MMS/ansible-role-maxscale/blob/master/requirements.yml
+      - https://raw.githubusercontent.com/T-Systems-MMS/ansible-role-maxscale/master/requirements.yml
 extensions:
   az:
     - front-door
