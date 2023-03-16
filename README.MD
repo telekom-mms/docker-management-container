@@ -51,12 +51,12 @@ The DMC uses the wakemeops image as base image.
   * `build.yaml`
     * use default
 
-      ``` docker
+      ``` yaml
       ```
 
     * setup custom
 
-      ``` docker
+      ``` yaml
       distribution: debian
       ```
 
@@ -67,12 +67,12 @@ The DMC uses the wakemeops image as base image.
   * `build.yaml`
     * use default
 
-      ``` docker
+      ``` yaml
       ```
 
     * setup custom
 
-      ``` docker
+      ``` yaml
       version: buster
       ```
 
@@ -102,12 +102,12 @@ Tools to be installed within the DMC.
   * `build.yaml`
     * use default
 
-      ``` docker
+      ``` yaml
       ```
 
     * setup custom
 
-      ``` docker
+      ``` yaml
       packages:
         - ansible
         - docker-ce
@@ -122,7 +122,7 @@ Tools to be installed within the DMC.
   * `build.yaml`
     * use default
 
-      ``` docker
+      ``` yaml
       repositories:
         docker: {}
         microsoft: {}
@@ -131,7 +131,7 @@ Tools to be installed within the DMC.
 
     * setup custom
 
-      ``` docker
+      ``` yaml
       repositories:
         mongodb:
           gpg: https://www.mongodb.org/static/pgp/server-6.0.asc
@@ -145,12 +145,12 @@ Tools to be installed within the DMC.
   * `build.yaml`
     * use default
 
-      ``` docker
+      ``` yaml
       ```
 
     * setup custom
 
-      ``` docker
+      ``` yaml
       github:
         - remotemobprogramming/mob=linux_amd64=v3.2.0
         - derailed/k9s=Linux_x86_64
@@ -207,12 +207,12 @@ Extension of installed tools.
   * `build.yaml`
     * use default
 
-      ``` docker
+      ``` yaml
       ```
 
     * setup custom
 
-      ``` docker
+      ``` yaml
       requirements:
         pip:
           packages:
@@ -236,12 +236,12 @@ Extension of installed tools.
   * `build.yaml`
     * use default
 
-      ``` docker
+      ``` yaml
       ```
 
     * setup custom
 
-      ``` docker
+      ``` yaml
       extensions:
         az:
           - front-door=1.0.15
@@ -271,12 +271,12 @@ System configuration and further setups to finish the DMC build.
   * `build.yaml`
     * use default
 
-      ``` docker
+      ``` yaml
       ```
 
     * setup custom
 
-      ``` docker
+      ``` yaml
       profiles:
         .vimrc:
           - filetype on
@@ -291,12 +291,12 @@ System configuration and further setups to finish the DMC build.
   * `build.yaml`
     * use default
 
-      ``` docker
+      ``` yaml
       ```
 
     * setup custom
 
-      ``` docker
+      ``` yaml
       post_build_commands:
         - awsume-configure
       ```
