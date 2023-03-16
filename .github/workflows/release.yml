@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     name: create release draft
     steps:
-      - uses: actions/checkout@v3.3.0
+      - uses: actions/checkout@v3.4.0
         with:
           fetch-depth: 0
 
@@ -46,7 +46,7 @@ jobs:
 
       # do a second checkout to prevent race situation
       # changelog gets updated but action works on old commit id
-      - uses: actions/checkout@v3.3.0
+      - uses: actions/checkout@v3.4.0
         with:
           ref: master
 
