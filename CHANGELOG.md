@@ -1,12 +1,13 @@
 # Changelog
 
-## [3.0.4](https://github.com/T-Systems-MMS/docker-management-container/tree/3.0.4) (2023-03-16)
+## [3.1.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.1.0) (2023-03-16)
 
-[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.0.3...3.0.4)
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.0.3...3.1.0)
 
 **Implemented enhancements:**
 
 - \[Enhancement\] Add "container" environment variable [\#71](https://github.com/T-Systems-MMS/docker-management-container/issues/71)
+- Pip requirements [\#77](https://github.com/T-Systems-MMS/docker-management-container/pull/77) ([michaelamattes](https://github.com/michaelamattes))
 
 **Merged pull requests:**
 
