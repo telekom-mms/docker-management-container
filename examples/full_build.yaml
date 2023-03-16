@@ -19,7 +19,6 @@ repositories:
 binaries:
   github:
     - remotemobprogramming/mob=linux_amd64
-    - derailed/k9s=Linux_x86_64
   google:
     - google-cloud-cli
 requirements:
