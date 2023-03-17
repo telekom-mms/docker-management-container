@@ -319,6 +319,36 @@ docker volume create -d lebokus/bindfs -o sourcePath=$PWD -o map=$(id -u)/0:@$(i
 docker run -it --user root -v dmcvolume:/root/ dmc:latest
 ```
 
+## Included renovate preset
+
+We provide a [renovate-preset](https://docs.renovatebot.com/key-concepts/presets/) to include in your configuration.
+If you use it renovate can update the versions in your `build.yaml`
+
+Include it like this:
+```
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    "github>T-Systems-MMS/docker-management-container"
+  ],
+}
+```
+
+Change your `build.yaml` like this to use it:
+
+```
+packages:
+  # renovate: datasource=repology depName=ubuntu_22_04/ansible versioning=loose
+  - ansible=2.10.7+merged+base+2.10.8+dfsg-1
+
+  ansible:
+    collections:
+      # renovate: datasource=galaxy-collection depName=t_systems_mms.acme
+      - t_systems_mms.acme=2.3.1
+```
+
+
 ## Migration
 
 With Version 2.0.0 there's a breaking change in the configuration and usage of the DMC.
