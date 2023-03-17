@@ -1,8 +1,12 @@
 # Changelog
 
-## [3.1.1](https://github.com/T-Systems-MMS/docker-management-container/tree/3.1.1) (2023-03-17)
+## [3.2.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.2.0) (2023-03-17)
 
-[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.1.0...3.1.1)
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.1.0...3.2.0)
+
+**Implemented enhancements:**
+
+- Renovate preset [\#81](https://github.com/T-Systems-MMS/docker-management-container/pull/81) ([rndmh3ro](https://github.com/rndmh3ro))
 
 **Merged pull requests:**
 
