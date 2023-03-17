@@ -66,8 +66,6 @@ The DMC uses the wakemeops image as base image.
 
 Basic Setup of the DMC.
 
-##### Base ENV
-
 #### Tools
 
 Tools to be installed within the DMC.
