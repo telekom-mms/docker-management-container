@@ -44,35 +44,21 @@ The DMC uses the wakemeops image as base image.
 
 ##### Image ARG
 
-* `DISTRIBUTION`
+* `distribution`
   * Required: no
-  * Default: ubuntu
+  * Default: `ubuntu`
   * Description: distribution that should be used, see also [wakemeops](https://hub.docker.com/u/wakemeops)
-  * `build.yaml`
-    * use default
-
-      ``` yaml
-      ```
-
-    * setup custom
-
-      ``` yaml
+  * Examples:
+    * ``` yaml
       distribution: debian
       ```
 
-* `VERSION`
+* `version`
   * Required: no
-  * Default: latest
+  * Default: `latest`
   * Description: specific version
-  * `build.yaml`
-    * use default
-
-      ``` yaml
-      ```
-
-    * setup custom
-
-      ``` yaml
+  * Examples:
+    * ``` yaml
       version: buster
       ```
 
@@ -82,32 +68,18 @@ Basic Setup of the DMC.
 
 ##### Base ENV
 
-* `CONTAINER`
-  * Default: true
-
 #### Tools
 
 Tools to be installed within the DMC.
 
 ##### Tools ARG
 
-* `WORKDIR`
-  * Required: no
-  * Default: /root
-
-* `PACKAGES`
+* `packages`
   * Required: no
   * Default:
   * Description: list of packages to be installed
-  * `build.yaml`
-    * use default
-
-      ``` yaml
-      ```
-
-    * setup custom
-
-      ``` yaml
+  * Examples:
+    * ``` yaml
       packages:
         - ansible
         - docker-ce
@@ -115,42 +87,30 @@ Tools to be installed within the DMC.
         - kubectl
       ```
 
-* `REPOSITORIES`
+* `repositories`
   * Required: no
   * Default:
   * Description: further repositories that should be used, currently the following are defined with defaults **_[hashicorp, docker, microsoft]_**
-  * `build.yaml`
-    * use default
-
-      ``` yaml
+  * Examples:
+    * ``` yaml
       repositories:
         docker: {}
         microsoft: {}
         hashicorp: {}
       ```
-
-    * setup custom
-
-      ``` yaml
+    * ``` yaml
       repositories:
         mongodb:
           gpg: https://www.mongodb.org/static/pgp/server-6.0.asc
           entry: https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse
       ```
 
-* `BINARIES`
+* `binaries`
   * Required: no
   * Default:
   * Description: binaries that should be installed, currently the following are supported **_[github, google]_**
-  * `build.yaml`
-    * use default
-
-      ``` yaml
-      ```
-
-    * setup custom
-
-      ``` yaml
+  * Examples:
+    * ``` yaml
       github:
         - remotemobprogramming/mob=linux_amd64=v3.2.0
         - derailed/k9s=Linux_x86_64
@@ -158,35 +118,35 @@ Tools to be installed within the DMC.
         - google-cloud-cli
       ```
 
-* `REPOSITORIES_HASHICORP_GPG`
+* `repositories_hashicorp_gpg`
   * Required: no
   * Default: `https://apt.releases.hashicorp.com/gpg`
 
-* `REPOSITORIES_HASHICORP_ENTRY`
+* `repositories_hashicorp_entry`
   * Required: no
   * Default: `'https://apt.releases.hashicorp.com $(lsb_release -cs) main'`
 
-* `REPOSITORIES_DOCKER_GPG`
+* `repositories_docker_gpg`
   * Required: no
   * Default: `https://download.docker.com/linux/ubuntu/gpg`
 
-* `REPOSITORIES_DOCKER_ENTRY`
+* `repositories_docker_entry`
   * Required: no
   * Default: `'https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'`
 
-* `REPOSITORIES_MICROSOFT_GPG`
+* `repositories_microsoft_gpg`
   * Required: no
   * Default: `https://packages.microsoft.com/keys/microsoft.asc`
 
-* `REPOSITORIES_MICROSOFT_ENTRY`
+* `repositories_microsoft_entry`
   * Required: no
   * Default: `'https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -cs) main'`
 
-* `BINARIES_GITHUB_URI`
+* `binaries_github_uri`
   * Required: no
   * Default: `https://api.github.com/repos`
 
-* `BINARIES_GOOGLE_URI`
+* `binaries_google_uri`
   * Required: no
   * Default: `https://packages.cloud.google.com/apt/dists/cloud-sdk/main/binary-arm64/Packages`
 
@@ -196,23 +156,12 @@ Extension of installed tools.
 
 ##### Tool Config ARG
 
-* `WORKDIR`
-  * Required: no
-  * Default: /root
-
-* `REQUIREMENTS`
+* `requirements`
   * Required: no
   * Default:
   * Description: requirements that should be installed for the used tools, currently the following are supported **_[pip, ansible(roles, collections)]_**
-  * `build.yaml`
-    * use default
-
-      ``` yaml
-      ```
-
-    * setup custom
-
-      ``` yaml
+  * Examples:
+    * ``` yaml
       requirements:
         pip:
           packages:
@@ -229,19 +178,12 @@ Extension of installed tools.
             - https://raw.githubusercontent.com/T-Systems-MMS/ansible-role-maxscale/master/requirements.yml
       ```
 
-* `EXTENSIONS`
+* `extensions`
   * Required: no
   * Default:
   * Description: extensions that should be installed for the used tools, currently the following are supported **_[az, google, helm]_**
-  * `build.yaml`
-    * use default
-
-      ``` yaml
-      ```
-
-    * setup custom
-
-      ``` yaml
+  * Examples:
+    * ``` yaml
       extensions:
         az:
           - front-door=1.0.15
@@ -260,23 +202,12 @@ System configuration and further setups to finish the DMC build.
 
 ##### Post Build Config ARG
 
-* `WORKDIR`
-  * Required: no
-  * Default: /root
-
-* `PROFILES`
+* `profiles`
   * Required: no
   * Default:
   * Description: configuration for profile settings
-  * `build.yaml`
-    * use default
-
-      ``` yaml
-      ```
-
-    * setup custom
-
-      ``` yaml
+  * Examples:
+    * ``` yaml
       profiles:
         .vimrc:
           - filetype on
@@ -284,19 +215,12 @@ System configuration and further setups to finish the DMC build.
           - alias ll='ls -la'
       ```
 
-* `POST_BUILD_COMMANDS`
+* `post_build_commands`
   * Required: no
   * Default:
   * Description: commands to run after the image build to finish the setup
-  * `build.yaml`
-    * use default
-
-      ``` yaml
-      ```
-
-    * setup custom
-
-      ``` yaml
+  * Examples:
+    * ``` yaml
       post_build_commands:
         - awsume-configure
       ```
