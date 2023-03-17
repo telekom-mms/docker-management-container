@@ -1,12 +1,12 @@
-"regexManagers": [
-  {
-    "description": "Update versions in DMC build.yaml",
-    "fileMatch": ["(^|/)build\\.yaml$"],
-    "matchStrings": [
-      // matches e.g. "# renovate: datasource=github-releases depName=hashicorp/terraform"
-      // see: https://regex-vis.com/?r=%23%5Cs*renovate%3A%5Cs*datasource%3D%28%3F%3Cdatasource%3E.*%3F%29+depName%3D%28%3F%3CdepName%3E.*%3F%29%28+versioning%3D%28%3F%3Cversioning%3E.*%3F%29%29%3F%5Cs.-*%3F%3D%28%3F%3CcurrentValue%3E.*%29%24
-      "#\\s*renovate:\\s*datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?=(?<currentValue>.*)\\s"
-    ],
-    "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
-  }
-]
+{
+  "regexManagers": [
+    {
+      "description": "Update versions in DMC build.yaml",
+      "fileMatch": ["(^|/)build\\.yaml$"],
+      "matchStrings": [
+        "#\\s*renovate:\\s*datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?=(?<currentValue>.*)\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
+    }
+  ]
+}
