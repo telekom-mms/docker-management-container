@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.1.1](https://github.com/T-Systems-MMS/docker-management-container/tree/3.1.1) (2023-03-17)
+
+[Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.1.0...3.1.1)
+
+**Merged pull requests:**
+
+- rm table style [\#79](https://github.com/T-Systems-MMS/docker-management-container/pull/79) ([michaelamattes](https://github.com/michaelamattes))
+
 ## [3.1.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.1.0) (2023-03-16)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.0.3...3.1.0)
