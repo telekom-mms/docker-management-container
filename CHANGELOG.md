@@ -1,15 +1,17 @@
 # Changelog
 
-## [3.2.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.2.0) (2023-03-17)
+## [3.2.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.2.0) (2023-03-24)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.1.0...3.2.0)
 
 **Implemented enhancements:**
 
+- \[Enhancement\] Provide renovate presets [\#80](https://github.com/T-Systems-MMS/docker-management-container/issues/80)
 - Renovate preset [\#81](https://github.com/T-Systems-MMS/docker-management-container/pull/81) ([rndmh3ro](https://github.com/rndmh3ro))
 
 **Merged pull requests:**
 
+- Update actions/checkout action to v3.5.0 [\#86](https://github.com/T-Systems-MMS/docker-management-container/pull/86) ([renovate[bot]](https://github.com/apps/renovate))
 - rm table style [\#79](https://github.com/T-Systems-MMS/docker-management-container/pull/79) ([michaelamattes](https://github.com/michaelamattes))
 
 ## [3.1.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.1.0) (2023-03-16)
