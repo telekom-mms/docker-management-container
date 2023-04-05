@@ -6,7 +6,7 @@ RUN if [ -n "${BINARIES}" ]; then \
         BINARY_URI=$(eval "echo \$BINARIES_${BINARY_REPO}_URI") && \
         BINARY_PACKAGES=$(eval "echo \$BINARIES_${BINARY_REPO}") && \
         \
-        `# download binaries from github` \
+        # download binaries from github
         if [ "${BINARY_REPO}" = "GITHUB" ]; then \
           for BINARY_PACKAGE in ${BINARY_PACKAGES}; \
           do \
@@ -28,7 +28,7 @@ RUN if [ -n "${BINARIES}" ]; then \
           done; \
         fi && \
         \
-        `# download binaries from google` \
+        # download binaries from google
         if [ "${BINARY_REPO}" = "GOOGLE" ]; then \
           for BINARY_PACKAGE in ${BINARY_PACKAGES}; \
           do \
@@ -42,7 +42,7 @@ RUN if [ -n "${BINARIES}" ]; then \
               | cut -d '_' -f2 \
               | sort -un \
               | tail -n1 \
-              | cut -d '-' -f1\
+              | cut -d '-' -f1 \
             ) && \
             BINARY_PACKAGE_FILENAME="$(echo ${BINARY_PACKAGE} | cut -d '=' -f1)-${BINARY_PACKAGE_VERSION}-linux-x86_64.tar.gz" && \
             BINARY_PACKAGE_URL="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/${BINARY_PACKAGE_FILENAME}" && \
