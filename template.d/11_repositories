@@ -1,7 +1,6 @@
 ## repositories
 RUN if [ -n "${REPOSITORIES}" ]; then \
       IFS=';' && \
-      \
       for REPOSITORY in ${REPOSITORIES[@]}; \
       do \
         declare -u REPO="${REPOSITORY}" && \
