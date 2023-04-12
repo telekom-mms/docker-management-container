@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.2.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.2.0) (2023-03-24)
+## [3.2.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.2.0) (2023-04-12)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.1.0...3.2.0)
 
@@ -11,6 +11,7 @@
 
 **Merged pull requests:**
 
+- Update actions/checkout action to v3.5.1 [\#89](https://github.com/T-Systems-MMS/docker-management-container/pull/89) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout action to v3.5.0 [\#86](https://github.com/T-Systems-MMS/docker-management-container/pull/86) ([renovate[bot]](https://github.com/apps/renovate))
 - rm table style [\#79](https://github.com/T-Systems-MMS/docker-management-container/pull/79) ([michaelamattes](https://github.com/michaelamattes))
 
