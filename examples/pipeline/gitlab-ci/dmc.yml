@@ -1,0 +1,26 @@
+---
+build_dmc:
+  stage: docker_management_container
+  image: docker:git
+  services:
+    - name: docker:dind
+      alias: docker
+  variables:
+    # renovate: datasource=github-releases depName=docker-management-container
+    GITHUB_DMC_TAG: 3.1.0
+    DMC_NAME: foo
+    DMC_IMAGE: $CI_REGISTRY_IMAGE/$DMC_NAME
+  script:
+    # get date for tagging the image
+    - export DATE=$(date +"%F")
+    # get DMC from GitHub
+    - git clone --branch ${GITHUB_DMC_TAG} --depth 1 https://github.com/T-Systems-MMS/docker-management-container $CI_PROJECT_DIR/docker/docker-management-container
+    # create Dockerfile with template from submodule
+    - sh $CI_PROJECT_DIR/docker/docker-management-container/render.sh $CI_PROJECT_DIR/docker/$DMC_NAME
+    # build and tag image
+    - docker build -t ${DMC_IMAGE} $CI_PROJECT_DIR/docker/$DMC_NAME
+    - docker tag $DMC_IMAGE:latest $DMC_IMAGE:${DATE}
+    # push images
+    - docker push --all-tags ${DMC_IMAGE}
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule" && $JOB == "build_dmc"
