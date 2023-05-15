@@ -24,8 +24,10 @@ stages:
   - docker_management_container
 
 include:
-  remote: https://raw.githubusercontent.com/T-Systems-MMS/docker-management-container/gitlab_ci_include/examples/pipeline/gitlab-ci/dmc.yml
+  remote: https://raw.githubusercontent.com/T-Systems-MMS/docker-management-container/master/examples/pipeline/gitlab-ci/dmc.yml
 
 build_dmc:
   variables:
     DMC_NAME: $DMC_NAME
+  extends:
+    - .docker_login
