@@ -8,7 +8,6 @@ build_dmc:
   variables:
     # renovate: datasource=github-releases depName=docker-management-container
     GITHUB_DMC_TAG: 3.1.0
-    DMC_NAME: foo
     DMC_IMAGE: $CI_REGISTRY_IMAGE/$DMC_NAME
   script:
     # get date for tagging the image
@@ -23,6 +22,8 @@ build_dmc:
     # push images
     - docker push --all-tags ${DMC_IMAGE}
   rules:
-    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "build_dmc"
       changes:
         - docker/$DMC_NAME/*
+  extends:
+    - .docker_login
