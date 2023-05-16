@@ -23,9 +23,9 @@ build_dmc:
     # push images
     - docker push --all-tags ${DMC_IMAGE}
   rules:
-    - if: $CI_COMMIT_REF_NAME == "main"
+    - if: $CI_COMMIT_BRANCH == "main"
       changes:
-        - $CI_PROJECT_DIR/docker/$DMC_NAME/build.yaml
-    - if: $CI_COMMIT_REF_NAME == "master"
+        - docker/$DMC_NAME/*
+    - if: $CI_COMMIT_BRANCH == "master"
       changes:
-        - $CI_PROJECT_DIR/docker/$DMC_NAME/build.yaml
+        - docker/$DMC_NAME/*
