@@ -23,4 +23,7 @@ build_dmc:
     # push images
     - docker push --all-tags ${DMC_IMAGE}
   rules:
-    - if: $CI_PIPELINE_SOURCE == "schedule" && $JOB == "build_dmc"
+    - if: $CI_COMMIT_REF_NAME == "main" || $CI_COMMIT_REF_NAME == "master"
+    changes: 
+      - $CI_PROJECT_DIR/docker/$DMC_NAME/build.yaml
+      
