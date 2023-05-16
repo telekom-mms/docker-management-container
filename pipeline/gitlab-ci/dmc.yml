@@ -25,4 +25,4 @@ build_dmc:
   rules:
     - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"
       changes:
-        - $CI_PROJECT_DIR/docker/$DMC_NAME/*
+        - docker/$DMC_NAME/*
