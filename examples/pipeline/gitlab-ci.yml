@@ -28,4 +28,6 @@ include:
 
 build_dmc:
   variables:
+    # renovate: datasource=github-releases depName=docker-management-container
+    GITHUB_DMC_TAG: 3.1.0
     DMC_NAME: $DMC_NAME
