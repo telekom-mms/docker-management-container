@@ -17,7 +17,7 @@ build_dmc:
     # create Dockerfile with template from submodule
     - sh $CI_PROJECT_DIR/docker/docker-management-container/render.sh $CI_PROJECT_DIR/docker/${DMC_NAME}
     # build and tag image
-    - docker build -t ${DMC_IMAGE} $CI_PROJECT_DIR/docker/${DMC_NAME}
+    - docker build --label dmc-version=${GITHUB_DMC_TAG} -t ${DMC_IMAGE} $CI_PROJECT_DIR/docker/${DMC_NAME}
     - docker tag $DMC_IMAGE:latest $DMC_IMAGE:${DATE}
     # push images
     - docker push --all-tags ${DMC_IMAGE}
