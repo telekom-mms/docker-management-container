@@ -23,7 +23,7 @@ build_dmc:
     - docker push --all-tags ${DMC_IMAGE}
   rules:
     - if: $CI_COMMIT_BRANCH == "master" || $CI_COMMIT_BRANCH == "main"
-      changes:
-        - docker/${DMC_NAME}/*
+    - changes:
+      - docker/${DMC_NAME}/*
   extends:
     - .docker_login
