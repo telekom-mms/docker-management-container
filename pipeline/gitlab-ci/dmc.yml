@@ -6,7 +6,8 @@ build_dmc:
     - name: docker:dind
       alias: docker
   variables:
-    GITHUB_DMC_TAG: latest
+    # renovate: datasource=github-releases depName=docker-management-container
+    GITHUB_DMC_TAG: 3.1.0
     DMC_IMAGE: $CI_REGISTRY_IMAGE/${DMC_NAME}
   script:
     # get date for tagging the image
