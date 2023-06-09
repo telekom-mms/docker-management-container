@@ -1,16 +1,22 @@
 # Changelog
 
-## [3.2.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.2.0) (2023-04-13)
+## [3.2.0](https://github.com/T-Systems-MMS/docker-management-container/tree/3.2.0) (2023-06-09)
 
 [Full Changelog](https://github.com/T-Systems-MMS/docker-management-container/compare/3.1.0...3.2.0)
 
 **Implemented enhancements:**
 
+- Variable or file with release tag [\#84](https://github.com/T-Systems-MMS/docker-management-container/issues/84)
 - \[Enhancement\] Provide renovate presets [\#80](https://github.com/T-Systems-MMS/docker-management-container/issues/80)
 - Renovate preset [\#81](https://github.com/T-Systems-MMS/docker-management-container/pull/81) ([rndmh3ro](https://github.com/rndmh3ro))
 
+**Fixed bugs:**
+
+- \[Bug\] Ansible Collections not installing when ansible should install per pip [\#85](https://github.com/T-Systems-MMS/docker-management-container/issues/85)
+
 **Merged pull requests:**
 
+- Update actions/checkout action to v3.5.3 [\#96](https://github.com/T-Systems-MMS/docker-management-container/pull/96) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout action to v3.5.2 [\#90](https://github.com/T-Systems-MMS/docker-management-container/pull/90) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout action to v3.5.1 [\#89](https://github.com/T-Systems-MMS/docker-management-container/pull/89) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout action to v3.5.0 [\#86](https://github.com/T-Systems-MMS/docker-management-container/pull/86) ([renovate[bot]](https://github.com/apps/renovate))
