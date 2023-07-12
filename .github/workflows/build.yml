@@ -78,6 +78,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/t-systems-mms/dmc/${{ matrix.example }}
+          tags: ghcr.io/telekom-mms/dmc/${{ matrix.example }}
           labels: ${{ steps.meta.outputs.labels }}
         if: github.ref == 'refs/heads/master'

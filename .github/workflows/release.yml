@@ -42,7 +42,7 @@ jobs:
           force-add: 'true'
           files: CHANGELOG.md
           name: T-Systems MMS
-          email: frage@t-systems-mms.com
+          email: frage@telekom-mms.com
 
       # do a second checkout to prevent race situation
       # changelog gets updated but action works on old commit id
