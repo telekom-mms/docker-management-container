@@ -16,6 +16,7 @@
 
 **Merged pull requests:**
 
+- move to new orga [\#98](https://github.com/telekom-mms/docker-management-container/pull/98) ([rndmh3ro](https://github.com/rndmh3ro))
 - move to new orga [\#97](https://github.com/telekom-mms/docker-management-container/pull/97) ([rndmh3ro](https://github.com/rndmh3ro))
 - Update actions/checkout action to v3.5.3 [\#96](https://github.com/telekom-mms/docker-management-container/pull/96) ([renovate[bot]](https://github.com/apps/renovate))
 - Update docker/build-push-action action to v4.1.1 [\#95](https://github.com/telekom-mms/docker-management-container/pull/95) ([renovate[bot]](https://github.com/apps/renovate))
