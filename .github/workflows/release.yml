@@ -4,7 +4,7 @@ name: New release
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   generate_changelog:
@@ -17,7 +17,7 @@ jobs:
 
       - name: 'Get Previous tag'
         id: previoustag
-        uses: "WyriHaximus/github-action-get-previous-tag@master"
+        uses: "WyriHaximus/github-action-get-previous-tag@main"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
@@ -37,7 +37,7 @@ jobs:
         uses: github-actions-x/commit@v2.9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          push-branch: 'master'
+          push-branch: 'main'
           commit-message: 'update changelog'
           force-add: 'true'
           files: CHANGELOG.md
@@ -48,7 +48,7 @@ jobs:
       # changelog gets updated but action works on old commit id
       - uses: actions/checkout@v3.5.3
         with:
-          ref: master
+          ref: main
 
       - name: Generate changelog for the release
         run: |

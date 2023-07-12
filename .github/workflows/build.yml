@@ -4,10 +4,10 @@ name: Create and publish Docker image
 on:
   pull_request:
     branches:
-      - master
+      - main
   push:
     branches:
-      - master
+      - main
 
 env:
   REGISTRY: ghcr.io
@@ -36,14 +36,14 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4.6.0
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
 
       - name: Render Dockerfile ${{ matrix.example }}
         run: cp examples/${{ matrix.example }}_build.yaml ./build.yaml && sh render.sh .
@@ -80,4 +80,4 @@ jobs:
           push: true
           tags: ghcr.io/telekom-mms/dmc/${{ matrix.example }}
           labels: ${{ steps.meta.outputs.labels }}
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
