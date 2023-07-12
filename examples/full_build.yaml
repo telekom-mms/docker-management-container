@@ -29,10 +29,10 @@ requirements:
       - https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
   ansible:
     roles:
-      - t_systems_mms.grafana
+      - telekom_mms.grafana
     collections:
-      - t_systems_mms.acme
-      - t_systems_mms.icinga_director
+      - telekom_mms.acme
+      - telekom_mms.icinga_director
     requirements:
       - https://raw.githubusercontent.com/T-Systems-MMS/ansible-role-maxscale/master/requirements.yml
 extensions:

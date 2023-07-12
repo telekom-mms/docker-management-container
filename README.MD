@@ -1,6 +1,6 @@
 # Docker Management Container
 
-The Docker Management Container (or DMC for short) contains a number of plugins and services that are designed to make it easy to create, test, deploy and manage infrastructures. For more information also take a look at our [Blog](https://blog.t-systems-mms.com/tech-insights/manage-your-infrastructure-better-with-this-opensource-tool).
+The Docker Management Container (or DMC for short) contains a number of plugins and services that are designed to make it easy to create, test, deploy and manage infrastructures. For more information also take a look at our [Blog](https://blog.telekom-mms.com/tech-insights/manage-your-infrastructure-better-with-this-opensource-tool).
 
 <!-- <picture>
   <source
@@ -22,10 +22,10 @@ For a quick overview and test of the DMC, we have created images based on the [m
 
 ``` bash
 # minimal
-docker run ghcr.io/t-systems-mms/dmc:min
+docker run ghcr.io/telekom-mms/dmc:min
 
 # full
-docker run ghcr.io/t-systems-mms/dmc:full
+docker run ghcr.io/telekom-mms/dmc:full
 ```
 
 ## Usage
@@ -168,10 +168,10 @@ Extension of installed tools.
             - https://raw.githubusercontent.com/ansible-collections/azure/v1.15.0/requirements-azure.txt
         ansible:
           roles:
-            - t_systems_mms.grafana
+            - telekom_mms.grafana
           collections:
-            - t_systems_mms.acme=2.3.1
-            - t_systems_mms.icinga_director=1.28.0
+            - telekom_mms.acme=2.3.1
+            - telekom_mms.icinga_director=1.28.0
           requirements:
             - https://raw.githubusercontent.com/T-Systems-MMS/ansible-role-maxscale/master/requirements.yml
       ```
@@ -344,8 +344,8 @@ packages:
 
   ansible:
     collections:
-      # renovate: datasource=galaxy-collection depName=t_systems_mms.acme
-      - t_systems_mms.acme=2.3.1
+      # renovate: datasource=galaxy-collection depName=telekom_mms.acme
+      - telekom_mms.acme=2.3.1
 ```
 
 
