@@ -8,24 +8,10 @@
 
 - Variable or file with release tag [\#84](https://github.com/telekom-mms/docker-management-container/issues/84)
 - \[Enhancement\] Provide renovate presets [\#80](https://github.com/telekom-mms/docker-management-container/issues/80)
-- Renovate preset [\#81](https://github.com/telekom-mms/docker-management-container/pull/81) ([rndmh3ro](https://github.com/rndmh3ro))
 
 **Fixed bugs:**
 
 - \[Bug\] Ansible Collections not installing when ansible should install per pip [\#85](https://github.com/telekom-mms/docker-management-container/issues/85)
-
-**Merged pull requests:**
-
-- move to new orga [\#98](https://github.com/telekom-mms/docker-management-container/pull/98) ([rndmh3ro](https://github.com/rndmh3ro))
-- move to new orga [\#97](https://github.com/telekom-mms/docker-management-container/pull/97) ([rndmh3ro](https://github.com/rndmh3ro))
-- Update actions/checkout action to v3.5.3 [\#96](https://github.com/telekom-mms/docker-management-container/pull/96) ([renovate[bot]](https://github.com/apps/renovate))
-- Update docker/build-push-action action to v4.1.1 [\#95](https://github.com/telekom-mms/docker-management-container/pull/95) ([renovate[bot]](https://github.com/apps/renovate))
-- Update docker/login-action action to v2.2.0 [\#94](https://github.com/telekom-mms/docker-management-container/pull/94) ([renovate[bot]](https://github.com/apps/renovate))
-- Update docker/metadata-action action to v4.6.0 [\#91](https://github.com/telekom-mms/docker-management-container/pull/91) ([renovate[bot]](https://github.com/apps/renovate))
-- Update actions/checkout action to v3.5.2 [\#90](https://github.com/telekom-mms/docker-management-container/pull/90) ([renovate[bot]](https://github.com/apps/renovate))
-- Update actions/checkout action to v3.5.1 [\#89](https://github.com/telekom-mms/docker-management-container/pull/89) ([renovate[bot]](https://github.com/apps/renovate))
-- Update actions/checkout action to v3.5.0 [\#86](https://github.com/telekom-mms/docker-management-container/pull/86) ([renovate[bot]](https://github.com/apps/renovate))
-- rm table style [\#79](https://github.com/telekom-mms/docker-management-container/pull/79) ([michaelamattes](https://github.com/michaelamattes))
 
 ## [3.1.0](https://github.com/telekom-mms/docker-management-container/tree/3.1.0) (2023-03-16)
 
