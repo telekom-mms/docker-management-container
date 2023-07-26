@@ -1,5 +1,7 @@
 ## post_build_commands
 RUN if [ -n "${POST_BUILD_COMMANDS}" ]; then \
       IFS=';' && \
-      for POST_BUILD_COMMAND in "${POST_BUILD_COMMANDS[@]}"; do bash -c "${POST_BUILD_COMMAND}"; done \
+      for POST_BUILD_COMMAND in "${POST_BUILD_COMMANDS[@]}"; do \
+        bash -c "${POST_BUILD_COMMAND}"; \
+      done \
     fi
