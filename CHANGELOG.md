@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.2.0](https://github.com/telekom-mms/docker-management-container/tree/3.2.0) (2023-07-12)
+## [3.2.0](https://github.com/telekom-mms/docker-management-container/tree/3.2.0) (2023-07-26)
 
 [Full Changelog](https://github.com/telekom-mms/docker-management-container/compare/3.1.0...3.2.0)
 
@@ -8,10 +8,6 @@
 
 - Variable or file with release tag [\#84](https://github.com/telekom-mms/docker-management-container/issues/84)
 - \[Enhancement\] Provide renovate presets [\#80](https://github.com/telekom-mms/docker-management-container/issues/80)
-
-**Fixed bugs:**
-
-- \[Bug\] Ansible Collections not installing when ansible should install per pip [\#85](https://github.com/telekom-mms/docker-management-container/issues/85)
 
 ## [3.1.0](https://github.com/telekom-mms/docker-management-container/tree/3.1.0) (2023-03-16)
 
