@@ -1,5 +1,7 @@
 ## requirements
 RUN if [ -n "${REQUIREMENTS}" ]; then \
+      ### pip should alway be the first element in array
+      REQUIREMENTS=$(echo ${REQUIREMENTS} | awk -F 'pip;' '{print FS$NR$NF}') && \
       IFS=';' && \
       for REQUIREMENT in ${REQUIREMENTS[@]}; \
       do \
