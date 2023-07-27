@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.2.0](https://github.com/telekom-mms/docker-management-container/tree/3.2.0) (2023-07-26)
+## [3.2.0](https://github.com/telekom-mms/docker-management-container/tree/3.2.0) (2023-07-27)
 
 [Full Changelog](https://github.com/telekom-mms/docker-management-container/compare/3.1.0...3.2.0)
 
