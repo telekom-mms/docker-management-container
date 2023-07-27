@@ -27,8 +27,6 @@ requirements:
     collections:
       - telekom_mms.acme
       - telekom_mms.icinga_director
-    requirements:
-      - https://raw.githubusercontent.com/T-Systems-MMS/ansible-role-maxscale/master/requirements.yml
   pip:
     packages:
       - awsume
