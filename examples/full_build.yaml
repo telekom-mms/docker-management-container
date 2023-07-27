@@ -21,12 +21,6 @@ binaries:
   google:
     - google-cloud-cli
 requirements:
-  pip:
-    packages:
-      - awsume
-      - ansible
-    requirements:
-      - https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
   ansible:
     roles:
       - telekom_mms.grafana
@@ -35,6 +29,12 @@ requirements:
       - telekom_mms.icinga_director
     requirements:
       - https://raw.githubusercontent.com/T-Systems-MMS/ansible-role-maxscale/master/requirements.yml
+  pip:
+    packages:
+      - awsume
+      - ansible
+    requirements:
+      - https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
 extensions:
   az:
     - front-door
