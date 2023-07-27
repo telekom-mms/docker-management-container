@@ -1,5 +1,4 @@
 packages:
-  - ansible
   - kubectl
   - helm
   - terraform
@@ -25,6 +24,7 @@ requirements:
   pip:
     packages:
       - awsume
+      - ansible
     requirements:
       - https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
   ansible:

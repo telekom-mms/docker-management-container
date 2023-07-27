@@ -65,15 +65,15 @@ echo > "${DOCKERFILE}"
 build_template
 parse_yaml "${ENV_FILE}" > "${BUILD_FILE}"
 
-KEYS=$(cut -d '=' -f1 "${BUILD_FILE}" | sort -u)
+KEYS=$(cut -d '=' -f1 "${BUILD_FILE}" | awk '!a[$0]++')
 
 ## generate ARG=VALUE for replacement
 for KEY in ${KEYS}
 do
   if [ "$(grep -c "^${KEY}=" "${BUILD_FILE}")" -gt 1 ]; then
-    VALUE=$(grep "^${KEY}=" "${BUILD_FILE}" | cut -d '=' -f2- | sort -u | tr '\n' ';')
+    VALUE=$(grep "^${KEY}=" "${BUILD_FILE}" | cut -d '=' -f2- | awk '!a[$0]++' | tr '\n' ';')
   else
-    VALUE=$(grep "^${KEY}=" "${BUILD_FILE}" | cut -d '=' -f2- | sort -u | tr -d '\n')
+    VALUE=$(grep "^${KEY}=" "${BUILD_FILE}" | cut -d '=' -f2- | awk '!a[$0]++' | tr -d '\n')
   fi
   ARG=$(echo "${KEY}" | awk '{print toupper($0)}')
 
@@ -90,7 +90,7 @@ sed -r "${SED_REPLACE}" "${DOCKERFILE_TEMPLATE}" > "${DOCKERFILE}"
 
 ## append ARG
 if [ "${SED_APPEND_ARGS}" != "" ]; then
-  SED_APPEND_KEYS=$(echo "$SED_APPEND_ARGS" |  tr '#' '\n' | cut -d '=' -f1 | sort -u | xargs)
+  SED_APPEND_KEYS=$(echo "$SED_APPEND_ARGS" |  tr '#' '\n' | cut -d '=' -f1 | awk '!a[$0]++' | xargs)
 
   for SED_APPEND_KEY in ${SED_APPEND_KEYS}; do
     SED_APPEND_KEY_ARG=$(echo "${SED_APPEND_ARGS}" | tr '#' '\n' | sed -n "s/${SED_APPEND_KEY}=/ARG /p" | sed 's/$/\\n/g' | tr -d '\n')
