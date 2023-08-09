@@ -46,7 +46,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
 
       - name: Render Dockerfile ${{ matrix.example }}
-        run: cp ${{ matrix.example }}_build.yaml ./build.yaml && sh render.sh .
+        run: sh render.sh .
         working-directory: examples/${{ matrix.example }}/
 
       - name: Build the container dmc:${{ matrix.example }}

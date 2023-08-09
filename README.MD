@@ -18,7 +18,7 @@ The DMC uses the wakemeops as base setup, for more information about wakemeops l
 
 ### Try
 
-For a quick overview and test of the DMC, we have created images based on the [minimal](examples/min_build.yaml) and [full](examples/full_build.yaml) examples that can be used directly.
+For a quick overview and test of the DMC, we have created images based on the [minimal](examples/min/build.yaml) and [full](examples/full/_build.yaml) examples that can be used directly.
 
 ``` bash
 # minimal
@@ -364,8 +364,8 @@ sh migrate.sh .
 
 Examples for the `build.yaml` could be found under [examples](examples):
 
-* [minimal](examples/min_build.yaml)
-* [full](examples/full_build.yaml)
+* [minimal](examples/min/build.yaml)
+* [full](examples/full/build.yaml)
 
 ## Others
 
