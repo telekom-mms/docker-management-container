@@ -23,7 +23,7 @@ stages:
   - docker_management_container
 
 include:
-  remote: https://raw.githubusercontent.com/T-Systems-MMS/docker-management-container/master/examples/pipeline/gitlab-ci/dmc.yml
+  remote: https://raw.githubusercontent.com/telekom-mms/docker-management-container/main/pipeline/gitlab-ci/dmc.yml
 
 build_dmc:
   variables:
