@@ -1,11 +1,12 @@
 {
   "extends": [
-    "config:base",
-    ":dependencyDashboard"
+    "config:base"
   ],
+  "dependencyDashboard": true,
+  "dependencyDashboardAutoclose": true,
   "packageRules": [
     {
-      "matchUpdateTypes": ["patch"],
+      "matchUpdateTypes": ["patch", "minor"],
       "automerge": true
     }
   ]
