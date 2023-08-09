@@ -254,14 +254,14 @@ Provided build presets can be found under [pipeline](pipeline). The preset also 
 ``` bash
 > docker inspect service-mgmt-dmc --format '{{ json .Config.Labels }}' | jq .
 {
-  "dmc-version": "3.1.0",
+  "dmc-version": "3.2.0",
   "org.wakemeops.base_image": "\"docker.io/ubuntu:latest\"",
   "org.wakemeops.commit": "\"65d81642eb025d20c4db5b45758879b379bc6aa1\"",
   "org.wakemeops.maintainers": "\"WakeMeOps <wakemeops.com>\""
 }
 ```
 
-##### [gitlab-ci](pipeline/gitlab-ci/dmc.yml)
+##### [gitlab-ci](pipeline/gitlab-ci.yml)
 
 ##### Inputs
 
@@ -273,36 +273,34 @@ Provided build presets can be found under [pipeline](pipeline). The preset also 
 
 The preset needs a `.docker-login`-extend. In it you have to define your docker registry information.
 
+include preset
+
 ``` bash
 # .gitlab-ci.yml
 ---
 stages:
   - docker_management_container
 
+variables:
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+  GIT_DEPTH: 0
+  GIT_SUBMODULE_STRATEGY: recursive
+
 .docker_login:
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
 include:
-  - local: .gitlab/ci/*
-```
-
-Include preset
-
-``` bash
-# .gitlab/ci/docker_management_container.yml
-stages:
-  - docker_management_container
-
-include:
-  remote: https://raw.githubusercontent.com/telekom-mms/docker-management-container/main/pipeline/gitlab-ci/dmc.yml
+  remote: https://raw.githubusercontent.com/telekom-mms/docker-management-container/main/pipeline/gitlab-ci.yml
 
 build_dmc:
   stage: docker_management_container
   variables:
     # renovate: datasource=github-releases depName=docker-management-container
     GITHUB_DMC_TAG: 3.2.0
-    DMC_NAME: service-mgmt-dmc
+    DMC_NAME: mms-mgmt-dmc
 ```
 
 ### Run Image
