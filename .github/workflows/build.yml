@@ -46,13 +46,12 @@ jobs:
         if: github.ref == 'refs/heads/main'
 
       - name: Render Dockerfile ${{ matrix.example }}
-        run: sh ../../render.sh .
-        working-directory: examples/${{ matrix.example }}/
+        run: sh render.sh examples/${{ matrix.example }}/
 
       - name: Build the container dmc:${{ matrix.example }}
         uses: docker/build-push-action@v4.1.1
         with:
-          context: examples/${{ matrix.example }}/Dockerfile
+          context: .
           push: false
           tags: dmc:${{ matrix.example }}
 
@@ -77,7 +76,7 @@ jobs:
       - name: Build and push dmc:${{ matrix.example }}
         uses: docker/build-push-action@v4.1.1
         with:
-          context: examples/${{ matrix.example }}/Dockerfile
+          context: .
           push: true
           tags: ghcr.io/telekom-mms/dmc/${{ matrix.example }}
           labels: ${{ steps.meta.outputs.labels }}
