@@ -49,6 +49,7 @@ The DMC uses the wakemeops image as base image.
   * Default: `ubuntu`
   * Description: distribution that should be used, see also [wakemeops](https://hub.docker.com/u/wakemeops)
   * Examples:
+
     * ``` yaml
       distribution: debian
       ```
@@ -58,6 +59,7 @@ The DMC uses the wakemeops image as base image.
   * Default: `latest`
   * Description: specific version
   * Examples:
+
     * ``` yaml
       version: buster
       ```
@@ -77,6 +79,7 @@ Tools to be installed within the DMC.
   * Default:
   * Description: list of packages to be installed
   * Examples:
+
     * ``` yaml
       packages:
         - ansible
