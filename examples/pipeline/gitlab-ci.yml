@@ -1,32 +1,25 @@
 # .gitlab-ci.yml
 ---
+stages:
+  - docker_management_container
+
 variables:
   DOCKER_HOST: tcp://docker:2375
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: ""
   GIT_DEPTH: 0
   GIT_SUBMODULE_STRATEGY: recursive
-  DMC_NAME: mms-mgmt-dmc
 
-include:
-  - local: .gitlab/ci/*
-
-# .gitlab/ci/login.yml
----
 .docker_login:
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
-# .gitlab/ci/docker_management_container.yml
----
-stages:
-  - docker_management_container
-
 include:
-  remote: https://raw.githubusercontent.com/telekom-mms/docker-management-container/main/pipeline/gitlab-ci/dmc.yml
+  remote: https://raw.githubusercontent.com/telekom-mms/docker-management-container/main/pipeline/gitlab-ci.yml
 
 build_dmc:
+  stage: docker_management_container
   variables:
     # renovate: datasource=github-releases depName=docker-management-container
-    GITHUB_DMC_TAG: 3.1.0
-    DMC_NAME: $DMC_NAME
+    GITHUB_DMC_TAG: 3.2.0
+    DMC_NAME: mms-mgmt-dmc

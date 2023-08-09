@@ -272,36 +272,7 @@ Provided build presets can be found under [pipeline](pipeline). The preset also 
 | DMC_IMAGE | full image name  | `$CI_REGISTRY_IMAGE/${DMC_NAME}` |
 
 The preset needs a `.docker-login`-extend. In it you have to define your docker registry information.
-
-include preset
-
-``` bash
-# .gitlab-ci.yml
----
-stages:
-  - docker_management_container
-
-variables:
-  DOCKER_HOST: tcp://docker:2375
-  DOCKER_DRIVER: overlay2
-  DOCKER_TLS_CERTDIR: ""
-  GIT_DEPTH: 0
-  GIT_SUBMODULE_STRATEGY: recursive
-
-.docker_login:
-  before_script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-
-include:
-  remote: https://raw.githubusercontent.com/telekom-mms/docker-management-container/main/pipeline/gitlab-ci.yml
-
-build_dmc:
-  stage: docker_management_container
-  variables:
-    # renovate: datasource=github-releases depName=docker-management-container
-    GITHUB_DMC_TAG: 3.2.0
-    DMC_NAME: mms-mgmt-dmc
-```
+To include the preset see [gitlab-ci](examples/pipeline/gitlab-ci.yml)
 
 ### Run Image
 
