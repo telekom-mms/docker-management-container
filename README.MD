@@ -90,12 +90,14 @@ Tools to be installed within the DMC.
   * Default:
   * Description: further repositories that should be used, currently the following are defined with defaults **_[hashicorp, docker, microsoft]_**
   * Examples:
+
     * ``` yaml
       repositories:
         docker: {}
         microsoft: {}
         hashicorp: {}
       ```
+
     * ``` yaml
       repositories:
         mongodb:
@@ -108,6 +110,7 @@ Tools to be installed within the DMC.
   * Default:
   * Description: binaries that should be installed, currently the following are supported **_[github, google]_**
   * Examples:
+
     * ``` yaml
       github:
         - remotemobprogramming/mob=linux_amd64=v3.2.0
@@ -159,6 +162,7 @@ Extension of installed tools.
   * Default:
   * Description: requirements that should be installed for the used tools, currently the following are supported **_[pip, ansible(roles, collections)]_**
   * Examples:
+
     * ``` yaml
       requirements:
         pip:
@@ -181,6 +185,7 @@ Extension of installed tools.
   * Default:
   * Description: extensions that should be installed for the used tools, currently the following are supported **_[az, google, helm]_**
   * Examples:
+
     * ``` yaml
       extensions:
         az:
@@ -205,6 +210,7 @@ System configuration and further setups to finish the DMC build.
   * Default:
   * Description: configuration for profile settings
   * Examples:
+
     * ``` yaml
       profiles:
         .vimrc:
@@ -218,6 +224,7 @@ System configuration and further setups to finish the DMC build.
   * Default:
   * Description: commands to run after the image build to finish the setup
   * Examples:
+
     * ``` yaml
       post_build_commands:
         - awsume-configure
@@ -325,7 +332,8 @@ We provide a [renovate-preset](https://docs.renovatebot.com/key-concepts/presets
 If you use it renovate can update the versions in your `build.yaml`
 
 Include it like this:
-```
+
+``` json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
@@ -337,7 +345,7 @@ Include it like this:
 
 Change your `build.yaml` like this to use it:
 
-```
+``` yaml
 packages:
   # renovate: datasource=repology depName=ubuntu_22_04/ansible versioning=loose
   - ansible=2.10.7+merged+base+2.10.8+dfsg-1
@@ -347,7 +355,6 @@ packages:
       # renovate: datasource=galaxy-collection depName=telekom_mms.acme
       - telekom_mms.acme=2.3.1
 ```
-
 
 ## Migration
 

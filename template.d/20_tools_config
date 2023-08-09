@@ -1,9 +1,0 @@
-###################################### Tool Config ################################
-ARG WORKDIR=/root
-ARG REQUIREMENTS
-ARG EXTENSIONS
-
-# ARG REQUIREMENTS_N
-# ARG EXTENSIONS_N
-
-WORKDIR "${WORKDIR}"

@@ -1,9 +1,0 @@
-################################ Post Build Config ################################
-ARG WORKDIR=/root
-ARG PROFILES
-ARG POST_BUILD_COMMANDS
-
-# ARG PROFILES_N
-
-WORKDIR "${WORKDIR}"
-CMD ["/bin/bash"]

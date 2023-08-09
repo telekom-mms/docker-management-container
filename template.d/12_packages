@@ -1,6 +1,0 @@
-## packages
-RUN if [ -n "${PACKAGES}" ]; then \
-      IFS=';' && \
-      apt-get update && \
-      install_packages ${PACKAGES[@]}; \
-    fi

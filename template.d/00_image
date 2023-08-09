@@ -1,6 +1,0 @@
-###################################### Image ######################################
-ARG DISTRIBUTION=ubuntu
-ARG VERSION=latest
-
-## build Image
-FROM wakemeops/"${DISTRIBUTION}":"${VERSION}"
