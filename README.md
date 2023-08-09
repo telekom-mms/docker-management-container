@@ -4,7 +4,7 @@ The Docker Management Container (or DMC for short) contains a number of plugins 
 
 <!-- <picture>
   <source
-    srcset="https://user-images.githubusercontent.com/3198961/186105564-3901aded-21f1-4191-b323-e943f49ea5ed.png"
+    srcset="https://github-production-user-asset-6210df.s3.amazonaws.com/41573722/259421264-557aa67b-266b-439d-92d3-c4d8d92b52eb.png"
     media="(prefers-color-scheme: dark)"
     width="30%" height="30%">
   <img width="30%" height="30%" src="">
