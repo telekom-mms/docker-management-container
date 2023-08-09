@@ -1,6 +1,5 @@
 ---
 build_dmc:
-  stage: docker_management_container
   image: docker:git
   services:
     - name: docker:dind
