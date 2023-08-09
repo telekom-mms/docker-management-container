@@ -8,6 +8,10 @@
 
 - \[Bug\] Ansible Collections not installing when ansible should install per pip [\#85](https://github.com/telekom-mms/docker-management-container/issues/85)
 
+**Closed issues:**
+
+- Dependency Dashboard [\#24](https://github.com/telekom-mms/docker-management-container/issues/24)
+
 ## [3.2.0](https://github.com/telekom-mms/docker-management-container/tree/3.2.0) (2023-07-27)
 
 [Full Changelog](https://github.com/telekom-mms/docker-management-container/compare/3.1.0...3.2.0)
