@@ -6,7 +6,6 @@ variables:
   DOCKER_TLS_CERTDIR: ""
   GIT_DEPTH: 0
   GIT_SUBMODULE_STRATEGY: recursive
-  SERVICE: mms
   DMC_NAME: mms-mgmt-dmc
 
 include:
