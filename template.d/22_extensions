@@ -1,9 +1,32 @@
 ## extensions
 RUN if [ -n "${EXTENSIONS}" ]; then \
       IFS=';' && \
-      for EXTENSION in ${EXTENSIONS[@]}; do IFS='' && declare -u EXT="${EXTENSION}" && EXTENSIONS_EXT=$(eval "echo \$EXTENSIONS_${EXT}") && \
-      IFS=';' && \
-      if [ "${EXT}" = "AZ" ]; then for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; do az extension add -y --name "${EXTENSION_EXT//=/ --version }"; done; fi && \
-      if [ "${EXT}" = "GOOGLE" ]; then for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; do ./google/*/bin/gcloud components install "${EXTENSION_EXT}" && "${EXTENSION_EXT//.*=/gcloud components update --version }"; done; fi && \
-      if [ "${EXT}" = "HELM" ]; then for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; do helm plugin install "${EXTENSION_EXT//=/ --version}"; done; fi; done \
+      for EXTENSION in ${EXTENSIONS[@]}; do \
+        IFS='' && \
+        declare -u EXT="${EXTENSION}" && \
+        EXTENSIONS_EXT=$(eval "echo \$EXTENSIONS_${EXT}") && \
+        IFS=';' && \
+        \
+        if [ "${EXT}" = "AZ" ]; then \
+          for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; \
+          do \
+            az extension add -y --name "${EXTENSION_EXT//=/ --version }"; \
+          done; \
+        fi && \
+        \
+        if [ "${EXT}" = "GOOGLE" ]; then \
+          for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; \
+          do \
+            ./google/*/bin/gcloud components install "${EXTENSION_EXT}" && \
+            "${EXTENSION_EXT//.*=/gcloud components update --version }"; \
+          done; \
+        fi && \
+        \
+        if [ "${EXT}" = "HELM" ]; then \
+          for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; \
+          do \
+            helm plugin install "${EXTENSION_EXT//=/ --version}"; \
+          done; \
+        fi; \
+      done \
     fi

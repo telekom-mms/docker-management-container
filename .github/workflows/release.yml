@@ -4,14 +4,14 @@ name: New release
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   generate_changelog:
     runs-on: ubuntu-latest
     name: create release draft
     steps:
-      - uses: actions/checkout@v3.5.2
+      - uses: actions/checkout@v3.5.3
         with:
           fetch-depth: 0
 
@@ -37,18 +37,18 @@ jobs:
         uses: github-actions-x/commit@v2.9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          push-branch: 'master'
+          push-branch: 'main'
           commit-message: 'update changelog'
           force-add: 'true'
           files: CHANGELOG.md
           name: T-Systems MMS
-          email: frage@t-systems-mms.com
+          email: frage@telekom-mms.com
 
       # do a second checkout to prevent race situation
       # changelog gets updated but action works on old commit id
-      - uses: actions/checkout@v3.5.2
+      - uses: actions/checkout@v3.5.3
         with:
-          ref: master
+          ref: main
 
       - name: Generate changelog for the release
         run: |

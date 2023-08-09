@@ -1,7 +1,14 @@
 ## profiles
 RUN if [ -n "${PROFILES}" ]; then \
       IFS=';' && \
-      for PROFILE in ${PROFILES[@]}; do IFS='' && declare -u PR="${PROFILE//./_}" && PROFILES_PR=$(eval "echo \$PROFILES_${PR}") && \
-      IFS=';' && \
-      for PROFILE_PR in ${PROFILES_PR[@]}; do echo "${PROFILE_PR}" >> "${PROFILE}"; done; done \
+      for PROFILE in ${PROFILES[@]}; \
+      do \
+        IFS='' && \
+        declare -u PR="${PROFILE//./_}" && \
+        PROFILES_PR=$(eval "echo \$PROFILES_${PR}") && \
+        IFS=';' && \
+        for PROFILE_PR in ${PROFILES_PR[@]}; do \
+          echo "${PROFILE_PR}" >> "${PROFILE}"; \
+        done; \
+      done \
     fi

@@ -1,5 +1,4 @@
 packages:
-  - ansible
   - kubectl
   - helm
   - terraform
@@ -22,19 +21,18 @@ binaries:
   google:
     - google-cloud-cli
 requirements:
+  ansible:
+    roles:
+      - telekom_mms.grafana
+    collections:
+      - telekom_mms.acme
+      - telekom_mms.icinga_director
   pip:
     packages:
       - awsume
+      - ansible
     requirements:
       - https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
-  ansible:
-    roles:
-      - t_systems_mms.grafana
-    collections:
-      - t_systems_mms.acme
-      - t_systems_mms.icinga_director
-    requirements:
-      - https://raw.githubusercontent.com/T-Systems-MMS/ansible-role-maxscale/master/requirements.yml
 extensions:
   az:
     - front-door
