@@ -249,7 +249,7 @@ Examples for build within CI Pipelines can be found under [examples/pipeline](ex
 
 #### Included build preset
 
-Provided build presets can be found under [pipeline](pipeline). The preset also sets some labels e.g. the version of the dmc release (dmc-version), you can get this information over `docker inspect`.
+Provided build presets can be found under [pipeline](pipeline). The preset also sets some labels e.g. the version of the dmc release (dmc-version), you can get this information with `docker inspect`.
 
 ``` bash
 > docker inspect service-mgmt-dmc --format '{{ json .Config.Labels }}' | jq .
