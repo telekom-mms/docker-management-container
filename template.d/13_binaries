@@ -2,9 +2,11 @@
 RUN if [ -n "${BINARIES}" ]; then \
       IFS=';' && \
       for BINARY in ${BINARIES[@]}; do \
+        IFS='' && \
         declare -u BINARY_REPO="${BINARY}" && \
         BINARY_URI=$(eval "echo \$BINARIES_${BINARY_REPO}_URI") && \
         BINARY_PACKAGES=$(eval "echo \$BINARIES_${BINARY_REPO}") && \
+        IFS=';' && \
         \
         # download binaries from github
         if [ "${BINARY_REPO}" = "GITHUB" ]; then \
