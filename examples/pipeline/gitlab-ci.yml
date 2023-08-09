@@ -7,7 +7,7 @@ variables:
   GIT_DEPTH: 0
   GIT_SUBMODULE_STRATEGY: recursive
   SERVICE: mms
-  DMC_NAME: $SERVICE-mgmt-dmc
+  DMC_NAME: mms-mgmt-dmc
 
 include:
   - local: .gitlab/ci/*
