@@ -33,6 +33,7 @@ requirements:
       - ansible
     requirements:
       - https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
+      - requirements.txt
 extensions:
   az:
     - front-door
