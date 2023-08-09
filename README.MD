@@ -271,7 +271,7 @@ Provided build presets can be found under [pipeline](pipeline). The preset also 
 | DMC_NAME | name of the container | dmc |
 | DMC_IMAGE | full image name  | `$CI_REGISTRY_IMAGE/${DMC_NAME}` |
 
-The preset forces an .docker_login as extend. You can define here your docker registry informations.
+The preset needs a `.docker-login`-extend. In it you have to define your docker registry information.
 
 ``` bash
 # .gitlab-ci.yml
