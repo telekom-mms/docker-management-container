@@ -179,7 +179,7 @@ If you use it renovate can update the versions in your `build.yaml`
 
 Include it like this:
 
-``` yaml
+``` json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
@@ -191,7 +191,7 @@ Include it like this:
 
 Change your `build.yaml` like this to use it:
 
-``` json
+``` yaml
 packages:
   # renovate: datasource=repology depName=ubuntu_22_04/ansible versioning=loose
   - ansible=2.10.7+merged+base+2.10.8+dfsg-1
