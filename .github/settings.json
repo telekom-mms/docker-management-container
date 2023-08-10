@@ -1,0 +1,14 @@
+{
+  "repos": {
+    "description": "The Docker Management Container includes a set of plugins and services that make it easier to build, test, deploy and manage infrastructure.",
+    "visibility": "public",
+    "default_branch": "main",
+    "homepage": "https://telekom-mms.github.io/docker-management-container/",
+    "topics": [
+      "dmc",
+      "docker",
+      "devops",
+      "toolbox"
+    ]
+  }
+}
