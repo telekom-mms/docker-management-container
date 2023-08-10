@@ -1,16 +1,36 @@
 # Changelog
 
-## [3.2.1](https://github.com/telekom-mms/docker-management-container/tree/3.2.1) (2023-08-10)
+## [3.3.1](https://github.com/telekom-mms/docker-management-container/tree/3.3.1) (2023-08-10)
 
-[Full Changelog](https://github.com/telekom-mms/docker-management-container/compare/3.2.0...3.2.1)
+[Full Changelog](https://github.com/telekom-mms/docker-management-container/compare/3.3.0...3.3.1)
+
+**Implemented enhancements:**
+
+- \[Enhancement\] Provide includable gitlab-ci template [\#83](https://github.com/telekom-mms/docker-management-container/issues/83)
+
+**Closed issues:**
+
+- \[Documentation\] Split/restructure documentation [\#82](https://github.com/telekom-mms/docker-management-container/issues/82)
+
+## [3.3.0](https://github.com/telekom-mms/docker-management-container/tree/3.3.0) (2023-08-10)
+
+[Full Changelog](https://github.com/telekom-mms/docker-management-container/compare/3.2.0...3.3.0)
 
 **Fixed bugs:**
 
 - \[Bug\] Ansible Collections not installing when ansible should install per pip [\#85](https://github.com/telekom-mms/docker-management-container/issues/85)
+- correct IFS for multiple binaries [\#102](https://github.com/telekom-mms/docker-management-container/pull/102) ([michaelamattes](https://github.com/michaelamattes))
 
 **Closed issues:**
 
 - Dependency Dashboard [\#24](https://github.com/telekom-mms/docker-management-container/issues/24)
+
+**Merged pull requests:**
+
+- update settings and workflows, update codespell findings [\#105](https://github.com/telekom-mms/docker-management-container/pull/105) ([michaelamattes](https://github.com/michaelamattes))
+- Issue 82 [\#104](https://github.com/telekom-mms/docker-management-container/pull/104) ([michaelamattes](https://github.com/michaelamattes))
+- update renovate configruation e.g. dashboard autoclose [\#103](https://github.com/telekom-mms/docker-management-container/pull/103) ([michaelamattes](https://github.com/michaelamattes))
+- Gitlab ci include [\#92](https://github.com/telekom-mms/docker-management-container/pull/92) ([michaelamattes](https://github.com/michaelamattes))
 
 ## [3.2.0](https://github.com/telekom-mms/docker-management-container/tree/3.2.0) (2023-07-27)
 
