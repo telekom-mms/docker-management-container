@@ -16,7 +16,7 @@ The DMC provides a Dockerfile template (from modular setup) that creates the Doc
 
 The DMC uses the wakemeops as base setup, for more information about wakemeops look at the [docs](https://docs.wakemeops.com/).
 
-### Try
+### Try it out
 
 For a quick overview and test of the DMC, we have created images based on the [minimal](examples/min_build.yaml) and [full](examples/full_build.yaml) examples that can be used directly.
 
@@ -34,9 +34,13 @@ docker run ghcr.io/telekom-mms/dmc:full
 
 Setup plugins, services, tools, versions and configuration over file with yaml syntax.
 
+Create a build.yaml:
+
 ``` bash
 touch build.yaml
 ```
+
+Then fill it with the settings you need:
 
 * [Image](docs/usage/setup_and_configuration/image.md)
 * [Base](docs/usage/setup_and_configuration/base.md)
@@ -45,15 +49,24 @@ touch build.yaml
 * [Post Build Config](docs/usage/setup_and_configuration/post_build_config.md)
 * [Tool Config](docs/usage/setup_and_configuration/tool_config.md)
 
+Take a look at the examples to see what's possible:
+
+## Examples
+
+Examples for the `build.yaml` could be found under [examples](examples):
+
+* [minimal](examples/min_build.yaml)
+* [full](examples/full_build.yaml)
+
 ### Build
 
 #### Dockerfile
 
-To create the Dockerfile from Template you have simply to run the following steps.
+To create the Dockerfile from Template you have to run the following steps.
 
-1. create build.yaml with your needed settings
-2. run the script `render.sh`
-3. build Docker Image
+1. Create `build.yaml` with your needed settings
+2. Run the script `render.sh`
+3. Build the Docker Image
 
 `render.sh`
 
@@ -199,13 +212,6 @@ To support the migration we provide a script to migrate from the old .docker_bui
 ``` bash
 sh migrate.sh .
 ```
-
-## Examples
-
-Examples for the `build.yaml` could be found under [examples](examples):
-
-* [minimal](examples/min_build.yaml)
-* [full](examples/full_build.yaml)
 
 ## Others
 
