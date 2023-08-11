@@ -184,7 +184,7 @@ Include it like this:
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
-    "github>T-Systems-MMS/docker-management-container"
+    "github>telekom-mms/docker-management-container"
   ],
 }
 ```
