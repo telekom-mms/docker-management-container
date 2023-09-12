@@ -25,10 +25,6 @@
 - \[Bug\] Ansible Collections not installing when ansible should install per pip [\#85](https://github.com/telekom-mms/docker-management-container/issues/85)
 - correct IFS for multiple binaries [\#102](https://github.com/telekom-mms/docker-management-container/pull/102) ([michaelamattes](https://github.com/michaelamattes))
 
-**Closed issues:**
-
-- Dependency Dashboard [\#24](https://github.com/telekom-mms/docker-management-container/issues/24)
-
 **Merged pull requests:**
 
 - update settings and workflows, update codespell findings [\#105](https://github.com/telekom-mms/docker-management-container/pull/105) ([michaelamattes](https://github.com/michaelamattes))
