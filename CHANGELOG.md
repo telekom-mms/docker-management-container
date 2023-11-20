@@ -37,7 +37,7 @@
 
 - update settings and workflows, update codespell findings [\#105](https://github.com/telekom-mms/docker-management-container/pull/105) ([michaelamattes](https://github.com/michaelamattes))
 - Issue 82 [\#104](https://github.com/telekom-mms/docker-management-container/pull/104) ([michaelamattes](https://github.com/michaelamattes))
-- update renovate configruation e.g. dashboard autoclose [\#103](https://github.com/telekom-mms/docker-management-container/pull/103) ([michaelamattes](https://github.com/michaelamattes))
+- update renovate configuration e.g. dashboard autoclose [\#103](https://github.com/telekom-mms/docker-management-container/pull/103) ([michaelamattes](https://github.com/michaelamattes))
 - Gitlab ci include [\#92](https://github.com/telekom-mms/docker-management-container/pull/92) ([michaelamattes](https://github.com/michaelamattes))
 
 ## [3.2.0](https://github.com/telekom-mms/docker-management-container/tree/3.2.0) (2023-07-27)
@@ -65,7 +65,7 @@
 - Update docker/metadata-action action to v4.6.0 [\#91](https://github.com/telekom-mms/docker-management-container/pull/91) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout action to v3.5.2 [\#90](https://github.com/telekom-mms/docker-management-container/pull/90) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout action to v3.5.1 [\#89](https://github.com/telekom-mms/docker-management-container/pull/89) ([renovate[bot]](https://github.com/apps/renovate))
-- try to improve readabilty of templates by using indentation [\#88](https://github.com/telekom-mms/docker-management-container/pull/88) ([z-bsod](https://github.com/z-bsod))
+- try to improve readability of templates by using indentation [\#88](https://github.com/telekom-mms/docker-management-container/pull/88) ([z-bsod](https://github.com/z-bsod))
 - Update actions/checkout action to v3.5.0 [\#86](https://github.com/telekom-mms/docker-management-container/pull/86) ([renovate[bot]](https://github.com/apps/renovate))
 - rm table style [\#79](https://github.com/telekom-mms/docker-management-container/pull/79) ([michaelamattes](https://github.com/michaelamattes))
 
