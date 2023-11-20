@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.3.2](https://github.com/telekom-mms/docker-management-container/tree/3.3.2) (2023-11-20)
+
+[Full Changelog](https://github.com/telekom-mms/docker-management-container/compare/3.3.1...3.3.2)
+
+**Closed issues:**
+
+- Dependency Dashboard [\#24](https://github.com/telekom-mms/docker-management-container/issues/24)
+
 ## [3.3.1](https://github.com/telekom-mms/docker-management-container/tree/3.3.1) (2023-08-10)
 
 [Full Changelog](https://github.com/telekom-mms/docker-management-container/compare/3.3.0...3.3.1)
