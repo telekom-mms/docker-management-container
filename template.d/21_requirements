@@ -13,12 +13,12 @@ RUN if [ -n "${REQUIREMENTS}" ]; then \
         if [ "${REQ}" = "PIP" ]; then \
           for REQUIREMENT_REQ in ${REQUIREMENTS_PIP_PACKAGES[@]}; \
           do \
-            pip3 install --no-cache-dir "${REQUIREMENT_REQ//=/==}"; \
+            pip3 install --no-cache-dir --break-system-packages "${REQUIREMENT_REQ//=/==}"; \
           done && \
           \
           for REQUIREMENT_REQ in ${REQUIREMENTS_PIP_REQUIREMENTS[@]}; \
           do \
-            pip3 install --no-cache-dir -r "${REQUIREMENT_REQ}"; \
+            pip3 install --no-cache-dir --break-system-packages -r "${REQUIREMENT_REQ}"; \
           done; \
         fi && \
         \
