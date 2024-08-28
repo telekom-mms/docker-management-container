@@ -13,6 +13,7 @@
 
 - install awscli over pip [\#133](https://github.com/telekom-mms/docker-management-container/pull/133) ([michaelamattes](https://github.com/michaelamattes))
 - add "--break-system-packages" to pip commands [\#130](https://github.com/telekom-mms/docker-management-container/pull/130) ([z-bsod](https://github.com/z-bsod))
+- Update actions/checkout digest to 692973e [\#126](https://github.com/telekom-mms/docker-management-container/pull/126) ([renovate[bot]](https://github.com/apps/renovate))
 
 ## [3.3.2](https://github.com/telekom-mms/docker-management-container/tree/3.3.2) (2024-04-23)
 
