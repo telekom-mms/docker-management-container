@@ -6,7 +6,6 @@ packages:
   - consul
   - docker-ce
   - azure-cli
-  - awscli
   - telnet
 repositories:
   docker: {}
@@ -29,6 +28,7 @@ requirements:
       - telekom_mms.icinga_director
   pip:
     packages:
+      - awscli
       - awsume
       - ansible
     requirements:
