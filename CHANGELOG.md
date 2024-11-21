@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.3.3](https://github.com/telekom-mms/docker-management-container/tree/3.3.3) (2024-10-24)
+## [3.3.3](https://github.com/telekom-mms/docker-management-container/tree/3.3.3) (2024-11-21)
 
 [Full Changelog](https://github.com/telekom-mms/docker-management-container/compare/3.3.2...3.3.3)
 
@@ -11,6 +11,7 @@
 
 **Merged pull requests:**
 
+- Update docker/metadata-action action to v5.6.1 [\#136](https://github.com/telekom-mms/docker-management-container/pull/136) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout digest to 11bd719 [\#135](https://github.com/telekom-mms/docker-management-container/pull/135) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout digest to eef6144 [\#134](https://github.com/telekom-mms/docker-management-container/pull/134) ([renovate[bot]](https://github.com/apps/renovate))
 - install awscli over pip [\#133](https://github.com/telekom-mms/docker-management-container/pull/133) ([michaelamattes](https://github.com/michaelamattes))
