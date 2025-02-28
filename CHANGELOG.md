@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.3.4](https://github.com/telekom-mms/docker-management-container/tree/3.3.4) (2025-02-28)
+
+[Full Changelog](https://github.com/telekom-mms/docker-management-container/compare/3.3.3...3.3.4)
+
+**Merged pull requests:**
+
+- Update docker/metadata-action action to v5.7.0 [\#137](https://github.com/telekom-mms/docker-management-container/pull/137) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [3.3.3](https://github.com/telekom-mms/docker-management-container/tree/3.3.3) (2024-11-21)
 
 [Full Changelog](https://github.com/telekom-mms/docker-management-container/compare/3.3.2...3.3.3)
