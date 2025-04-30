@@ -50,6 +50,8 @@ Tools to be installed within the DMC.
         - derailed/k9s=Linux_x86_64
       google:
         - google-cloud-cli
+      awscli:
+        - awscli=linux-x86_64=2.0.30
       ```
 
 * `repositories_hashicorp_gpg`
