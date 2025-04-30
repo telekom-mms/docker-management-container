@@ -12,7 +12,7 @@ ARG REPOSITORIES_MICROSOFT_GPG="https://packages.microsoft.com/keys/microsoft.as
 ARG REPOSITORIES_MICROSOFT_ENTRY="https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -cs) main"
 
 # ARG REPOSITORIES_N
-
+ARG BINARIES_AWSCLI_URI="https://awscli.amazonaws.com"
 ARG BINARIES_GITHUB_URI="https://api.github.com/repos"
 ARG BINARIES_GOOGLE_URI="https://packages.cloud.google.com/apt/dists/cloud-sdk/main/binary-arm64/Packages"
 

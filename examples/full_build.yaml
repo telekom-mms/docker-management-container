@@ -19,6 +19,8 @@ binaries:
     - remotemobprogramming/mob=linux_amd64
   google:
     - google-cloud-cli
+  awscli:
+    - awscli=linux-x86_64
 requirements:
   ansible:
     roles:

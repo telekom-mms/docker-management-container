@@ -30,6 +30,19 @@ RUN if [ -n "${BINARIES}" ]; then \
           done; \
         fi && \
         \
+        # download binaries from awscliv2
+        if [ "${BINARY_REPO}" = "AWSCLI" ]; then \
+          for BINARY_PACKAGE in ${BINARY_PACKAGES}; \
+          do \
+            mkdir -p ./awscli && \
+            BINARY_PACKAGE_ARCH=$(echo "${BINARY_PACKAGE}" | awk -F '=' '{if (!$2) {print("linux_x86_64")} else {print($2)}}') && \
+            BINARY_PACKAGE_PATH=$(echo "${BINARY_PACKAGE}" | awk -v arch="$BINARY_PACKAGE_ARCH" -F '=' '{if ($3) {print($1"-exe-"arch"-"$3".zip")} else {print($1"-exe-"arch".zip")}; }') && \
+            BINARY_PACKAGE_URL="${BINARIES_AWSCLI_URI}/${BINARY_PACKAGE_PATH}" && \
+            curl -SsL --retry 5 "${BINARY_PACKAGE_URL}" -o "./awscli/${BINARY_PACKAGE_PATH}" && \
+            unzip -q -u "./awscli/${BINARY_PACKAGE_PATH}" && \
+            ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli; \
+          done; \
+        fi && \
         # download binaries from google
         if [ "${BINARY_REPO}" = "GOOGLE" ]; then \
           for BINARY_PACKAGE in ${BINARY_PACKAGES}; \
