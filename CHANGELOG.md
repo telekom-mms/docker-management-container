@@ -1,11 +1,12 @@
 # Changelog
 
-## [3.3.4](https://github.com/telekom-mms/docker-management-container/tree/3.3.4) (2025-09-30)
+## [3.3.4](https://github.com/telekom-mms/docker-management-container/tree/3.3.4) (2025-11-06)
 
 [Full Changelog](https://github.com/telekom-mms/docker-management-container/compare/3.3.3...3.3.4)
 
 **Merged pull requests:**
 
+- Update docker/metadata-action action to v5.9.0 [\#145](https://github.com/telekom-mms/docker-management-container/pull/145) ([renovate[bot]](https://github.com/apps/renovate))
 - Update docker/login-action action to v3.6.0 [\#144](https://github.com/telekom-mms/docker-management-container/pull/144) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout digest to 08eba0b [\#143](https://github.com/telekom-mms/docker-management-container/pull/143) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout action to v5 [\#142](https://github.com/telekom-mms/docker-management-container/pull/142) ([renovate[bot]](https://github.com/apps/renovate))
