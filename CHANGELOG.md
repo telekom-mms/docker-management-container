@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.3.4](https://github.com/telekom-mms/docker-management-container/tree/3.3.4) (2025-12-06)
+## [3.3.4](https://github.com/telekom-mms/docker-management-container/tree/3.3.4) (2026-01-21)
 
 [Full Changelog](https://github.com/telekom-mms/docker-management-container/compare/3.3.3...3.3.4)
 
@@ -32,7 +32,7 @@
 - Update docker/metadata-action action to v5.6.1 [\#136](https://github.com/telekom-mms/docker-management-container/pull/136) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout digest to 11bd719 [\#135](https://github.com/telekom-mms/docker-management-container/pull/135) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout digest to eef6144 [\#134](https://github.com/telekom-mms/docker-management-container/pull/134) ([renovate[bot]](https://github.com/apps/renovate))
-- install awscli over pip [\#133](https://github.com/telekom-mms/docker-management-container/pull/133) ([michaelamattes](https://github.com/michaelamattes))
+- install awscli over pip [\#133](https://github.com/telekom-mms/docker-management-container/pull/133) ([mikaEz](https://github.com/mikaEz))
 - add "--break-system-packages" to pip commands [\#130](https://github.com/telekom-mms/docker-management-container/pull/130) ([z-bsod](https://github.com/z-bsod))
 - Update docker/build-push-action action to v5.4.0 [\#129](https://github.com/telekom-mms/docker-management-container/pull/129) ([renovate[bot]](https://github.com/apps/renovate))
 - Update docker/login-action action to v3.3.0 [\#127](https://github.com/telekom-mms/docker-management-container/pull/127) ([renovate[bot]](https://github.com/apps/renovate))
@@ -60,7 +60,7 @@
 - Update docker/build-push-action action to v5 [\#110](https://github.com/telekom-mms/docker-management-container/pull/110) ([renovate[bot]](https://github.com/apps/renovate))
 - Update docker/build-push-action action to v4.2.1 [\#109](https://github.com/telekom-mms/docker-management-container/pull/109) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout action to v4 [\#108](https://github.com/telekom-mms/docker-management-container/pull/108) ([renovate[bot]](https://github.com/apps/renovate))
-- fix codespell findings [\#107](https://github.com/telekom-mms/docker-management-container/pull/107) ([michaelamattes](https://github.com/michaelamattes))
+- fix codespell findings [\#107](https://github.com/telekom-mms/docker-management-container/pull/107) ([mikaEz](https://github.com/mikaEz))
 
 ## [3.3.1](https://github.com/telekom-mms/docker-management-container/tree/3.3.1) (2023-08-10)
 
@@ -76,7 +76,7 @@
 
 **Merged pull requests:**
 
-- correct release workflow settings [\#106](https://github.com/telekom-mms/docker-management-container/pull/106) ([michaelamattes](https://github.com/michaelamattes))
+- correct release workflow settings [\#106](https://github.com/telekom-mms/docker-management-container/pull/106) ([mikaEz](https://github.com/mikaEz))
 
 ## [3.3.0](https://github.com/telekom-mms/docker-management-container/tree/3.3.0) (2023-08-10)
 
@@ -85,14 +85,14 @@
 **Fixed bugs:**
 
 - \[Bug\] Ansible Collections not installing when ansible should install per pip [\#85](https://github.com/telekom-mms/docker-management-container/issues/85)
-- correct IFS for multiple binaries [\#102](https://github.com/telekom-mms/docker-management-container/pull/102) ([michaelamattes](https://github.com/michaelamattes))
+- correct IFS for multiple binaries [\#102](https://github.com/telekom-mms/docker-management-container/pull/102) ([mikaEz](https://github.com/mikaEz))
 
 **Merged pull requests:**
 
-- update settings and workflows, update codespell findings [\#105](https://github.com/telekom-mms/docker-management-container/pull/105) ([michaelamattes](https://github.com/michaelamattes))
-- Issue 82 [\#104](https://github.com/telekom-mms/docker-management-container/pull/104) ([michaelamattes](https://github.com/michaelamattes))
-- update renovate configuration e.g. dashboard autoclose [\#103](https://github.com/telekom-mms/docker-management-container/pull/103) ([michaelamattes](https://github.com/michaelamattes))
-- Gitlab ci include [\#92](https://github.com/telekom-mms/docker-management-container/pull/92) ([michaelamattes](https://github.com/michaelamattes))
+- update settings and workflows, update codespell findings [\#105](https://github.com/telekom-mms/docker-management-container/pull/105) ([mikaEz](https://github.com/mikaEz))
+- Issue 82 [\#104](https://github.com/telekom-mms/docker-management-container/pull/104) ([mikaEz](https://github.com/mikaEz))
+- update renovate configuration e.g. dashboard autoclose [\#103](https://github.com/telekom-mms/docker-management-container/pull/103) ([mikaEz](https://github.com/mikaEz))
+- Gitlab ci include [\#92](https://github.com/telekom-mms/docker-management-container/pull/92) ([mikaEz](https://github.com/mikaEz))
 
 ## [3.2.0](https://github.com/telekom-mms/docker-management-container/tree/3.2.0) (2023-07-27)
 
@@ -106,7 +106,7 @@
 
 **Fixed bugs:**
 
-- remove duplicates but keep sort order of variables [\#100](https://github.com/telekom-mms/docker-management-container/pull/100) ([michaelamattes](https://github.com/michaelamattes))
+- remove duplicates but keep sort order of variables [\#100](https://github.com/telekom-mms/docker-management-container/pull/100) ([mikaEz](https://github.com/mikaEz))
 
 **Merged pull requests:**
 
@@ -121,7 +121,7 @@
 - Update actions/checkout action to v3.5.1 [\#89](https://github.com/telekom-mms/docker-management-container/pull/89) ([renovate[bot]](https://github.com/apps/renovate))
 - try to improve readability of templates by using indentation [\#88](https://github.com/telekom-mms/docker-management-container/pull/88) ([z-bsod](https://github.com/z-bsod))
 - Update actions/checkout action to v3.5.0 [\#86](https://github.com/telekom-mms/docker-management-container/pull/86) ([renovate[bot]](https://github.com/apps/renovate))
-- rm table style [\#79](https://github.com/telekom-mms/docker-management-container/pull/79) ([michaelamattes](https://github.com/michaelamattes))
+- rm table style [\#79](https://github.com/telekom-mms/docker-management-container/pull/79) ([mikaEz](https://github.com/mikaEz))
 
 ## [3.1.0](https://github.com/telekom-mms/docker-management-container/tree/3.1.0) (2023-03-16)
 
@@ -130,7 +130,7 @@
 **Implemented enhancements:**
 
 - \[Enhancement\] Add "container" environment variable [\#71](https://github.com/telekom-mms/docker-management-container/issues/71)
-- Pip requirements [\#77](https://github.com/telekom-mms/docker-management-container/pull/77) ([michaelamattes](https://github.com/michaelamattes))
+- Pip requirements [\#77](https://github.com/telekom-mms/docker-management-container/pull/77) ([mikaEz](https://github.com/mikaEz))
 
 **Merged pull requests:**
 
@@ -143,11 +143,11 @@
 **Implemented enhancements:**
 
 - \[Enhancement\] Availability to load ZIP archives in dmc [\#72](https://github.com/telekom-mms/docker-management-container/issues/72)
-- Enhancement [\#75](https://github.com/telekom-mms/docker-management-container/pull/75) ([michaelamattes](https://github.com/michaelamattes))
+- Enhancement [\#75](https://github.com/telekom-mms/docker-management-container/pull/75) ([mikaEz](https://github.com/mikaEz))
 
 **Fixed bugs:**
 
-- add update package manager database before package install [\#74](https://github.com/telekom-mms/docker-management-container/pull/74) ([michaelamattes](https://github.com/michaelamattes))
+- add update package manager database before package install [\#74](https://github.com/telekom-mms/docker-management-container/pull/74) ([mikaEz](https://github.com/mikaEz))
 
 **Merged pull requests:**
 
@@ -197,7 +197,7 @@
 
 **Breaking changes:**
 
-- Enhancement Repository Configuration and Optimize Render Script [\#57](https://github.com/telekom-mms/docker-management-container/pull/57) ([michaelamattes](https://github.com/michaelamattes))
+- Enhancement Repository Configuration and Optimize Render Script [\#57](https://github.com/telekom-mms/docker-management-container/pull/57) ([mikaEz](https://github.com/mikaEz))
 
 **Closed issues:**
 
@@ -207,8 +207,8 @@
 **Merged pull requests:**
 
 - Update actions/checkout action to v3.3.0 [\#59](https://github.com/telekom-mms/docker-management-container/pull/59) ([renovate[bot]](https://github.com/apps/renovate))
-- Template structure [\#58](https://github.com/telekom-mms/docker-management-container/pull/58) ([michaelamattes](https://github.com/michaelamattes))
-- add Renovate Dependency Dashboard and automatic merge on patch updates [\#56](https://github.com/telekom-mms/docker-management-container/pull/56) ([michaelamattes](https://github.com/michaelamattes))
+- Template structure [\#58](https://github.com/telekom-mms/docker-management-container/pull/58) ([mikaEz](https://github.com/mikaEz))
+- add Renovate Dependency Dashboard and automatic merge on patch updates [\#56](https://github.com/telekom-mms/docker-management-container/pull/56) ([mikaEz](https://github.com/mikaEz))
 - Update actions/checkout action to v3.2.0 [\#54](https://github.com/telekom-mms/docker-management-container/pull/54) ([renovate[bot]](https://github.com/apps/renovate))
 - add dind service to gitlab example pipeline [\#53](https://github.com/telekom-mms/docker-management-container/pull/53) ([rndmh3ro](https://github.com/rndmh3ro))
 - Update hadolint/hadolint-action action to v3 [\#52](https://github.com/telekom-mms/docker-management-container/pull/52) ([renovate[bot]](https://github.com/apps/renovate))
@@ -223,7 +223,7 @@
 
 **Implemented enhancements:**
 
-- change to wakemeops as base setup and review / optimize module [\#50](https://github.com/telekom-mms/docker-management-container/pull/50) ([michaelamattes](https://github.com/michaelamattes))
+- change to wakemeops as base setup and review / optimize module [\#50](https://github.com/telekom-mms/docker-management-container/pull/50) ([mikaEz](https://github.com/mikaEz))
 
 **Merged pull requests:**
 
@@ -239,7 +239,7 @@
 
 **Fixed bugs:**
 
-- change default python version [\#42](https://github.com/telekom-mms/docker-management-container/pull/42) ([michaelamattes](https://github.com/michaelamattes))
+- change default python version [\#42](https://github.com/telekom-mms/docker-management-container/pull/42) ([mikaEz](https://github.com/mikaEz))
 
 **Closed issues:**
 
@@ -285,7 +285,7 @@
 **Merged pull requests:**
 
 - add renovate-config [\#21](https://github.com/telekom-mms/docker-management-container/pull/21) ([rndmh3ro](https://github.com/rndmh3ro))
-- add possibility to define binary format to be installed [\#20](https://github.com/telekom-mms/docker-management-container/pull/20) ([michaelamattes](https://github.com/michaelamattes))
+- add possibility to define binary format to be installed [\#20](https://github.com/telekom-mms/docker-management-container/pull/20) ([mikaEz](https://github.com/mikaEz))
 
 ## [1.0.0](https://github.com/telekom-mms/docker-management-container/tree/1.0.0) (2022-01-28)
 
@@ -297,7 +297,7 @@
 
 **Merged pull requests:**
 
-- feat: create first major release [\#18](https://github.com/telekom-mms/docker-management-container/pull/18) ([michaelamattes](https://github.com/michaelamattes))
+- feat: create first major release [\#18](https://github.com/telekom-mms/docker-management-container/pull/18) ([mikaEz](https://github.com/mikaEz))
 
 ## [0.0.8](https://github.com/telekom-mms/docker-management-container/tree/0.0.8) (2022-01-27)
 
@@ -305,7 +305,7 @@
 
 **Merged pull requests:**
 
-- Issue 16 [\#17](https://github.com/telekom-mms/docker-management-container/pull/17) ([michaelamattes](https://github.com/michaelamattes))
+- Issue 16 [\#17](https://github.com/telekom-mms/docker-management-container/pull/17) ([mikaEz](https://github.com/mikaEz))
 
 ## [0.0.7](https://github.com/telekom-mms/docker-management-container/tree/0.0.7) (2021-12-16)
 
@@ -313,7 +313,7 @@
 
 **Merged pull requests:**
 
-- feat: change to rockylinux as default image [\#15](https://github.com/telekom-mms/docker-management-container/pull/15) ([michaelamattes](https://github.com/michaelamattes))
+- feat: change to rockylinux as default image [\#15](https://github.com/telekom-mms/docker-management-container/pull/15) ([mikaEz](https://github.com/mikaEz))
 
 ## [0.0.6](https://github.com/telekom-mms/docker-management-container/tree/0.0.6) (2021-10-29)
 
@@ -321,7 +321,7 @@
 
 **Merged pull requests:**
 
-- fix: move to api usage for version definition [\#14](https://github.com/telekom-mms/docker-management-container/pull/14) ([michaelamattes](https://github.com/michaelamattes))
+- fix: move to api usage for version definition [\#14](https://github.com/telekom-mms/docker-management-container/pull/14) ([mikaEz](https://github.com/mikaEz))
 
 ## [0.0.5](https://github.com/telekom-mms/docker-management-container/tree/0.0.5) (2021-07-06)
 
@@ -334,11 +334,11 @@
 
 **Merged pull requests:**
 
-- add consul [\#13](https://github.com/telekom-mms/docker-management-container/pull/13) ([michaelamattes](https://github.com/michaelamattes))
-- add CI pipeline examples [\#12](https://github.com/telekom-mms/docker-management-container/pull/12) ([michaelamattes](https://github.com/michaelamattes))
-- Variable miss type [\#11](https://github.com/telekom-mms/docker-management-container/pull/11) ([michaelamattes](https://github.com/michaelamattes))
-- python version should be configurable [\#8](https://github.com/telekom-mms/docker-management-container/pull/8) ([michaelamattes](https://github.com/michaelamattes))
-- fix issue when replace predefined arg [\#6](https://github.com/telekom-mms/docker-management-container/pull/6) ([michaelamattes](https://github.com/michaelamattes))
+- add consul [\#13](https://github.com/telekom-mms/docker-management-container/pull/13) ([mikaEz](https://github.com/mikaEz))
+- add CI pipeline examples [\#12](https://github.com/telekom-mms/docker-management-container/pull/12) ([mikaEz](https://github.com/mikaEz))
+- Variable miss type [\#11](https://github.com/telekom-mms/docker-management-container/pull/11) ([mikaEz](https://github.com/mikaEz))
+- python version should be configurable [\#8](https://github.com/telekom-mms/docker-management-container/pull/8) ([mikaEz](https://github.com/mikaEz))
+- fix issue when replace predefined arg [\#6](https://github.com/telekom-mms/docker-management-container/pull/6) ([mikaEz](https://github.com/mikaEz))
 
 ## [0.0.4](https://github.com/telekom-mms/docker-management-container/tree/0.0.4) (2021-05-27)
 
@@ -346,7 +346,7 @@
 
 **Merged pull requests:**
 
-- add image config step [\#5](https://github.com/telekom-mms/docker-management-container/pull/5) ([michaelamattes](https://github.com/michaelamattes))
+- add image config step [\#5](https://github.com/telekom-mms/docker-management-container/pull/5) ([mikaEz](https://github.com/mikaEz))
 
 ## [0.0.3](https://github.com/telekom-mms/docker-management-container/tree/0.0.3) (2021-05-12)
 
@@ -354,7 +354,7 @@
 
 **Fixed bugs:**
 
-- install with pip forces to many dependencies to other pip azure modules [\#3](https://github.com/telekom-mms/docker-management-container/pull/3) ([michaelamattes](https://github.com/michaelamattes))
+- install with pip forces to many dependencies to other pip azure modules [\#3](https://github.com/telekom-mms/docker-management-container/pull/3) ([mikaEz](https://github.com/mikaEz))
 
 ## [0.0.2](https://github.com/telekom-mms/docker-management-container/tree/0.0.2) (2021-05-12)
 
@@ -362,7 +362,7 @@
 
 **Fixed bugs:**
 
-- force pip3 usage [\#2](https://github.com/telekom-mms/docker-management-container/pull/2) ([michaelamattes](https://github.com/michaelamattes))
+- force pip3 usage [\#2](https://github.com/telekom-mms/docker-management-container/pull/2) ([mikaEz](https://github.com/mikaEz))
 
 **Merged pull requests:**
 
