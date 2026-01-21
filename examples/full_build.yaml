@@ -2,6 +2,7 @@ packages:
   - kubectl
   - helm
   - terraform
+  - opentofu
   - nomad
   - consul
   - docker-ce
