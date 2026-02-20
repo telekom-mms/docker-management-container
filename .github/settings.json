@@ -5,9 +5,10 @@
     "default_branch": "main",
     "homepage": "https://telekom-mms.github.io/docker-management-container/",
     "topics": [
+      "devops",
       "dmc",
       "docker",
-      "devops",
+      "terraform",
       "toolbox"
     ]
   }

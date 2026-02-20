@@ -1,5 +1,15 @@
 {
   "extends": [
-    "github>telekom-mms/.github:renovate-preset.json5"
+    "config:base",
+    "github>telekom-mms/terraform-template"
+  ],
+  "dependencyDashboard": true,
+  "dependencyDashboardAutoclose": false,
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    }
   ]
 }
+
