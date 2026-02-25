@@ -1,8 +1,18 @@
 # Changelog
 
-## [3.3.4](https://github.com/telekom-mms/docker-management-container/tree/3.3.4) (2026-02-22)
+## [3.3.4](https://github.com/telekom-mms/docker-management-container/tree/3.3.4) (2026-02-25)
 
 [Full Changelog](https://github.com/telekom-mms/docker-management-container/compare/3.3.3...3.3.4)
+
+**Implemented enhancements:**
+
+- \[Enhancement\] Allow installation of ansible roles/collections via requirements.yml [\#118](https://github.com/telekom-mms/docker-management-container/issues/118)
+- \[Enhancement\] Allow Installation of pip packages via requirements.txt [\#76](https://github.com/telekom-mms/docker-management-container/issues/76)
+
+**Fixed bugs:**
+
+- \[Bug\]  Issue with rendering of post\_build\_commands [\#119](https://github.com/telekom-mms/docker-management-container/issues/119)
+- update gcloud and extension install commands [\#153](https://github.com/telekom-mms/docker-management-container/pull/153) ([mikaEz](https://github.com/mikaEz))
 
 **Merged pull requests:**
 
