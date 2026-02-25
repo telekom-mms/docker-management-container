@@ -16,6 +16,7 @@
 
 **Merged pull requests:**
 
+- fix: path to azure requirements.txt [\#154](https://github.com/telekom-mms/docker-management-container/pull/154) ([rndmh3ro](https://github.com/rndmh3ro))
 - chore\(config\): standardize renovate.json and update repository topics [\#152](https://github.com/telekom-mms/docker-management-container/pull/152) ([mikaEz](https://github.com/mikaEz))
 - chore\(deps\): update actions/checkout digest to de0fac2 [\#150](https://github.com/telekom-mms/docker-management-container/pull/150) ([renovate[bot]](https://github.com/apps/renovate))
 - chore\(deps\): update docker/login-action action to v3.7.0 [\#149](https://github.com/telekom-mms/docker-management-container/pull/149) ([renovate[bot]](https://github.com/apps/renovate))
