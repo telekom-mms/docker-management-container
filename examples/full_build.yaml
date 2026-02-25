@@ -33,7 +33,7 @@ requirements:
       - awsume
       - ansible
     requirements:
-      - https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
+      - https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements.txt
 extensions:
   az:
     - front-door
