@@ -17,15 +17,17 @@ RUN if [ -n "${EXTENSIONS}" ]; then \
         if [ "${EXT}" = "GOOGLE" ]; then \
           for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; \
           do \
-            ./google/*/bin/gcloud components install "${EXTENSION_EXT}" && \
-            "${EXTENSION_EXT//.*=/gcloud components update --version }"; \
+            gcloud components install "${EXTENSION_EXT}" && \
+            if [[ "${EXTENSION_EXT}" == *"="* ]]; then \
+              gcloud components update --version "${EXTENSION_EXT#*=}"; \
+            fi; \
           done; \
         fi && \
         \
         if [ "${EXT}" = "HELM" ]; then \
           for EXTENSION_EXT in ${EXTENSIONS_EXT[@]}; \
           do \
-            helm plugin install "${EXTENSION_EXT//=/ --version}"; \
+            helm plugin install "${EXTENSION_EXT//=/ --version}" --verify=false; \
           done; \
         fi; \
       done \

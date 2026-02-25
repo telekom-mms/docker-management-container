@@ -46,13 +46,19 @@ RUN if [ -n "${BINARIES}" ]; then \
               | tail -n1 \
               | cut -d '-' -f1 \
             ) && \
-            BINARY_PACKAGE_FILENAME="$(echo ${BINARY_PACKAGE} | cut -d '=' -f1)-${BINARY_PACKAGE_VERSION}-linux-x86_64.tar.gz" && \
+            if [ "${BINARY_PACKAGE}" = "google-cloud-cli" ]; then \
+               BINARY_PACKAGE_FILENAME="google-cloud-cli-${BINARY_PACKAGE_VERSION}-linux-x86_64.tar.gz"; \
+            else \
+               BINARY_PACKAGE_FILENAME="$(echo ${BINARY_PACKAGE} | cut -d '=' -f1)-${BINARY_PACKAGE_VERSION}-linux-x86_64.tar.gz"; \
+            fi && \
             BINARY_PACKAGE_URL="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/${BINARY_PACKAGE_FILENAME}" && \
             \
             mkdir -p ./google && \
             curl -SsL --retry 5 "${BINARY_PACKAGE_URL}" | tar xz -C ./google && \
-            chmod -R +x ./google/* && \
-            sh ./google/*/install.sh --quiet --command-completion true --bash-completion true --path-update true; \
+            ./google/google-cloud-sdk/install.sh --quiet --usage-reporting false --command-completion true --path-update true && \
+            cp -r ./google/google-cloud-sdk /usr/local/lib/ && \
+            ln -s /usr/local/lib/google-cloud-sdk/bin/* /usr/local/bin/ && \
+            rm -rf ./google; \
           done; \
         fi; \
       done; \
